@@ -1,0 +1,29 @@
+{% extends "admin/change_form.html" %}
+{% load i18n admin_urls staticfiles leaflet_tags %}
+{% block after_field_sets %}
+
+{% block stylesheets %}
+{{ block.super }}
+{% leaflet_css plugins="ALL" %}
+
+<style>
+/* Force leaflet controls underneath header (z-index 1000) and
+   above leaflet tiles (z-index 400)*/
+.leaflet-top{z-index:999;}
+#id_geom-map {
+    z-index: 0;
+}
+</style>
+{% endblock %}
+
+{% block javascripts %}
+{{ block.super }}
+{% leaflet_js plugins="ALL" %}
+{% include 'admin/Doctors/DoctorPostAdmin/leaflet_widget/leaflet_widget_overlays.js' %}
+
+
+{% endblock %}
+{% endblock %}
+
+
+

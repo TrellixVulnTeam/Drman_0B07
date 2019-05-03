@@ -1,0 +1,21 @@
+cluster.name: "chimeo-docker-cluster"
+node.name: "chimeo-docker-single-node"
+network.host: 0.0.0.0
+http.port: 9200
+
+#transport.host: 0.0.0.0
+#transport.tcp.port: 9300 - 9400
+#
+#node.master: false
+#node.data: false
+#node.ingest: false
+
+xpack.security.enabled: false
+
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+http.cors.allow-headers: "Authorization"
+
+cluster.routing.allocation.disk.threshold_enabled: true
+cluster.routing.allocation.disk.watermark.low: 93%
+cluster.routing.allocation.disk.watermark.high: 95%

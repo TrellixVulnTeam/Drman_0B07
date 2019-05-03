@@ -1,0 +1,812 @@
+{% extends "doctors/base.html" %}
+{% load doctors_tags %}
+{% load openinghours_tags %}
+{% load thumbnail %}
+{% load static %}
+{% load leaflet_tags %}
+
+
+
+
+<!--Todo : number of comment and like where should be show ?-->
+
+<html lang="fa">
+<head>
+
+    {% block title %}دکترمن{% endblock %}
+
+    {% block extrastyle %}
+
+    <title>دکترمن</title>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/static/assets/css/bootstrap3.min.css">
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.1.3/css/bootstrap.min.css"
+          integrity="sha384-Jt6Tol1A2P9JBesGeCxNrxkmRFSjWCBW1Af7CSQSKsfMVQCqnUVWhZzG0puJMCK6" crossorigin="anonymous"/>
+    <!-- main style -->
+    <link rel="stylesheet" href="/static/assets/css/style.css">
+    <link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
+
+    {% leaflet_js plugins="ALL" %}
+    {% leaflet_css plugins="ALL" %}
+
+    {% endblock %}
+
+
+</head>
+
+
+{% block content %}
+<body>
+
+<!-- header-->
+<header class="navbar navbar-fixed-top navbar-inverse bg-b1c">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container"
+                    type="button" class="navbar-toggle bg-oc pull-right">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <div class="clearfix w-100">
+                <a id="logo1" href="index.html" style="width: 25% !important; float: left; margin: 3% 0 0 1%;">
+                    <img src="/static/assets/img/drman.net-logo.png" alt="logo"/>
+                </a>
+            </div>
+        </div>
+        <div class="col-12 position-inherit w-100">
+            <div><a id="logo" href="index.html"><img src="/static/assets/img/drman.net-logo.png" alt="logo"/></a></div>
+            <div class="navbar-inverse bg-b1c side-collapse in">
+                <nav class="navbar-collapse float-left">
+                    <ul class="nav navbar-nav" style="display: block;">
+                        <li><a href="index.html" class="oc">خانه</a></li>
+                        <li><a href="blog-list.html">وبلاگ</a></li>
+                        <li><a href="page-contact-us.html">درباره ما</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- // Header  -->
+
+<div id="page-title" class="padding-bottom-30px padding-top-100px direction-r">
+    <div class="container text-warning">
+        <ol class="breadcrumb opacity-8">
+
+
+            <li><a href="{% url "filter_search" %} "> خانه </a> <i class="fas fa-angle-right"></i></li>
+            <li><a href="{% url "Doctors:post_list" %} ">لیست پزشکان </a> </li>
+
+        </ol>
+        <div class="col-12 pic-doc">
+            <div class="fbox">
+                <div class="col-lg-1 col-0 float-right"></div>
+                <div class="col-lg-6 col-12 float-right">
+                    <!-- ToDo: cash box search Ajax ( id="Search1")-->
+
+
+                     <form autocomplete="off" method="get" id="core_search" name="core_search" action="{% url 'filter_search' %}">
+                        {% csrf_token %}
+
+                         <div class="ui-widget">
+                                        {{ searchDetail.search }}
+                         </div>
+
+                         <button id="search" type="submit"><i class="fas fa-search search-ico position-absolute margin-top-25px"
+                       style="font-size: 18px; top: 0 ; left: 30px;"></i></button>
+
+                     </form>
+
+
+                </div>
+            </div>
+
+            <div class="col-lg-5 col-12 float-left margin-tb-5px">
+                <img src="{% thumbnail post.thumbnailImage 250x250 crop %}" alt="doctor-picture"/>
+                <h1 class="b1c">{{ post.title }}</h1>
+                <div class="clearfix"></div>
+
+            </div>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="col-12 specialty margin-top-10px margin-right-30px b1c">
+            <h3>   {% for cat in post.spec_category.all %}
+                        {% if cat.is_root_node == True %}
+
+                                {{ cat.name }}
+
+                        {% endif %}
+                   {% endfor %}
+            </h3>
+        </div>
+        <div class="col-12 grouping-doc">
+            <div>
+                <h5 style="margin-right: 2px !important;"><i class="fas fa-folder-open margin-right-5px"></i>دسته بندی :
+
+                    {% for cat in post.spec_category.all %}
+                                <a href="{% url "Doctors:post_list_by_cat" cat.slug %}">
+                                {{ cat.name }}
+                                </a>
+                                {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+
+                </h5>
+
+
+
+            </div>
+            <div class="viwe clearfix margin-right-5px">
+                <h4 class="" style="border-left: 1px solid #ccc;"><i class="fas fa-eye margin-right-8px"></i>
+                    بازدید
+                    <span class="bg-secondary padding-2px -white padding-right-5px">{{ post.questionviews.count }}</span>
+                </h4>
+                <h4 style="padding-right: 5px !important;">
+                    وضعیت:
+
+
+         {% is_open post.id as open %}
+                        {% if open %}
+                         <span class="bg-success"> اکنون باز است،</span>
+                        {% else %}
+                        <span class="bg-danger"> اکنون بسته است.
+                                        مطب روز
+
+                                        {% next_time_open post.id as next %}
+                                        {{ next.get_weekday_display }} ساعت {{ next.from_hour }}
+                                        باز خواهد شد.
+                        </span>
+
+                        {% endif %}
+
+
+                </h4>
+            </div>
+
+            <div class="date"> منتشر شده در {{ post.publish }}</div>
+
+        </div>
+    </div>
+</div>
+<div class="margin-tb-30px">
+    <div class="container direction-l">
+        <div class="col-lg-8 direction-r padding-0px float-right">
+            <div class="margin-bottom-45px box-shadow">
+                <div class="doctor-banner">
+                    <img src="{{ post.mainPhoto.url }}" alt="banner doc"/>
+                </div>
+                <div class="padding-15px background-white">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="row no-gutters">
+                                <div class="col-3 text-center"><a href="#" class="b2c"><i
+                                        class="fas fa-eye margin-right-10px"></i> {{ post.questionviews.count }}</a>
+
+                                </div>
+
+
+                                       <!--{{ total_likes  }} Likes{{ total_likes|pluralize }}-->
+
+
+
+
+                                <div class="col-3 text-center">
+                                     <form action="{% url 'Doctors:like_post' %}" method="post">
+                                    {% csrf_token %}
+                                    {% if is_liked %}
+                                    <div>از رای شما متشکریم.</div>
+                                    {% else %}
+                                    <button type="submit" name="post_id" class="like" value="{{ post.id }}"> <i class="far fa-heart"></i> پسندیدن</button>
+                                    {% endif %}
+                                    </form>
+
+                                </div>
+                                <div class="col-3 text-center"><a href="#" class="text-blue"><i
+                                        class="fas fa-share-alt"></i> اشتراک گذاری</a></div>
+                                <div class="col-3 text-center"><a href="#" class="oc"><i
+                                        class="fas fa-exclamation-triangle"></i> گزارش خطا</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <ul class="nav nav-tabs doctor-tab" style="justify-content: normal; padding: 0px !important;">
+                <li class="active doc bg-oc b1c">درباره {{ post.title }}</li>
+            </ul>
+            <div class="margin-bottom-30px box-shadow">
+                <div class="padding-20px background-white">
+                    <div class="tab-content clearfix">
+                        <!-- باکس راست مربوط به متن های بیوگرافی و خدمات پزشک -->
+                        <div class="col-12 float-left">
+                            <div class="tab-pane fade in opacity-10">
+                                <div class="biographi">
+                                    <h4 class="b3c font-weight">بیوگرافی {{ post.title }}</h4>
+                                    <p> {{ post.content|safe }} </p>
+                                </div>
+                                <div class="doctor-service">
+                                    <h4 class="b3c font-weight">خدمات مطب {{ post.title }}</h4>
+                                    <p>درمان انواع بیماری های پوستی و تومورهای خوش خیم و بدخیم</p>
+                                    <p>جراحی ضایعات پوستی و افتادگی پلک</p>
+                                    <p>تزریق بوتاکس و فیلر</p>
+                                    <p>جوانسازی صورت با میکرونیدلینگ - لیزر Co2 - لیزر Erbium</p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- باکس چپ مربوط به فیلم پزشک -->
+                    <div class="row">
+                        <h4 class="b3c font-weight padding-tb-10px padding-right-40px">گالری تصاویر مطب {{ post.doctor }}
+                            </h4>
+                        <div class="col-12 float-right text-center padding-lr-30px">
+                            <video class="w-100" controls>
+                                <source src="#" type="video/mp4">
+                                <source src="#" type="video/ogg">
+                            </video>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="col-12">
+                                <ul class="pgwSlider">
+                                     {% for photo in post.Photo.all %}
+                                    <li>
+                                        <img src="{{ photo.image.url }}"
+                                             alt="clinic_picture"/>
+                                    </li>
+                                    {% endfor %}
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tags-doc padding-20px">
+
+                    <p class="float-left b1c">برچسب :</p>
+                    {% for tag in post.tags.all %}
+                        <a class="tag-border" href="{% url "Doctors:post_list_by_tag" tag.slug %}">
+                        {{ tag.name }}
+                        </a>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-lg-4 direction-r float-left">
+            <div class="border-radius-10 margin-bottom-45px text-white box-shadow padding-20px b1c">
+                <h3 class="padding-lr-10px padding-20px margin-top-0px line">
+                    اطلاعات مطب {{ post.title }}
+                </h3>
+                <ul class="address margin-10px padding-0px">
+                    <li class="address">
+                        <i class="fas fa-map-marker-alt icon-size float-left b1c"></i>
+                        <p class="float-right width-box-address">
+                        {{ post.address }}
+                        </p>
+                        <div class="clearfix"></div>
+                    </li>
+                    {% for contact in post.contact.all %}
+
+                    <li class="numbers">
+                        <i class="fa fa-phone icon-size float-left"></i>
+                        <a href="tel:{{ contact.contact }}" class="b1c">
+                            <div id="number1" data-last="{{ contact.contact|slice:"7:" }}" class="width-box-address float-right direction-l">{{ contact.contact|slice:":7" }}<span>****</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </a>
+                    </li>
+
+                    {% endfor %}
+
+                    <li class="website">
+                        <i class="fa fa-globe icon-size float-left"></i>
+
+                            <a href="{{ post.site }}" class="b1c">
+                                <p class="float-right width-box-address"> برای ورود به سایت کلیک کنید</p>
+                            </a>
+                            <div class="clearfix"></div>
+
+                    </li>
+
+                    {% for social in post.SocialMedia.all %}
+
+                    <li class="SocialNetworks text-center">
+                        {% if social.Telegram %}
+                            <a href="{{ social.Telegram }}" class="b1c" style="display: inline-block;">
+                                <i class="fab fa-telegram icon-size float-left text-primary"></i>
+                            </a>
+                        {% endif %}
+                        {% if social.Instagram %}
+                            <a href="{{ social.Instagram }}" class="b1c" style="display: inline-block;"> <i
+                                    class="fab fa-instagram icon-size float-left text-danger"></i>
+                            </a>
+                        {% endif %}
+                        {% if social.Whatsapp %}
+                            <a href="{{ social.Whatsapp }}" class="b1c" style="display: inline-block;"> <i
+                                    class="fab fa-whatsapp icon-size float-left text-success"></i>
+                            </a>
+                        {% endif %}
+                        {% if social.Twitter %}
+                            <a href="{{ social.Twitter }}" class="b1c" style="display: inline-block;"> <i
+                                    class="fab fa-twitter icon-size float-left text-info"></i>
+                            </a>
+                        {% endif %}
+                        <div class="clearfix"></div>
+                    </li>
+
+                    {% endfor %}
+
+                </ul>
+            </div>
+            <div class="margin-bottom-30px box-shadow">
+                <div class="padding-30px background-white">
+                    <h3><i class="far fa-map margin-left-10px"></i> مکان مطب {{ post.title }} </h3>
+                    <hr>
+                    <div class="map-distributors-in">
+                        <div id="map-distributors">
+
+                            <script type="text/javascript">
+
+
+
+                              function onEachFeature(feature, layer) {
+
+                                            var content = `<h3>{{ post.title }}</h3>`;
+                                            layer.bindPopup(content);
+                                        }
+
+                                  var collection = {{ post.geom|safe }};
+                                  function map_init(map, options) {
+                                      L.geoJson(collection , {onEachFeature: onEachFeature}).addTo(map);
+                                      map.flyTo({{ post.geom.coordinates|safe }}, zoom);
+                                  }
+
+
+
+                            </script>
+
+                            {% leaflet_map "maps" callback="window.map_init" %}
+
+
+                            <!--
+                                لینک مسیریابی سایت زوپ
+                                <a target="_blank" href="http://maps.google.com/maps?saddr=current location&amp;daddr=35.7816395328,51.3709920708">(مسیر یابی)</a>
+                                -->
+
+                            <!--*********************   map js  ********************-->
+                            <!--
+                                                            <script>
+                                                                $(function() {
+                                                                        $("#map-distributors").goMap({
+                                                                            zoom: 6,
+                                                                            maptype: 'ROADMAP',
+                                                                            markers: [
+                                                                                {
+                                                                                    address: '37.822350, -113.558284',
+                                                                                    icon: 'assets/img/icon_marker_1.png',
+                                                                                    html: '<div class="background-white width-250px"><div class="padding-top-50px padding-lr-20px"> <div class="z-index-2 position-relative"> <h5 class="margin-bottom-20px"><a class="text-dark" href="#">Alrayan Eye Clinic</a></h5> <div class="rating clearfix"> <span class="float-left text-grey-2"><i class="far fa-map"></i> California</span> <ul class="float-right"> <li class="active"></li> <li class="active"></li> <li class="active"></li> <li class="active"></li> <li></li> </ul> </div> </div> </div> </div> </div>'
+                                                                                },
+
+                                                                            ],
+                                                                            hideByClick: true
+                                                                        });
+                                                                        $("#default").click(function() {
+                                                                            $("#dump").html($.dump($.goMap.getMarkers()));
+                                                                        });
+                                                                        $("#clearall").click(function() {
+                                                                            $.goMap.clearMarkers();
+                                                                        });
+                                                                        $("#json").click(function() {
+                                                                            $("#dump").html($.goMap.getMarkers("json"));
+                                                                        });
+                                                                        $("#data").click(function() {
+                                                                            $("#dump").html($.goMap.getMarkers("data"));
+                                                                        });
+
+                                                                        $('.gm-style-iw').parent().css('width', 'auto');
+
+                                                                    });
+
+                                                                </script>
+                            -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white border-radius-10 margin-bottom-45px b1c box-shadow">
+                <h3 class="padding-lr-30px padding-20px margin-top-0px"><i class="far fa-clock margin-left-10px"></i>
+                    ساعت کاری {{ post.title }} </h3>
+                <!--TODO : if we not set any time hours ?-->
+
+                <div class="padding-bottom-30px">
+
+                    <ul class="time-work padding-0px margin-0px">
+                        {% for openinghours in post.OpeningHours.all %}
+                            <li class="{% if forloop.counter|divisibleby:2 %}padding-lr-30px padding-tb-10px{% else %}padding-lr-30px padding-tb-10px bg-grey{% endif %}">
+                                {{ openinghours.get_weekday_display }}
+                                <span class="Hours-work">{{ openinghours.from_hour|time:"P" }} - {{ openinghours.to_hour|time:"P" }} </span>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-8 direction-r bg-white float-right margin-bottom-45px box-shadow clearfix padding-bottom-30px">
+            <div class="padding-30px">
+                <h3 class="b3c"><i class="far fa-star margin-left-10px b3c font-weight"></i>پرسش و پاسخ</h3>
+                <hr>
+                <div class="col-lg-6 col-12 float-left">
+                    <ul class="question-answer">
+
+
+
+                        {% for comment in comments %}
+                        <li class="padding-10px clearfix border-bottom">
+                            <div class="col-4 float-left padding-0px"><img src="assets/img/testimonial-1.png"
+                                                                           alt="user-picture"/>
+                            </div>
+                            <div class="col-8 float-left padding-0px">
+                                <div class="user-question float-right">
+
+                                    <a class="d-inline-block oc text-medium margin-left-20px" href="#">{{ comment.name }} </a>
+                                    <span class="text-extra-small b2c">{{ comment.created }}</span>
+                                    <p>{{ comment.body|linebreaks }}</p>
+
+
+                                </div>
+                                {% empty %}
+                                    <p>There are no comments yet.</p>
+                            </div>
+                        </li>
+                        {% endfor %}
+
+
+                    </ul>
+                </div>
+
+
+                    {% if new_comment %}
+                    <h2>Your comment has been added.</h2>
+                    {% else %}
+
+                    <div class="col-lg-6 col-12 float-right border-right-form">
+                        <h3 c lass="b3c"><i class="far fa-star margin-left-10px b3c font-weight"></i> سوال بپرسید... </h3>
+
+
+                    {% for loc in post.loc_category.all %}
+                    {% for spec in post.spec_category.all %}
+                    <form action="{% url 'Doctors:post_detail' spec loc post.slug %}" method="post">
+                    {% endfor %}
+                    {% endfor %}
+
+                        {% csrf_token %}
+                    {{ comment_form.as_p }}
+
+                    <p><input class="btn-sm btn-lg btn-block bg-oc b1c text-center font-weight-bold text-uppercase border-radius-10 padding-10px send" type="submit" value="ارسال !"></p>
+                    </form>
+
+
+                    <!--<form action="." method="post">-->
+                        <!--<div class="form-row">-->
+                            <!--<div class="form-group col-md-6">-->
+
+                                <!--<label>نام </label>-->
+                                <!--{{ comment_form.name }}-->
+                                <!--<input type="text" class="form-control padding-15px" id="inputName4" placeholder="نام">-->
+                            <!--</div>-->
+                            <!--<div class="form-group col-md-6">-->
+                                <!--<label>ایمیل</label>-->
+                                <!--{{ comment_form.email }}-->
+                                <!--<input type="email" class="form-control padding-15px" id="inputEmail4"-->
+                                       <!--placeholder="ایمیل">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="form-group">-->
+                            <!--&lt;!&ndash;<label>پرسش :</label>&ndash;&gt;-->
+                            <!--&lt;!&ndash;{{ comment_form.body }}&ndash;&gt;-->
+                            <!--&lt;!&ndash;<textarea class="form-control" style="height: 120px !important;"&ndash;&gt;-->
+                                      <!--&lt;!&ndash;id="exampleFormControlTextarea1" rows="3"></textarea>&ndash;&gt;-->
+                        <!--</div>-->
+                        <!--<a href="#"-->
+                           <!--class="btn-sm btn-lg btn-block bg-oc b1c text-center font-weight-bold text-uppercase border-radius-10 padding-10px send">ارسال-->
+                            <!--!</a>-->
+                    <!--</form>-->
+
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 direction-r float-left clearfix float-right agahi">
+            <!-- Introducing the doctor -->
+
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                <a href="http://drman.net">
+                    <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif"
+                         class="image wp-image-5522  attachment-full size-full" alt=""/>
+                </a>
+            </div>
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                <a href="http://drman.net">
+                    <img width="320" height="140"
+                         src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif"
+                         class="image wp-image-5522  attachment-full size-full" alt=""/>
+                </a>
+            </div>
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                <a href="http://drman.net">
+                    <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif"
+                         class="image wp-image-5522  attachment-full size-full" alt=""/>
+                </a>
+            </div>
+            <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                <a href="http://drman.net">
+                    <img width="320" height="140"
+                         src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif"
+                         class="image wp-image-5522  attachment-full size-full" alt=""/>
+                </a>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                <a href="http://drman.net">
+                    <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif"
+                         class="image wp-image-5522  attachment-full size-full" alt=""/>
+                </a>
+            </div>
+            <!-- // Introducing the doctor -->
+        </div>
+    </div>
+</div>
+
+
+{% block extrahead %}
+
+{{ block.super }}
+
+
+
+<!-- script -->
+<!-- fontawesome  -->
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
+<!--  gallery slider  -->
+<script src="/static/assets/slider-js.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script>
+        $('.pgwMenu').pgwMenu();
+        $('a[data-goto]').click(function() {
+            pgwjs.goTo($(this).attr('data-goto'));
+        });
+        var pgwSlider = $('.pgwSlider').pgwSlider();
+
+        function reloadSlider() {
+            var newConfig = {};
+            var listPosition = $('input[name=\"listPosition\"]:checked').val();
+            if (listPosition == 'none') {
+                newConfig.displayList = false;
+            } else {
+                newConfig.listPosition = listPosition;
+            }
+            newConfig.selectionMode = $('input[name=\"selectionMode\"]:checked').val();
+            newConfig.transitionEffect = $('input[name=\"transitionEffect\"]:checked').val();
+            if ($('#displayControls:checked').val() == 'true') {
+                newConfig.displayControls = true;
+            }
+            if ($('#verticalCentering:checked').val() == 'true') {
+                newConfig.verticalCentering = true;
+            }
+            if ($('#adaptiveHeight:checked').val() == 'true') {
+                newConfig.adaptiveHeight = true;
+            }
+            if ($('#maxHeight:checked').val() == 'true') {
+                newConfig.maxHeight = 300;
+            }
+            pgwSlider.reload(newConfig);
+        }
+        $('.sliderConfig input').bind('change', function() {
+            reloadSlider()
+        });
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-59412371-1', 'auto');
+        ga('send', 'pageview');
+
+
+
+</script>
+<!--  menu  -->
+<script>
+        $(document).ready(function() {
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event) {
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+
+
+
+</script>
+<script>
+        $('#number1 , #number2').click(function() {
+            $(this).find('span').text($(this).data('last'));
+        });
+
+
+
+</script>
+
+<script type="text/javascript">
+
+
+
+    $(function() {
+                    // perform search on page load
+
+                    $('#ajab').keyup(search);
+
+
+                });
+
+
+                function callback(response) {
+                  return_first = response;
+                    $( "#ajab" ).autocomplete({
+                      source: return_first,
+                      select: function (){
+                          console.log('select');
+                      }
+                    }).val().data('autocomplete')._trigger('select');
+
+
+                }
+
+                function search() {
+                var myVariable;
+                    $.ajax({
+                                type: "POST",
+                                url: "/doctors/ajax_search/",
+                                data: {
+                                    'search_text' : $('#ajab').val(),
+                                    'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                                    } ,
+                                success: function (data) {
+
+                                    callback(data);
+
+                                } ,
+                                error: function(xhr) {
+                                    alert("err");
+                                } ,
+                                dataType : 'json'
+                    });
+                }
+
+
+
+
+
+
+</script>
+
+
+
+<!-- // script -->
+
+{% endblock %}
+
+{% endblock %}
+
+</body>
+
+
+</html>
+
+<!--<ul class="breadcrumbs">-->
+<!--<li><a href="/doctors/">Home</a></li>-->
+
+<!--{% for i in instance.category.get_slug_list %}-->
+<!--<li><a href="/category/{{ i }}">{{ i | get_name }}</a></li>-->
+<!--{% endfor %}-->
+
+<!--</ul>-->
+
+
+<!--<h1>{{ instance.title }}</h1>-->
+<!--<p class="date">Published {{ instance.publish }} by {{ instance.author }}</p>-->
+
+
+<!--<img src="{% thumbnail instance.thumbnailImage 250x250 crop %}" />-->
+
+<!--{{ instance.content|markdown }}-->
+
+<!--{{ total_likes  }} Likes{{ total_likes|pluralize }}-->
+
+<!--<form action="{% url 'Doctors:like_post' %}" method="post">-->
+<!--{% csrf_token %}-->
+<!--{% if is_liked %}-->
+<!--<div>از رای شما متشکریم.</div>-->
+<!--{% else %}-->
+<!--<button type="submit" name="post_id" value="{{ instance.id }}" class="btn btn-primary"> like </button>-->
+<!--{% endif %}-->
+<!--</form>-->
+
+<!--<h3>hit count:</h3> {{ instance.questionviews.count }}-->
+
+<!--<br />-->
+
+<!--<a href="https://www.facebook.com/sharer/sharer.php?u={{ request.build_absolute_uri }}">-->
+<!--Facebook-->
+<!--</a>-->
+<!--<a href="https://twitter.com/home?status={{ share_string }}%20{{ request.build_absolute_uri }}">-->
+<!--Twitter-->
+<!--</a>-->
+<!--<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ request.build_absolute_uri }}&title={{ instance.title }}&summary={{ share_string }}&source=http://swiftforentrepreneurs.com/">-->
+<!--Linkedin-->
+<!--</a>-->
+<!--<a href='https://plus.google.com/share?url={{ request.build_absolute_uri }}'> Google+</a>-->
+
+
+<!--<P><a href="{% url 'blog:post_share' instance.id %}">Share this post</a> </P>-->
+
+
+<!--<h2>Similar posts</h2>-->
+<!--{% for post in similar_posts %}-->
+<!--<p><a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></p>-->
+<!--{% empty %}-->
+<!--There are no Similar posts yet.-->
+<!--{% endfor %}-->
+
+
+<!--{% with comments.count as total_comments %}-->
+<!--<h2>{{ total_comments }} comment {{ total_comments|pluralize }}</h2>-->
+<!--{% endwith %}-->
+
+<!--{% for comment in comments %}-->
+<!--<div class="comment">-->
+<!--<p class="info">-->
+<!--Comment {{ forloop.counter }} by {{ comment.name }}-->
+<!--{{ comment.created }}-->
+<!--</p>-->
+<!--{{ comment.body|linebreaks }}-->
+<!--</div>-->
+<!--{% empty %}-->
+<!--<p>There are no comments yet.</p>-->
+<!--{% endfor %}-->
+
+
+<!--{% if new_comment %}-->
+<!--<h2>Your comment has been added.</h2>-->
+<!--{% else %}-->
+<!--<h2>Add a new Comment</h2>-->
+<!--<form action="." method="post">-->
+<!--{{ comment_form.as_p }}-->
+<!--{% csrf_token %}-->
+<!--<p><input type="submit" value="Add comment"></p>-->
+<!--</form>-->
+<!--{% endif %}-->
+
+
+
+
+

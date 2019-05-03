@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <title>دکترمن</title>
+    <meta name="author" content="Nile-Theme" />
+    <meta name="robots" content="index follow" />
+    <meta name="googlebot" content="index follow" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="directory, doctor, doctor directory, Health directory, listing, map, medical, medical directory, professional directory, reservation, reviews" />
+    <meta name="description" content="Health Care & Medical Services Directory" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  hover effect  -->
+    <link rel="stylesheet" href="assets/css/hover-min.css" />
+    <!--  materialize  -->
+    <link href="assets/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection" />
+    <!-- bootstrap and select2-->
+    <link rel="stylesheet" href="assets/css/bootstrap3.min.css" />
+    <link rel="stylesheet" href="assets/css/select2.min.css" />
+    <link rel="stylesheet" href="assets/css/select2-bootstrap.css" />
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.1.3/css/bootstrap.min.css" integrity="sha384-Jt6Tol1A2P9JBesGeCxNrxkmRFSjWCBW1Af7CSQSKsfMVQCqnUVWhZzG0puJMCK6" crossorigin="anonymous" />
+    <!--  style css  -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+
+    <style>
+        .select2-container--bootstrap .select2-selection {
+            background-color: #fff0 !important;
+        border: 1px solid #ccccccd6;
+        }
+        span.select2-selection.select2-selection--single.form-control {
+            padding-right: 30px;
+        }
+        
+    </style>
+</head>
+
+<body style="background-color: #efefef;">
+
+    <!-- header-->
+    <header role="banner" class="navbar navbar-fixed-top navbar-inverse bg-b1c">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle bg-oc pull-right">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="clearfix w-100" style="display: contents;">
+                    <a id="logo1" href="index.html" style="width: 25% !important; float: left; margin: 3% 0 0 1%;">
+                        <img src="assets/img/drman.net-logo.png" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 position-inherit w-100">
+                <div><a id="logo" href="index.html"><img src="assets/img/drman.net-logo.png" alt="logo" /></a></div>
+                <div class="navbar-inverse bg-b1c side-collapse in">
+                    <nav role="navigation" class="navbar-collapse float-left bg-b1c">
+                        <ul class="nav navbar-nav" style="display: block;">
+                            <li><a href="index.html" class="oc">خانه</a></li>
+                            <li><a href="blog-list.html">وبلاگ</a></li>
+                            <li><a href="page-contact-us.html">درباره ما</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- // Header  -->
+
+
+    <div id="page-title" class="gradient-white  padding-top-100px">
+        <div class="container">
+            <ol class="breadcrumb opacity-8">
+                <li><a href="#">خانه</a> <i class="fas fa-angle-right"></i></li>
+                <li><a href="#">جستجو</a> <i class="fas fa-angle-right"></i></li>
+                <li class="active">لیست پزشکان</li>
+            </ol>
+            <h3 class="font-weight-300 margin-top-20px padding-10px bg-grey">لیست پزشکان چشم پزشکی شهر کرج</h3>
+        </div>
+    </div>
+    <div class="margin-tb-30px">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="background-white border-radius-10 margin-bottom-45px">
+                        <div class="padding-25px" style="box-shadow: 0px 0px 10px 0px #ccc">
+                            <h3 class="margin-lr-20px"><i class="fas fa-search margin-right-10px"></i> جستجوی دوباره</h3>
+                            <!-- Listing Search -->
+                            <div class="listing-search">
+                                <form>
+                                    <div class="keywords margin-bottom-20px">
+                                        <i class="fas fa-search search-filter"></i>
+                                        <input class="listing-form first text-left padding-lr-30px padding-tb-5px" type="text" placeholder="نام پزشک..." value="">
+                                    </div>
+                                    <div class="regions margin-bottom-10px">
+                                        <div class="form-group clearfix margin-0px">
+                                            <div class="input-group w-100">
+                                                <select id="single-append-text" class="form-control select2-allow-clear padding-right-10px city1" style="color: #9b9b9b;">
+                                                    <option class="margin-0px"></option>
+                                                    <option value="WA">البرز</option>
+                                                    <option value="NV">اصفهان</option>
+                                                    <option value="OR">اهواز</option>
+                                                    <option value="WA">تهران</option>
+                                                    <option value="WA">خوزستان</option>
+                                                    <option value="WA">شیراز</option>
+                                                    <option value="WA">شمال</option>
+                                                    <option value="WA">یزد</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="regions margin-bottom-10px">
+                                        <div class="form-group clearfix margin-0px">
+                                            <div class="input-group w-100">
+                                                <select id="single-append-text" class="form-control select2-allow-clear padding-right-10px city2" style="color: #9b9b9b;">
+                                                    <option class="margin-0px"></option>
+                                                    <option value="WA">همه</option>
+                                                    <option value="NV">گلشهر</option>
+                                                    <option value="OR">گوهردشت</option>
+                                                    <option value="WA">جهانشهر</option>
+                                                    <option value="WA">باغستان</option>
+                                                    <option value="WA">مهرشهر</option>
+                                                    <option value="WA">نظرآباد</option>
+                                                    <option value="WA">محمدشهر</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="regions margin-bottom-20px">
+                                        <div class="form-group clearfix margin-0px">
+                                            <div class="input-group w-100 margin-0px">
+                                                <a href="#" data-target="slide-out" id="btn-takhasos" class="sidenav-trigger btn clinic-box b1c">
+                                                    <p id="takhasos"> پزشک متخصص ☰</p>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a class="listing-bottom box-shadow border-radius-10 bg-oc b1c font-weight" style="font-size: 16px;" href="#">جستجو</a>
+                                </form>
+                            </div>
+                            <!-- // Listing Search -->
+                            <main class="direction-l">
+                                <script>
+                                    (function() {
+                                        if (typeof _bsa !== 'undefined' && _bsa) {
+                                            _bsa.init('default', 'CKYD55QM', 'placement:materializecsscom', {
+                                                target: '.bsa-cpc',
+                                                align: 'horizontal',
+                                                disable_css: 'true'
+                                            });
+                                        }
+                                    })();
+                                </script>
+                                <div class="container padding-0px">
+
+                                    <ul id="slide-out" class="sidenav" style="z-index: 1000 !important;">
+
+                                        <li class="no-padding  direction-r">
+                                            <ul class="collapsible collapsible-accordion">
+                                                <li style="padding: 13px; background-color: #0f2938;">
+                                                    <div class="text-center">
+                                                        <img class="w-75" src="assets/img/drman.net-logo.png" alt="logo" />
+                                                    </div>
+                                                </li>
+                                                <li class="bold">
+                                                    <a class="collapsible-header waves-effect waves-teal"> <i class="fas fa-caret-down"></i>
+                                                        ارتوپد
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">-
+                                                                    متخصص و جراح ارتوپدی </a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص آرتروپلاستی</a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص آرتروسکپی</a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص تروما</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold">
+                                                    <a class="collapsible-header waves-effect waves-teal"> <i class="fas fa-caret-down"></i>
+
+                                                        قلب و عروق
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">-
+                                                                    متخصص قلب و عروق
+                                                                </a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص قلب و عروق</a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص جراحی قلب و عروق</a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص آنژیوپلاستی و استنت</a></li>
+                                                            <li><a href="#">- فوق تخصص اکوکاردیوگرافی
+                                                                </a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص الکتروفیزیولوژی</a></li>
+                                                            <li><a href="#">-
+                                                                    فوق تخصص کاردیولوژی تهاجمی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        پوست و مو
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- پزشک پوست و مو</a></li>
+                                                            <li><a href="#">- متخصص پوست و مو و زیبایی و لیزر</a></li>
+                                                            <li><a href="#">- متخصص جراحی فک و صورت و زیبایی</a></li>
+                                                            <li><a href="#">- مراقب های پوستی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        داخلی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص گوارش،کبد و مجاری صفراوی</a></li>
+                                                            <li><a href="#">- داخلی</a></li>
+                                                            <li><a href="#">- نابارورری مردان</a></li>
+                                                            <li><a href="#">- توان جنسی مردان</a></li>
+                                                            <li><a href="#">- ارولوژیست</a></li>
+                                                            <li><a href="#">- متخصص نفرولوژی</a></li>
+                                                            <li><a href="#">- داخلی</a></li>
+                                                            <li><a href="#">- کلیه و مجاری ادراری</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        چشم پزشکی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- عینک سازی</a></li>
+                                                            <li><a href="#">- فوق تخصص قرنیه</a></li>
+                                                            <li><a href="#">- جراح و متخصص بیماری های چشم</a></li>
+                                                            <li><a href="#">- تجویز عینک با کامپیوتر</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        زنان و زایمان
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فلوشیپ نازایی</a></li>
+                                                            <li><a href="#">- جراح و متخصص زنان، زایمان و نازایی </a></li>
+                                                            <li><a href="#">- فوق تخصص نازایی</a></li>
+                                                            <li><a href="#">- مامایی</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        گوش و حلق و بینی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        تغذیه و رژیم شناسی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        چشم پزشکی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- عینک سازی</a></li>
+                                                            <li><a href="#">- فوق تخصص قرنیه</a></li>
+                                                            <li><a href="#">- جراح و متخصص بیماری های چشم</a></li>
+                                                            <li><a href="#">- تجویز عینک با کامپیوتر</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        اپیدمیولوژی و عفونی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        جراحی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        دندان پزشکی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        چشم پزشکی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- عینک سازی</a></li>
+                                                            <li><a href="#">- فوق تخصص قرنیه</a></li>
+                                                            <li><a href="#">- جراح و متخصص بیماری های چشم</a></li>
+                                                            <li><a href="#">- تجویز عینک با کامپیوتر</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        روانشناسی و مشاوره
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        پزشک عمومی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        چشم پزشکی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- عینک سازی</a></li>
+                                                            <li><a href="#">- فوق تخصص قرنیه</a></li>
+                                                            <li><a href="#">- جراح و متخصص بیماری های چشم</a></li>
+                                                            <li><a href="#">- تجویز عینک با کامپیوتر</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        پرستار ، پیراپزشکی ، بهیار
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        طب سنتی
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        علوم آزمایشگاه
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        شنوایی سنجی(ادیومتری)
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        شنوایی سنجی (اپتومتری)
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- فوق تخصص جراحی بینی و سینوس</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی پلاستیک صورت</a></li>
+                                                            <li><a href="#">- فوق تخصص جراحی حنجره</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                                <li class="bold active"><a class="collapsible-header waves-effect waves-teal"><i class="fas fa-caret-down"></i>
+                                                        داروساز
+                                                    </a>
+                                                    <div class="collapsible-body">
+                                                        <ul class="rightHiddenBox">
+                                                            <li><a href="#">- داروساز</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </main>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8 text-center">
+                    <div class="row">
+                        <div class="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                            <div class="input-field inputs padding-lr-20px padding-tb-2px b1c margin-top-0px clearfix">
+                                <!-- ToDo: cash box search Ajax ( id="Search1")-->
+                                <input class="search-input b1c float-left" style="border: 0; padding: 6px;" type="text" placeholder="از پزشکان یافته شده ، نام پزشک خود را جستجو کنید...">
+                                <div class="icon-wrap">
+                                    <i class="fas fa-search search-ico" style="font-size: 18px;"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 padding-0px">
+                            <div class="dropdown margin-top-0px clearfix">
+                                <form class="padding-10px" style="background-color: #fff; border-radius: 5px; border: 1px solid #0f293824;">
+                                    <label class="gender float-left"> جنسیت پزشک : </label>
+                                    <label class="gender"> همه <input class="float-left margin-left-5px" type="radio" name="gender" value="male" checked /> </label>
+                                    <label class="gender"> مرد <input class="float-left margin-left-5px" type="radio" name="gender" value="female" /></label>
+                                    <label class="gender"> زن <input class="float-left margin-left-5px" type="radio" name="gender" value="female" /></label>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-1.jpg" alt=""></a>
+                                    <span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر رضوانه شماخی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-2.jpg" alt=""></a><span class="bg-oc">تعطیل است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر آوا ترابلی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مسماریان</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-4.jpg" alt=""></a><span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر احسان مقامی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-2.jpg" alt=""></a><span class="bg-oc">تعطیل است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مهسا شماخی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-6.jpg" alt=""></a><span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مهناز حسینی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-2.jpg" alt=""></a><span class="bg-oc">تعطیل است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر سعید شهبازی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-1.jpg" alt=""></a><span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر گیتا گرجی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-oc">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-oc">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-oc">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-success">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-oc">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                        <!-- Doctor -->
+                        <div class="col-lg-4 col-6 hvr-bob margin-bottom-45px">
+                            <div class="background-white box-shadow">
+                                <div class="thum">
+                                    <a href="single-listings.html"><img src="assets/img/doctor-3.jpg" alt=""></a><span class="bg-oc">باز است.</span>
+                                </div>
+                                <div class="padding-15px">
+                                    <h5 class="margin-top-5px"><a class="text-dark" href="single-listings.html">دکتر مریم محمودی</a></h5>
+                                    <span class="text-grey-2">متخصص مغز و اعصاب</span>
+                                    <br />
+                                    <span class="oc"><i class="fas fa-eye padding-top-2px"></i> بازدید</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- // Doctor -->
+                    </div>
+                    <ul class="pagination pagination-md ">
+                        <li class="page-item disabled"><a class="page-link rounded-0" href="#" tabindex="-1">قبلی</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link rounded-0" href="#">بعدی</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="padding-top-10px padding-bottom-1px bg-b1c oc wow fadeInUp">
+        <div class="container">
+            <div class="row padding-0px margin-0px">
+                <div class="col-lg-12">
+                    <div class="col-lg-6 col-md-12 float-right">
+                        <a class="d-inline-block float-right festival-photo"><img class="w-75" src="assets/img/namad.png" alt="samandehi picture"></a>
+                        <a class="d-inline-block float-right festival-photo"><img class="w-75" src="assets/img/certificate-light.png" alt="pic"></a>
+                    </div>
+                    <div class="col-lg-6 col-md-12 contact-us float-right text-white">
+                        <div class="padding-20px float-left clearfix">
+                            <ul class="social-icon style-2 " style="font-size: 20px;">
+                                <li class="list-inline-item"><a class="facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li class="list-inline-item"><a class="linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a class="google" href="#"><i class="fab fa-google-plus"></i></a></li>
+                                <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a class="rss" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr class="border-white opacity-4">
+            <div class="row">
+                <div class="col-12 padding-bottom-20px">
+                    <p class="margin-0px text-white opacity-7 sm-mb-15px text-center">©کلیه حقوق مادی و معنوی سایت محفوظ می‌باشد. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- // footer -->
+
+    <script src="assets/js/select2.full.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/anchor.min.js"></script>
+    <script>
+        anchors.options.placement = 'right';
+        anchors.add('.container h1, .container h2, .container h3, .container h4, .container h5');
+
+        // Set the "bootstrap" theme as the default theme for all Select2
+        // widgets.
+        //
+        // @see https://github.com/select2/select2/issues/2927
+        $.fn.select2.defaults.set("theme", "bootstrap");
+
+        $(".city1").select2({
+            placeholder: "شهر",
+            width: null,
+            containerCssClass: ':all:'
+        });
+        $(".city2").select2({
+            placeholder: "منطقه",
+            width: null,
+            containerCssClass: ':all:'
+        });
+        $(".select2-allow-clear").select2({
+            allowClear: true,
+            placeholder: placeholder,
+            width: null,
+            containerCssClass: ':all:'
+        });
+
+        // @see https://select2.github.io/examples.html#data-ajax
+        function formatRepo(repo) {
+            if (repo.loading) return repo.text;
+
+            var markup = "<div class='select2-result-repository clearfix'>" +
+                "<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
+                "<div class='select2-result-repository__meta'>" +
+                "<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
+
+            if (repo.description) {
+                markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
+            }
+            markup += "<div class='select2-result-repository__statistics'>" +
+                "<div class='select2-result-repository__forks'><span class='glyphicon glyphicon-flash'></span> " + repo.forks_count + " Forks</div>" +
+                "<div class='select2-result-repository__stargazers'><span class='glyphicon glyphicon-star'></span> " + repo.stargazers_count + " Stars</div>" +
+                "<div class='select2-result-repository__watchers'><span class='glyphicon glyphicon-eye-open'></span> " + repo.watchers_count + " Watchers</div>" +
+                "</div>" +
+                "</div></div>";
+
+            return markup;
+        }
+
+        function formatRepoSelection(repo) {
+            return repo.full_name || repo.text;
+        }
+        $(".js-data-example-ajax").select2({
+            width: null,
+            containerCssClass: ':all:',
+            ajax: {
+                url: "https://api.github.com/search/repositories",
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        q: params.term, // search term
+                        page: params.page
+                    };
+                },
+                processResults: function(data, params) {
+                    // parse the results into the format expected by Select2
+                    // since we are using custom formatting functions we do not need to
+                    // alter the remote JSON data, except to indicate that infinite
+                    // scrolling can be used
+                    params.page = params.page || 1;
+
+                    return {
+                        results: data.items,
+                        pagination: {
+                            more: (params.page * 30) < data.total_count
+                        }
+                    };
+                },
+                cache: true
+            },
+            escapeMarkup: function(markup) {
+                return markup;
+            }, // let our custom formatter work
+            minimumInputLength: 1,
+            templateResult: formatRepo,
+            templateSelection: formatRepoSelection
+        });
+
+        $("button[data-select2-open]").click(function() {
+            $("#" + $(this).data("select2-open")).select2("open");
+        });
+
+        $(":checkbox").on("click", function() {
+            $(this).parent().nextAll("select").prop("disabled", !this.checked);
+        });
+
+        // copy Bootstrap validation states to Select2 dropdown
+        //
+        // add .has-waring, .has-error, .has-succes to the Select2 dropdown
+        // (was #select2-drop in Select2 v3.x, in Select2 v4 can be selected via
+        // body > .select2-container) if _any_ of the opened Select2's parents
+        // has one of these forementioned classes (YUCK! ;-))
+        $(".select2-single, .select2-multiple, .select2-allow-clear, .js-data-example-ajax").on("select2:open", function() {
+            if ($(this).parents("[class*='has-']").length) {
+                var classNames = $(this).parents("[class*='has-']")[0].className.split(/\s+/);
+
+                for (var i = 0; i < classNames.length; ++i) {
+                    if (classNames[i].match("has-")) {
+                        $("body > .select2-container").addClass(classNames[i]);
+                    }
+                }
+            }
+        });
+
+    </script>
+
+    <script src="assets/js/materialize.js"></script>
+    <script src="assets/js/init.js"></script>
+    <!-- fontawesome  -->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <!--  menu  -->
+    <script>
+        $(document).ready(function() {
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event) {
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+            $(window).click(function() {
+                $(sel2).toggleClass('out');
+            });
+        });
+
+    </script>
+        <script>
+        $('.rightHiddenBox > li').click(function() {
+            $('#takhasos').text($('.bold.active > a').text());
+            $('.sidenav.right-aligned').css({
+                transform: 'translateX(105%)',
+            });
+
+            $('.sidenav-overlay').css({
+                display: 'none',
+                opacity: '0'
+            });
+            $('html').css({
+                overflowY : 'auto',
+            });
+        });        
+        $('#btn-takhasos').click(function() {
+            $('.sidenav.right-aligned').css({
+                transform: 'translateX(0%)',
+                transition: 'all 0.25s ease-out',
+            });
+
+            $('.sidenav-overlay').css({
+                display: 'block',
+                opacity: '1',
+                overflowY : 'auto',
+            });
+                        $('html').css({
+                overflowY : 'hidden',
+            });
+        });
+    </script>
+
+</body>
+
+</html>

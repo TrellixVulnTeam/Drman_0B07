@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}Search{% endblock %}
+
+    {% block extrastyle %}
+
+
+    {% endblock %}
+
+
+</head>
+<body>
+
+{% block content %}
+
+<select name="selectcountries" id="selectcountries">
+    {% for loc_cat in loc_roots %}
+    <option val="{{ loc_cat }}"> {{ loc_cat }}</option>
+    {% endfor %}
+</select>
+
+
+<select name="selectcities" id="selectcities">
+
+
+</select>
+
+                                       <ul id="search-results">
+
+                                </ul>
+
+
+{% block extrahead %}
+<script src="/static/assets/js/jquery-3.2.1.min.js"></script>
+
+<script>
+    $('select#selectcountries').change(function () {
+           var optionSelected = $(this).find("option:selected");
+    				 var valueSelected  = optionSelected.val();
+     				 var country_name   = optionSelected.text();
+                     alert(country_name);
+
+          $.ajax({
+            type: "POST",// initialize an AJAX request
+            url: '/doctors/ajax_search/',                    // set the url of the request (= localhost:8000/hr/ajax/load-cities/)
+            data: {'cnt' : country_name },
+            success: function (data, textStatus , jqXHR) {   // `data` is the return of the `load_cities` view function
+            alert(data);
+//            $("#selectcities option").remove();
+
+              $('#search-results').html(data) ;
+
+            } ,
+            error: function(xhr) {
+                                    alert("err");
+                                } ,
+            dataType : 'html'
+          });
+
+        });
+
+</script>
+
+{% endblock %}
+
+{% endblock %}
+</body>
+</html>
