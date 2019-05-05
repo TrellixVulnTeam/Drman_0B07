@@ -60,8 +60,8 @@
             <div class="navbar-inverse bg-b1c side-collapse in">
                 <nav class="navbar-collapse float-left">
                     <ul class="nav navbar-nav" style="display: block;">
-                        <li><a href="index.html" class="oc">خانه</a></li>
-                        <li><a href="blog-list.html">وبلاگ</a></li>
+                        <li><a href="{% url 'filter_search' %}" class="oc">خانه</a></li>
+                        <li><a href="{% url 'blog:post_list' %}">وبلاگ</a></li>
                         <li><a href="page-contact-us.html">درباره ما</a></li>
                     </ul>
                 </nav>

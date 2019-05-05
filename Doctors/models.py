@@ -59,7 +59,7 @@ DAYS_OF_WEEK = (
 
 class Category(MPTTModel):
     name = models.CharField(max_length=50)
-    parent = TreeForeignKey('self', null=True, blank=True, related_name='Loc_children', db_index=True, on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', null=True, blank=True, db_index=True, on_delete=models.CASCADE, related_name="category")
     # TODO : make auto slug from the name
     slug = models.SlugField(allow_unicode=True)
 
@@ -546,7 +546,7 @@ class DoctorPostAdmin(LeafletGeoAdmin):
 
     list_display = ('title'  , 'get_spec_category' , 'get_loc_category' ,'Doctor_comment_count' )
 
-    search_fields = ['title' , 'slug' , 'get_spec_category' , 'get_loc_category']
+    search_fields = ['title' , 'slug' ]
 
     prepopulated_fields = {"slug": ("title",)}
 

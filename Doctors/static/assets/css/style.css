@@ -1866,17 +1866,15 @@ form#contact-form2 {
 }
 
 .icon-wrap {
-    margin-top: 12px;
-    margin-left: 2%;
     position: absolute;
-    left: 0;
+    left: 3px;
+    top: 0px;
+
 }
 
 button#search {
-    background-color: transparent;
-    border: transparent;
-    background-color: transparent;
-    border: transparent;
+    background-color: transparent !important;
+    border: transparent !important;
     position: absolute;
     top: 0;
     padding: 0px;

@@ -31,7 +31,7 @@ urlpatterns = [
                   url(r'^admin/', admin.site.urls),
                   # url(r'^login/$', auth_views.login, name='login'),
                   # url(r'^logout/$', auth_views.logout, name='logout'),
-                  # url(r'^blog/', include(('blog.urls', 'blog'), namespace='blog')),
+                  url(r'^blog/', include(('blog.urls', 'blog'), namespace='blog')),
                   url(r'^doctors/', include(('Doctors.urls', 'doctors'), namespace='doctors')),
                   url(r'^sitemap.xml$', sitemap, {'sitemaps': sitemaps},
                       name='django.contrib.sitemaps.views.sitemap'),

@@ -342,13 +342,12 @@ def post_list(request , tag_slug=None , category_slug = None) :
     cat_list = None
 
     if category_slug:
-        category = get_object_or_404(Spec_Category , slug =category_slug)
+        category = get_object_or_404(Spec_Category, slug=category_slug)
         object_list = object_list.filter(spec_category__in=[category])
 
     if tag_slug:
-        tag = get_object_or_404(Tag , slug = tag_slug)
+        tag = get_object_or_404(Tag, slug=tag_slug)
         object_list = object_list.filter(tags__in=[tag])
-
 
     paginator = Paginator(object_list, 3)  # 3 posts in each page
     page = request.GET.get('page')
@@ -363,10 +362,10 @@ def post_list(request , tag_slug=None , category_slug = None) :
 
     return render(request,
                   'doctors/post/test.html',
-                  {'page':page,
+                  {'page': page,
                    'posts': posts,
-                   'tag':tag ,
-                   'category': category ,
+                   'tag': tag,
+                   'category': category,
                     })
 
 
