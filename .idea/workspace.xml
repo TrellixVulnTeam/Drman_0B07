@@ -2,98 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faa8f940-280a-4cee-9944-bfd79de90ff8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/blog/signals.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/animate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/bootstrap3.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/bootstrap4.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/chatbox.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/form.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/ghpages-materialize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/hover-min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/material-design-iconic-font.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/select2-bootstrap.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/select2.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/css/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Bold.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Bold.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Bold.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Bold.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Light.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Light.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Light.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/fonts/iransans/IRANSansWeb_Light.woff2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/3872563-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/3872567-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/4212190-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/4212193-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/4212196-48.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/file.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/iconfinder_Artboard_2_3872550.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/iconfinder_Injection_2415602-(1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/online.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/question.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/radio.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/svg/billboard shahri.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/svg/billboard site.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/svg/sefaresh  teaser.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/images/svg/sefaresh Tarahi.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/11.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/bg-01.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/blog-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/blog-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/certificate-light.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/clinic-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/close.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/doctor-1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/doctor-2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/doctor-3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/doctor-4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/doctor-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/drman.net-logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/icon/icon-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/icon/icon-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/icon/icon-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/namad.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/star_0.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/star_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/testimonial-1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/testimonial-2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/testimonial-3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/img/testimonial-4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/anchor.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/bootstrap.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/bootstrap3.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/bootstrap4.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/chatbox.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/custom.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/imagesloaded.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/init.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/jquery-3.2.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/materialize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/owl.carousel.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/popper.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/select2.full.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/js/wow.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/blog/static/assets/slider-js.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doctors/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Doctors/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doctors/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/Doctors/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doctors/static/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/Doctors/static/assets/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doctors/templates/doctors/post/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Doctors/templates/doctors/post/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doctors/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Doctors/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Drman/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drman/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drman/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drman/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -169,11 +79,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/blog/static/assets/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
-              <caret line="2711" selection-start-line="2711" selection-end-line="2712" />
+            <state relative-caret-position="357">
+              <caret line="2719" column="11" lean-forward="true" selection-start-line="2719" selection-start-column="11" selection-end-line="2719" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Drman/settings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="36">
+              <caret line="115" selection-start-line="115" selection-end-line="124" selection-end-column="1" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -192,18 +114,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="166">
               <caret line="143" column="110" selection-start-line="143" selection-start-column="110" selection-end-line="143" selection-end-column="110" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Doctors/templates/doctors/post/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="211">
-              <caret line="296" column="69" selection-start-line="296" selection-start-column="69" selection-end-line="296" selection-end-column="96" />
-              <folding>
-                <element signature="n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -248,8 +158,8 @@
       <find>deta</find>
       <find>view</find>
       <find>tag</find>
-      <find>search</find>
       <find>icon</find>
+      <find>search</find>
     </findStrings>
     <replaceStrings>
       <replace>addlink</replace>
@@ -293,7 +203,6 @@
         <option value="$PROJECT_DIR$/Doctors/templates/admin/Doctors/DoctorsPost/change_form.html" />
         <option value="$PROJECT_DIR$/Doctors/templates/admin/Doctors/DoctorsPost/add_form.html" />
         <option value="$PROJECT_DIR$/Drman/urls.py" />
-        <option value="$PROJECT_DIR$/Drman/settings.py" />
         <option value="$PROJECT_DIR$/blog/templates/pagination.html" />
         <option value="$PROJECT_DIR$/blog/templates/blog/pagination.html" />
         <option value="$PROJECT_DIR$/blog/templates/blog/post/pagination.html" />
@@ -316,10 +225,11 @@
         <option value="$PROJECT_DIR$/blog/templates/blog/post/detail.html" />
         <option value="$PROJECT_DIR$/Doctors/static/assets/css/style.css" />
         <option value="$PROJECT_DIR$/blog/static/assets/css/style.css" />
+        <option value="$PROJECT_DIR$/Drman/settings.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-546" />
     <option name="y" value="76" />
     <option name="width" value="1354" />
@@ -521,8 +431,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-2" y="-2" width="1370" height="740" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49915397" visible="true" weight="0.19851302" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49915397" visible="true" weight="0.19851302" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.500846" side_tool="true" weight="0.20141065" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -533,7 +444,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4992163" visible="true" weight="0.28338763" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4992163" visible="true" weight="0.28338763" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007837" side_tool="true" weight="0.30220714" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32899022" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.3270142" />
@@ -819,16 +730,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Drman/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1411">
-          <caret line="131" column="87" selection-start-line="131" selection-start-column="87" selection-end-line="131" selection-end-column="87" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Doctors/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="159">
@@ -947,8 +848,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/static/assets/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="2711" selection-start-line="2711" selection-end-line="2712" />
+        <state relative-caret-position="357">
+          <caret line="2719" column="11" lean-forward="true" selection-start-line="2719" selection-start-column="11" selection-end-line="2719" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Drman/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="115" selection-start-line="115" selection-end-line="124" selection-end-column="1" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
