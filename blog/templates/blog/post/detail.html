@@ -1,0 +1,322 @@
+{% extends "blog/base.html" %}
+{% load blog_tags %}
+{% load thumbnail %}
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="fa" dir="rtl">
+<head>
+
+    {% block title %}دکترمن{% endblock %}
+
+
+    {% block extrastyle %}
+    <!--  hover effect  -->
+     <!-- bootstrap -->
+
+
+    {% endblock %}
+
+</head>
+
+{% block content %}
+
+<body class="background-grey">
+    <!-- header-->
+    <header class="navbar navbar-fixed-top navbar-inverse bg-b1c">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button data-toggle="collapse-side" data-target=".side-collapse" data-target-2=".side-collapse-container" type="button" class="navbar-toggle bg-oc pull-right">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="clearfix w-100">
+                    <a id="logo1" href="index.html" style="width: 25% !important; float: left; margin: 3% 0 0 1%;">
+                        <img src="/static/assets/img/drman.net-logo.png" alt="logo" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-12 position-inherit w-100">
+                <div><a id="logo" href="index.html"><img src="/static/assets/img/drman.net-logo.png" alt="logo" /></a></div>
+                <div class="navbar-inverse bg-b1c side-collapse in">
+                    <nav class="navbar-collapse float-left">
+                        <ul class="nav navbar-nav" style="display: block;">
+                            <li><a href="{% url 'filter_search' %}" class="oc">خانه</a></li>
+                            <li><a href="{% url 'blog:post_list' %}">وبلاگ</a></li>
+                            <li><a href="page-contact-us.html">درباره ما</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- // Header  -->
+
+    <div id="page-title" class="padding-tb-30px gradient-white  padding-top-100px">
+        <div class="container text-right">
+            <ol class="breadcrumb opacity-8">
+                <li><a href="{% url 'filter_search' %}">خانه</a> <i class="fas fa-angle-right"></i></li>
+                <li class="active">وبلاگ {{ post.title }}</li>
+            </ol>
+            <h1 class="font-weight-300">وبلاگ {{ post.title }}</h1>
+        </div>
+    </div>
+
+    <div class="margin-tb-30px">
+        <div class="container text-right">
+            <div class="row">
+
+                <div class="col-lg-4">
+
+                    <div class="margin-bottom-30px">
+                        <div class="padding-30px background-white border-radius-10">
+                            <h2><i class="fas fa-search margin-right-10px text-main-color"></i> جستجو</h2>
+                            <hr>
+                            <div class="input-group mb-3 w-100 float-none">
+                                <div class="input-group-append  direction-r">
+                                    <button class="blog-search-btn btn btn-outline-secondary b1c bg-warning border-radius-0" type="submit">جستجو</button>
+                                </div>
+
+                                {{ searchform.search }}
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="widget widget_categories">
+                        <div class="margin-bottom-30px">
+                            <div class="padding-30px background-white border-radius-10">
+                                <h2><i class="far fa-folder-open margin-right-10px text-main-color"></i> دسته بندی ها</h2>
+                                <hr>
+                                <ul>
+                                    {% for cat in cat_list %}
+                                    <li><i class="far fa-folder-open margin-left-10px oc"></i><a href="{% url 'blog:post_list_by_cat' cat.slug %}" class="b1c">{{ cat.name }}</a></li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 col-xs-12 poster text-center margin-bottom-20px">
+                        <a href="http://drman.net">
+                            <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+                    <div id="div_print">
+                        <div class="border-radius-10 background-white  margin-bottom-35px padding-30px">
+                            <h2><i class="fas fa-file-alt margin-right-10px text-main-color"></i> {{ post.title }} </h2>
+                            <hr>
+
+                            <div class="meta">
+                                <span class="margin-right-20px text-extra-small">توسط : <a href="#"> {{ post.author }} </a></span>
+                                <br />
+                                <span class="margin-right-20px text-extra-small">تاریخ : {{ post.publish }}</span>
+                                <span class="margin-right-20px text-extra-small"><i class="fas fa-eye margin-right-8px"></i>
+                                    بازدید : <a style="border-radius: 50%; background-color: #ccc; padding: 4px;">{{ post.views.count }}</a></span>
+
+                                <span class="margin-right-20px text-extra-small"><a href="#comment" class="b3c"><i class="fas fa-comment-alt margin-right-10px"></i> نظرات</a></span>
+                                <span class="margin-right-20px text-extra-small"><a href="#" class="text-danger"><i class="far fa-heart"></i> پسندیدن</a></span>
+                                <span class="margin-right-20px text-extra-small"><a href="#" class="oc"><i class="fas fa-share-alt"></i> اشتراک گذاری</a></span>
+                                <span class="margin-right-20px text-extra-small"><a href="#" class="b1c" onclick="printdiv('div_print');"><i class="far fa-save margin-left-5px"></i>ذخیره</a></span>
+                                <script>
+                                    function printdiv(printpage)
+                                {
+                                    var headstr = "<html><head><title></title></head><body>";
+                                    var footstr = "</body>";
+                                    var newstr = document.all.item(printpage).innerHTML;
+                                    var oldstr = document.body.innerHTML;
+                                    document.body.innerHTML = headstr+newstr+footstr;
+                                    window.print();
+                                    document.body.innerHTML = oldstr;
+                                    return false;
+                                }
+                            </script>
+
+                            </div>
+                            <hr>
+
+                            <div class="thumbnail margin-bottom-20px"><img src="/static/assets/img/11.jpg" alt=""></div>
+                            <div class="entry-content">
+                                {{ post.body }}
+                            </div>
+                            <!-- .entry-content -->
+
+                            <!-- Post tags -->
+                            <div class="tags-doc padding-20px">
+                                <p class="float-left b1c">برچسب :</p>
+
+                                {% for tag in post.tags.all %}
+                                    <a class="tag-border" href="{% url "Doctors:post_list_by_tag" tag.slug %}">
+                                    {{ tag.name }}
+                                    </a>
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="margin-bottom-30px" id="comment">
+                        <div class="padding-30px background-white border-radius-10">
+                            <h2 class="border-bottom"><i class="fas fa-comment-alt margin-right-10px text-main-color"></i> نظرات (3)</h2>
+
+                            <ul class="question-answer">
+                                <li class="clearfix border-bottom">
+                                    <div class="col-2 float-left padding-0px"> <img src="/static/assets/img/testimonial-1.png" alt="user-picture" />
+                                    </div>
+                                    <div class="col-10 float-left padding-0px">
+                                        <div class="user-question">
+
+                                            <a class="d-inline-block oc text-medium margin-left-20px" href="#">رضوانه </a>
+                                            <span class="text-extra-small b2c">تاریخ :15 آبان 1397</span>
+                                            <p>عالی بود...</p>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+                                <li class="clearfix border-bottom">
+                                    <div class="col-2 float-left padding-0px"> <img src="assets/img/testimonial-1.png" alt="user-picture" />
+                                    </div>
+                                    <div class="col-10 float-left padding-0px">
+                                        <div class="user-question">
+
+                                            <a class="d-inline-block oc text-medium margin-left-20px" href="#">رضوانه </a>
+                                            <span class="text-extra-small b2c">تاریخ : 15 آبان 1397</span>
+                                            <p>لطفا مطالب بیشتری قرار بدید.</p>
+                                        </div>
+                                    </div>
+
+                                </li>
+
+                                <li class="clearfix padding-10px">
+                                    <div class="col-2 float-left padding-0px"> <img src="assets/img/testimonial-1.png" alt="user-picture" />
+                                    </div>
+                                    <div class="col-10 float-left padding-0px">
+                                        <div class="user-question">
+
+                                            <a class="d-inline-block oc text-medium margin-left-20px" href="#">رضوانه </a>
+                                            <span class="text-extra-small b2c">تاریخ : 15 آبان 1397</span>
+                                            <p>خیلی مفید بود ممنون.</p>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="margin-bottom-30px">
+                        <div class="padding-30px background-white border-radius-10">
+                            <h2><i class="fas fa-comment-alt margin-right-10px"></i> نظر خود را بگویید...</h2>
+                            <hr>
+                            <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                        <input type="text" class="form-control" id="inputName4" placeholder="نام">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                        <input type="email" class="form-control" id="inputEmail4" placeholder="ایمیل">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="متن" style="font-size: 16px;"></textarea>
+                                </div>
+                                <a href="#" class="btn-lg btn-block bg-warning b1c text-center font-weight-bold text-uppercase border-radius-10 padding-15px">ارسال !</a>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="padding-top-10px padding-bottom-1px bg-b1c oc wow fadeInUp">
+        <div class="container">
+            <div class="row padding-0px margin-0px">
+                <div class="col-lg-12">
+
+                    <div class="col-lg-6 col-md-12 float-right">
+                        <a class="d-inline-block float-right festival-photo"><img class="w-75" src="assets/img/namad.png" alt="samandehi picture"></a>
+                        <a class="d-inline-block float-right festival-photo"><img class="w-75" src="assets/img/certificate-light.png" alt="pic"></a>
+
+
+                    </div>
+                    <div class="col-lg-6 col-md-12 contact-us float-right text-white">
+                        <div class="padding-20px float-left clearfix">
+                            <ul class="social-icon style-2 " style="font-size: 20px;">
+                                <li class="list-inline-item"><a class="facebook" href="#"><i class="fab fa-facebook"></i></a></li>
+                                <li class="list-inline-item"><a class="youtube" href="#"><i class="fab fa-youtube"></i></a></li>
+                                <li class="list-inline-item"><a class="linkedin" href="#"><i class="fab fa-linkedin"></i></a></li>
+                                <li class="list-inline-item"><a class="google" href="#"><i class="fab fa-google-plus"></i></a></li>
+                                <li class="list-inline-item"><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a class="rss" href="#"><i class="fa fa-rss" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="border-white opacity-4">
+            <div class="row">
+                <div class="col-12 padding-bottom-20px">
+                    <p class="margin-0px text-white opacity-7 sm-mb-15px text-center">©کلیه حقوق مادی و معنوی سایت محفوظ می‌باشد. </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- fontawesome  -->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <!--  menu  -->
+    <script src="/static/assets/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event) {
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+
+    </script>
+</body>
+
+{% endblock %}
+</html>
+
+

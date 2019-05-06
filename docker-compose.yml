@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
 
@@ -65,7 +65,6 @@ services:
       POSTGRES_PASSWORD: ava100
       PGDATA: / tmp
 
-
   kibana:
     image: docker.elastic.co/kibana/kibana:6.1.3
     container_name: kibana1
@@ -94,3 +93,10 @@ volumes:
 # sudo apt-get upgrade
 # sudo apt-get install docker docker-compose
 # https://rasooll.com/how-to-use-docker-in-iran/
+
+# in server when get error use to :
+# rm  /var/lib/dpkg/lock
+
+# in server use docker in iran :
+# 1.https://virgool.io/DockerMe/%D9%86%D8%B5%D8%A8-%D8%AF%D8%A7%DA%A9%D8%B1-%D8%A8%D8%B1-%D8%B1%D9%88%DB%8C-%D9%84%DB%8C%D9%86%D9%88%DA%A9%D8%B3-dt7nbbijdi0x
+# 2.sudo apt-get install docker docker-compose

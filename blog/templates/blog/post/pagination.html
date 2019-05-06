@@ -1,0 +1,34 @@
+<div class="pagination">
+    <span class="step-links">
+        <ul class="pagination pagination-md ">
+        {% if page.has_previous %}
+
+            <li class="page-item"><a class="page-link rounded-0" href="?page={{ page.previous_page_number }}" tabindex="-1">قبلی</a></li>
+
+        {% else %}
+            <li class="disabled"><span>&laquo;</span></li>
+        {% endif %}
+
+
+
+        {% for i in page.paginator.page_range %}
+            {% if users.number == i %}
+                <li class="page-item"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+            {% else %}
+                <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+
+
+
+        {% if page.has_next %}
+
+
+            <li class="page-item"><a class="page-link rounded-0" href="?page={{ page.next_page_number }}">بعدی</a></li>
+
+
+        {% endif %}
+        </ul>
+    </span>
+</div>
