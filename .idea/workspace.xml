@@ -2,355 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faa8f940-280a-4cee-9944-bfd79de90ff8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docker/prod/nginx/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker/prod/nginx/drman.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/dev/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/CHANGES.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/MANIFEST.in" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/README.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/alias.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/engine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/fields.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/get_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/management/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/management/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/management/commands/thumbnail_cleanup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/migrations/0002_thumbnaildimensions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/namers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/optimize/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/optimize/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/optimize/post_processor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/processors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/signal_handlers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/signals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/source_generators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/storage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/templatetags/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/templatetags/easy_thumbnails_tags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/templatetags/thumbnail.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/mockoptim.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/mockoptim_fail.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_aliases.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_engine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_fields.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_management.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_namers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_processors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_source_generators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_templatetags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/test_widgets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/tests/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/build/lib/easy_thumbnails/widgets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/dist/easy_thumbnails-2.6-py3.6.egg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/index.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/install.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/make.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/ref/files.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/ref/optimize.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/ref/processors.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/ref/settings.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/ref/source_generators.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/docs/usage.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails.egg-info/PKG-INFO" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails.egg-info/SOURCES.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails.egg-info/dependency_links.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails.egg-info/not-zip-safe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails.egg-info/requires.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails.egg-info/top_level.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/alias.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/engine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/exceptions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/fields.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/get_version.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/management/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/management/commands/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/management/commands/thumbnail_cleanup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/migrations/0002_thumbnaildimensions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/namers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/optimize/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/optimize/conf.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/optimize/post_processor.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/options.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/processors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/signal_handlers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/signals.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/source_generators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/storage.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/templatetags/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/templatetags/easy_thumbnails_tags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/templatetags/thumbnail.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/apps.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/mockoptim.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/mockoptim_fail.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/settings.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_aliases.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_engine.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_fields.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_files.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_management.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_namers.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_processors.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_source_generators.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_templatetags.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/test_widgets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/tests/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/utils.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/easy_thumbnails/widgets.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/setup.cfg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/easy-thumbnails-2.6/setup.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cache/3a/23/3a23c18cdcf182ec05f9adfa8729f2ac.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cache/81/01/8101a1283132bd2f56c7d052b9c701cb.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cache/8b/18/8b1843bf43a8e925db3242be2a603b04.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cache/aa/c1/aac1bd992fec23c163d8ba4c68f92c01.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cache/cb/89/cb8901db21556ee9e3cad7677a8378d4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/cache/f2/ce/f2ce488dc9b62e16e1ec472f74441583.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/0d/5b/0d5bb1f6-0deb-494b-8827-0e7937ac267b/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/0e/e3/0ee3385f-0189-4812-a0aa-f62f83804127/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/1d/df/1ddfc8ee-df3c-4d50-921b-32aba10216b7/new-york.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/32/51/32515160-f497-4afc-a3ac-080616723a87/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/35/dc/35dc7683-ef53-4930-978f-688d1b39a78f/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/52/7e/527ee5d2-3277-48de-8f50-90257696fdaf/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/85/36/8536a451-e55a-4c66-85d6-6bb6fc55f856/montreal_mini.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/90/a3/90a3dcda-b9c3-4e23-8423-1b08f2cf71ce/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/a1/4f/a14f9e71-289e-41a0-ab30-3d277d0609c3/shanghai.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/ab/cc/abcc7a32-f234-4456-902b-b89605474783/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/ba/3c/ba3c9d3b-bf73-4bc2-8a13-e3e69d54706e/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/db/47/db47841d-9566-4c7d-bf2f-9979c40c6472/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/e1/25/e125ac81-17ca-4618-b980-f563b64cf2a9/screenshot_from_2019-04-21_07-26-47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/f5/fd/f5fd4d1f-9f34-4911-a65c-398d164feb83/screenshot_from_2019-04-21_07-26-42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public/fd/03/fd0314e0-a446-4498-abf8-c56bf0cf8b0c/screenshot_from_2019-04-21_07-26-42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0d/5b/0d5bb1f6-0deb-494b-8827-0e7937ac267b/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0d/5b/0d5bb1f6-0deb-494b-8827-0e7937ac267b/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0d/5b/0d5bb1f6-0deb-494b-8827-0e7937ac267b/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0d/5b/0d5bb1f6-0deb-494b-8827-0e7937ac267b/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0d/5b/0d5bb1f6-0deb-494b-8827-0e7937ac267b/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0e/e3/0ee3385f-0189-4812-a0aa-f62f83804127/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0e/e3/0ee3385f-0189-4812-a0aa-f62f83804127/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0e/e3/0ee3385f-0189-4812-a0aa-f62f83804127/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0e/e3/0ee3385f-0189-4812-a0aa-f62f83804127/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/0e/e3/0ee3385f-0189-4812-a0aa-f62f83804127/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__100x100_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__200x200_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__230x230_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__250x250_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__260x260_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__270x270_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__280x280_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__300x300_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/12/50/12502e0b-3c01-4c72-9110-8c0e087c54a7/screenshot_from_2019-01-13_10-37-57.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__100x100_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__200x200_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__230x230_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__250x250_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__260x260_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__270x270_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__280x280_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__300x300_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/14/e0/14e0d50c-42a2-49b9-b378-450cf17a7a94/dkhtr-lyrd-mzhry-fwq-tkhss-gdd-khwdkhn-dr-khrj.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/1d/df/1ddfc8ee-df3c-4d50-921b-32aba10216b7/new-york.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/1d/df/1ddfc8ee-df3c-4d50-921b-32aba10216b7/new-york.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/1d/df/1ddfc8ee-df3c-4d50-921b-32aba10216b7/new-york.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/1d/df/1ddfc8ee-df3c-4d50-921b-32aba10216b7/new-york.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/1d/df/1ddfc8ee-df3c-4d50-921b-32aba10216b7/new-york.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png__210x0_q85_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/26/6f/266f640b-1181-4dc8-b3a3-ec731d83b823/screenshot_from_2019-04-21_07-26-42.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png__450x243_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/2c/75/2c75bbef-e153-4657-a0a5-5fdeee1354e0/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/32/51/32515160-f497-4afc-a3ac-080616723a87/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/32/51/32515160-f497-4afc-a3ac-080616723a87/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/32/51/32515160-f497-4afc-a3ac-080616723a87/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/32/51/32515160-f497-4afc-a3ac-080616723a87/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/32/51/32515160-f497-4afc-a3ac-080616723a87/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/35/dc/35dc7683-ef53-4930-978f-688d1b39a78f/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/35/dc/35dc7683-ef53-4930-978f-688d1b39a78f/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/35/dc/35dc7683-ef53-4930-978f-688d1b39a78f/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/35/dc/35dc7683-ef53-4930-978f-688d1b39a78f/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/35/dc/35dc7683-ef53-4930-978f-688d1b39a78f/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png__450x243_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/41/d6/41d6a906-1f35-4d9b-a359-0df3ad8775b3/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/52/7e/527ee5d2-3277-48de-8f50-90257696fdaf/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/52/7e/527ee5d2-3277-48de-8f50-90257696fdaf/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/52/7e/527ee5d2-3277-48de-8f50-90257696fdaf/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/52/7e/527ee5d2-3277-48de-8f50-90257696fdaf/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/52/7e/527ee5d2-3277-48de-8f50-90257696fdaf/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg__250x250_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/23/5b239568-6e33-426f-b304-1a65cf8b0f44/dkhtrkhsrw-gfry-fryd-1024x577.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png__450x243_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/5b/7c/5b7c32cc-9218-46ea-a763-ddcb7e9cc8a4/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png__210x0_q85_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/6c/ac/6cac27a3-40fa-4431-ba2b-46e35c7c0ac0/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/85/36/8536a451-e55a-4c66-85d6-6bb6fc55f856/montreal_mini.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/85/36/8536a451-e55a-4c66-85d6-6bb6fc55f856/montreal_mini.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/85/36/8536a451-e55a-4c66-85d6-6bb6fc55f856/montreal_mini.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/85/36/8536a451-e55a-4c66-85d6-6bb6fc55f856/montreal_mini.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/85/36/8536a451-e55a-4c66-85d6-6bb6fc55f856/montreal_mini.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/90/a3/90a3dcda-b9c3-4e23-8423-1b08f2cf71ce/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/90/a3/90a3dcda-b9c3-4e23-8423-1b08f2cf71ce/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/90/a3/90a3dcda-b9c3-4e23-8423-1b08f2cf71ce/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/90/a3/90a3dcda-b9c3-4e23-8423-1b08f2cf71ce/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/90/a3/90a3dcda-b9c3-4e23-8423-1b08f2cf71ce/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/95/f3/95f3cc09-1bc7-45de-b13d-bb12efd33080/4-1024x683.jpg__690x334_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__250x250_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__260x260_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a0/ab/a0abae85-1b41-4cea-a2cc-4044d8972ac7/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a1/4f/a14f9e71-289e-41a0-ab30-3d277d0609c3/shanghai.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a1/4f/a14f9e71-289e-41a0-ab30-3d277d0609c3/shanghai.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a1/4f/a14f9e71-289e-41a0-ab30-3d277d0609c3/shanghai.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a1/4f/a14f9e71-289e-41a0-ab30-3d277d0609c3/shanghai.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/a1/4f/a14f9e71-289e-41a0-ab30-3d277d0609c3/shanghai.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ab/cc/abcc7a32-f234-4456-902b-b89605474783/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ab/cc/abcc7a32-f234-4456-902b-b89605474783/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ab/cc/abcc7a32-f234-4456-902b-b89605474783/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ab/cc/abcc7a32-f234-4456-902b-b89605474783/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ab/cc/abcc7a32-f234-4456-902b-b89605474783/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ba/3c/ba3c9d3b-bf73-4bc2-8a13-e3e69d54706e/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ba/3c/ba3c9d3b-bf73-4bc2-8a13-e3e69d54706e/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ba/3c/ba3c9d3b-bf73-4bc2-8a13-e3e69d54706e/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ba/3c/ba3c9d3b-bf73-4bc2-8a13-e3e69d54706e/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/ba/3c/ba3c9d3b-bf73-4bc2-8a13-e3e69d54706e/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png__450x243_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/c1/93/c193d24e-36f0-46a3-b7e0-98a6a250d0fe/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__100x100_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__200x200_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__230x230_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__250x250_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__260x260_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__270x270_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__280x280_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__300x300_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d2/0d/d20de816-83d7-4785-a1d7-68f3e26f9df5/doctor-6.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png__450x243_q85_crop_subsampling-2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/d7/11/d7114bd3-c9b1-496c-a542-c8eb469fdac6/2.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/db/47/db47841d-9566-4c7d-bf2f-9979c40c6472/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/db/47/db47841d-9566-4c7d-bf2f-9979c40c6472/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/db/47/db47841d-9566-4c7d-bf2f-9979c40c6472/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/db/47/db47841d-9566-4c7d-bf2f-9979c40c6472/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/db/47/db47841d-9566-4c7d-bf2f-9979c40c6472/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__100x100_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__16x16_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__180x180_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__200x200_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__230x230_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__250x250_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__260x260_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__270x270_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__280x280_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__300x300_q85_crop_subsampling-2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__32x32_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__48x48_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e0/1a/e01a7a34-7126-4388-bd06-e38a76f34ef6/dkhtrmhmd-ly-flh-758x1024.jpg__64x64_q85_crop_subsampling-2_upscale.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e1/25/e125ac81-17ca-4618-b980-f563b64cf2a9/screenshot_from_2019-04-21_07-26-47.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e1/25/e125ac81-17ca-4618-b980-f563b64cf2a9/screenshot_from_2019-04-21_07-26-47.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e1/25/e125ac81-17ca-4618-b980-f563b64cf2a9/screenshot_from_2019-04-21_07-26-47.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e1/25/e125ac81-17ca-4618-b980-f563b64cf2a9/screenshot_from_2019-04-21_07-26-47.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/e1/25/e125ac81-17ca-4618-b980-f563b64cf2a9/screenshot_from_2019-04-21_07-26-47.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/f5/fd/f5fd4d1f-9f34-4911-a65c-398d164feb83/screenshot_from_2019-04-21_07-26-42.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/f5/fd/f5fd4d1f-9f34-4911-a65c-398d164feb83/screenshot_from_2019-04-21_07-26-42.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/f5/fd/f5fd4d1f-9f34-4911-a65c-398d164feb83/screenshot_from_2019-04-21_07-26-42.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/f5/fd/f5fd4d1f-9f34-4911-a65c-398d164feb83/screenshot_from_2019-04-21_07-26-42.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/f5/fd/f5fd4d1f-9f34-4911-a65c-398d164feb83/screenshot_from_2019-04-21_07-26-42.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/fd/03/fd0314e0-a446-4498-abf8-c56bf0cf8b0c/screenshot_from_2019-04-21_07-26-42.png__16x16_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/fd/03/fd0314e0-a446-4498-abf8-c56bf0cf8b0c/screenshot_from_2019-04-21_07-26-42.png__180x180_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/fd/03/fd0314e0-a446-4498-abf8-c56bf0cf8b0c/screenshot_from_2019-04-21_07-26-42.png__32x32_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/fd/03/fd0314e0-a446-4498-abf8-c56bf0cf8b0c/screenshot_from_2019-04-21_07-26-42.png__48x48_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/media/filer_public_thumbnails/filer_public/fd/03/fd0314e0-a446-4498-abf8-c56bf0cf8b0c/screenshot_from_2019-04-21_07-26-42.png__64x64_q85_crop_subsampling-2_upscale.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker/prod/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/prod/nginx/Dockerfile" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -363,29 +18,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docker/prod/nginx/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+            <state relative-caret-position="135">
+              <caret line="90" column="46" lean-forward="true" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/elasticsearch.yml">
+        <entry file="file://$PROJECT_DIR$/docker/prod/nginx/drman.conf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
-              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
+            <state relative-caret-position="75">
+              <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
             </state>
           </provider>
         </entry>
@@ -480,7 +126,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Doctors/templates/admin/Doctors/DoctorPostAdmin/base.html" />
         <option value="$PROJECT_DIR$/Doctors/templates/admin/Doctors/DoctorPostAdmin/change_form.html" />
         <option value="$PROJECT_DIR$/Doctors/templates/admin/base.html" />
         <option value="$PROJECT_DIR$/Doctors/templates/meta/meta.html" />
@@ -529,12 +174,13 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/Dockerfile" />
         <option value="$PROJECT_DIR$/prod.yml" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/docker/prod/nginx/Dockerfile" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/docker/prod/nginx/drman.conf" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="113" />
     <option name="y" value="283" />
     <option name="width" value="1196" />
@@ -704,16 +350,6 @@
     </layout-to-restore>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="23" column="60" selection-start-line="23" selection-start-column="60" selection-end-line="23" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/blog/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1036,13 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="90" column="36" selection-start-line="90" selection-start-column="36" selection-end-line="90" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/elasticsearch.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1079,8 +708,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/docker/prod/nginx/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        <state relative-caret-position="45">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker/prod/nginx/drman.conf">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="16" lean-forward="true" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="90" column="46" lean-forward="true" selection-start-line="90" selection-start-column="46" selection-end-line="90" selection-end-column="46" />
         </state>
       </provider>
     </entry>
