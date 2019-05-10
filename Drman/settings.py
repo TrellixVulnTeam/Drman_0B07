@@ -33,7 +33,7 @@ SITE_ID = 1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['193.176.242.97']
+ALLOWED_HOSTS = ['localhost', '193.176.242.97']
 
 
 # Application definition
