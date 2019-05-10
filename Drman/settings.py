@@ -33,7 +33,7 @@ SITE_ID = 1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['193.176.242.97']
 
 
 # Application definition
@@ -143,13 +143,20 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+#
+# ELASTICSEARCH_DSL={
+#     'default': {
+#         'hosts': 'localhost:9200'
+#     },
+# }
+
+
 
 ELASTICSEARCH_DSL={
     'default': {
-        'hosts': 'localhost:9200'
+        'hosts': '193.176.242.97:9200'
     },
 }
-
 
 GOOGLE_ANALYTICS = {
     'google_analytics_id': 'UA-134848198-1',
