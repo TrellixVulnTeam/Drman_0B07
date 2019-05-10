@@ -85,13 +85,6 @@ services:
     ports:
       - 9100:9100
 
-  nginx:
-    build:
-      context: .
-      dockerfile: docker/prod/nginx/Dockerfile
-    ports:
-      - 8080:80
-
 volumes:
   {"esdata": {"driver": "local"} , pgdata: {"driver": "local"}}
 
