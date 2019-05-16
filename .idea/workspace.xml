@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faa8f940-280a-4cee-9944-bfd79de90ff8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Doctors/templates/doctors/post/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Doctors/templates/doctors/post/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drman/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drman/settings/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Drman/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/Drman/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker/prod/nginx/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/docker/prod/nginx/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/prod.yml" afterDir="false" />
-    </list>
+    <list default="true" id="faa8f940-280a-4cee-9944-bfd79de90ff8" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,10 +337,9 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="736" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="0" width="1366" height="736" extended-state="7" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49915397" visible="true" weight="0.27360594" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49915397" visible="true" weight="0.27360594" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" sideWeight="0.500846" side_tool="true" weight="0.20141065" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -361,7 +350,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.4992163" visible="true" weight="0.34527686" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.4992163" visible="true" weight="0.34527686" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.5007837" side_tool="true" weight="0.30220714" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32899022" />
       <window_info anchor="bottom" id="Thumbnails" order="11" weight="0.3270142" />
