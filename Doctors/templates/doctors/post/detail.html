@@ -350,22 +350,35 @@
                     <h3><i class="far fa-map margin-left-10px"></i> مکان مطب {{ post.title }} </h3>
                     <hr>
                     <div class="map-distributors-in">
-                        <div id="map-distributors">
-
+                        <div id="map-distributors" style="overflow: hidden;">
                             <script type="text/javascript">
 
 
 
                               function onEachFeature(feature, layer) {
 
-                                            var content = `<h3>{{ post.title }}</h3>`;
+                                            var content = `<h5>{{ post.title }}</h5>`;
                                             layer.bindPopup(content);
                                         }
 
-                                  var collection = {{ post.geom|safe }};
+
+
                                   function map_init(map, options) {
-                                      L.geoJson(collection , {onEachFeature: onEachFeature}).addTo(map);
-                                      map.flyTo({{ post.geom.coordinates|safe }}, zoom);
+                                      var collection = {{ post.geom|safe }};
+                                      var zoom = 10;
+                                      map.setView({{ post.geom.coordinates|safe }} )
+                                      var markers = L.geoJson(collection , {onEachFeature: onEachFeature} , 10).addTo(map);
+<!--                                      map.flyTo({{ post.geom.coordinates|safe }} , 0);-->
+
+
+                                      markers.on("click", function (event) {
+                                            // Assuming the clicked feature is a shape, not a point marker.
+                                            map.fitBounds(event.layer.getBounds());
+                                      });
+
+                                      markers.addTo(map);
+
+
                                   }
 
 
@@ -419,6 +432,8 @@
 
                         </div>
                     </div>
+                    <h3>add:</h3>
+                            {{ post.geom.coordinates|safe }}
                 </div>
             </div>
             <div class="bg-white border-radius-10 margin-bottom-45px b1c box-shadow">

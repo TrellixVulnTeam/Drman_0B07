@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: docker/dev/Dockerfile
+    environment:
+      - DJANGO_SETTINGS_MODULE=Drman.settings.prod
     command: gunicorn -w 4 Drman.wsgi -b 0.0.0.0:8000
     volumes:
       - .:/code1
