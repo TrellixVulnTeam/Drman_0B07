@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <title>ثبت نام پزشک</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <!--===============================================================================================-->
+</head>
+
+<body>
+    <div class="container-login100">
+                <div class="col-lg-8 col-12" style="background-color: #EC9512;">
+                
+            <div class="col-3 header-logo"><a id="logo" href="index.html"><img src="assets/img/drman.net-logo.png" alt="logo" /></a></div>
+            
+                        <ul id="menu-main" class="col-9 nav-menu float-lg-right link-padding-tb-20px">
+                            <li><a href="index.html" class="menu-a">خانه</a></li>
+                            <li><a href="blog-list.html" class="menu-a">وبلاگ</a></li>
+                            <li><a href="page-contact-us.html" class="menu-a">ارتباط با ما</a></li>
+                        </ul>
+                    
+        
+        </div>
+        <div class="col-lg-8 col-12 wrap-login100">
+            <div class="col-6 login100-more" style="background-image: url('assets/img/bg-01.jpg');"></div>
+            <form class="col-6 login100-form validate-form" style="    padding: 6% 4% 15% !important;">
+                <span class="login100-form-title p-b-34">
+                    ثبت نام کنید...
+                </span>
+                <label>ایمیل یا شماره تلفن:</label>
+                <div class="col-12 wrap-input100 validate-input margin-bottom-5px" data-validate="Type user name">
+                    <input id="email" class="input100" type="text" name="email" placeholder="ایمیل یا شماره تلفن را وارد کنید..." style="    padding: 10px;">
+                    <span class="focus-input100"></span>
+                </div>
+                <div class="container-login100-form-btn">
+                    <button class="login100-form-btn enter-code" value="click">
+                        ادامه
+                    </button>
+                </div>
+                <div class="js-box-code w-100 enter-code2" style="margin: 40px 0">
+                    <div class="col-12 wrap-input100 validate-input margin-bottom-5px" data-validate="Type user name">
+                        <input id="code" class="input100" type="text" name="code" placeholder=" کد تایید را وارد نمایید..." style="    padding: 10px;">
+                        <span class="focus-input100"></span>
+                    </div>
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn">
+                            تایید
+                        </button>
+                    </div>
+                </div>
+                					<div class="w-100 text-center" style="margin: 20px 0 5px 0;">
+						<span class="txt1">
+							ثبت نام کرده اید ؟
+						</span>
+
+						<a href="sign-in.html" class="txt2">
+							ورود
+						</a>
+					</div>
+
+            </form>
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script>
+        $('button.enter-code').click(function() {
+            $(".enter-code2").css("display", "block");
+            //            $('.enter-code2').css({
+            //               display: 'block'
+            //           } );
+            alert("کد تایید ارسال شده را در کادر ظاهر شده وارد نمایید...");
+        });
+
+    </script>
+</body>
+
+</html>

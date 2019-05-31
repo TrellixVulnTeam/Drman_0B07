@@ -1,0 +1,529 @@
+ <!DOCTYPE html>
+ <html lang="fa" dir="rtl">
+
+ <head>
+     <title>تکمیل اطلاعات پزشکی</title>
+
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+     <!-- CSS -->
+     <link href='assets/css/select2.min.css' rel='stylesheet' type='text/css'>
+     <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+     <link href='assets/css/form.css' rel='stylesheet' type='text/css'>
+     <!-- Script -->
+     <script src="assets/js/jquery-3.2.1.min.js"></script>
+     <script src='assets/js/select2.full.js'></script>
+
+     <!--  جیکوئری مربوط به آپلود عکس اول  -->
+     <script>
+         $(document).ready(function() {
+             $(document).on('change', '.btn-file :file', function() {
+                 var input = $(this),
+                     label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                 input.trigger('fileselect', [label]);
+             });
+
+             $('.btn-file :file').on('fileselect', function(event, label) {
+
+                 var input = $(this).parents('.input-group').find(':text'),
+                     log = label;
+
+                 if (input.length) {
+                     input.val(log);
+                 } else {
+                     if (log) alert(log);
+                 }
+
+             });
+
+             function readURL(input) {
+                 if (input.files && input.files[0]) {
+                     var reader = new FileReader();
+
+                     reader.onload = function(e) {
+                         $('#img-upload').attr('src', e.target.result);
+                     }
+
+                     reader.readAsDataURL(input.files[0]);
+                 }
+             }
+
+             $("#imgInp").change(function() {
+                 readURL(this);
+             });
+         });
+
+     </script>
+     <!--  جیکوئری مربوط به آپلود عکس دوم  -->
+     <script>
+         $(document).ready(function() {
+             $(document).on('change', '.btn-file2 :file', function() {
+                 var input = $(this),
+                     label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+                 input.trigger('fileselect', [label]);
+             });
+
+             $('.btn-file2 :file').on('fileselect', function(event, label) {
+
+                 var input = $(this).parents('.input-group').find(':text'),
+                     log = label;
+
+                 if (input.length) {
+                     input.val(log);
+                 } else {
+                     if (log) alert(log);
+                 }
+
+             });
+
+             function readURL(input) {
+                 if (input.files && input.files[0]) {
+                     var reader = new FileReader();
+
+                     reader.onload = function(e) {
+                         $('#img-upload2').attr('src', e.target.result);
+                     }
+
+                     reader.readAsDataURL(input.files[0]);
+                 }
+             }
+
+             $("#imgInp8").change(function() {
+                 readURL(this);
+             });
+         });
+
+     </script>
+     <link href='https://fonts.googleapis.com/css?family=Gloria+Hallelujah' rel='stylesheet' type='text/css'>
+
+     <link href="https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+ </head>
+
+ <body>
+     <div class='container'>
+         <div class='panel text-white dialog-panel'>
+             <div class='panel-heading'>
+                 <h5 style="margin-right: 30px">تکمیل اطلاعات پروفایل پزشکی</h5>
+             </div>
+             <div class='panel-body'>
+                 <div class="col-lg-10 col-12" style="margin: auto; display: block; text-align: right;">
+                     <form class='form-horizontal' style="margin-top: 50px;">
+                         <div id="box1">
+                             <div class='col-12 form-group'>
+
+                                 <div class='col-3 float-left'>
+                                     <div class='form-group internal'>
+                                         <input class='form-control' id='id_last_name' placeholder='نام خانوادگی' type='text'>
+                                     </div>
+                                 </div>
+                                 <div class='col-3 float-left indent-small'>
+                                     <div class='form-group internal'>
+                                         <input class='form-control' id='id_first_name' placeholder='نام' type='text'>
+                                     </div>
+                                 </div>
+                                 <div class='col-3 float-left'>
+                                     <div class='form-group indent-small'>
+                                         <select class='form-control' id='id_title'>
+                                             <option>جنسیت</option>
+                                             <option>آقا</option>
+                                             <option>خانم</option>
+                                         </select>
+                                     </div>
+                                 </div> <label class='control-label col-2' for='id_title'>نام</label>
+
+                             </div>
+                             <div class='col-12 form-group'>
+                                 <div class='col-9 float-left'>
+                                     <textarea id="address" name="address" required="required" placeholder="برای مثال : کرج ، مهرشهر ،..."></textarea>
+                                 </div>
+                                 <label class='control-label col-3 '>آدرس مطب</label>
+                             </div>
+
+                             <div class='col-12 form-group'>
+                                 <!--
+                                 <div class='col-9 float-left'>
+                                      Dropdown 
+                                     <select id='selUser'>
+                                         <option value='0'>تخصص</option>
+                                         <option value='1'>مغز و اعصاب</option>
+                                         <option value='2'>قلب و عروق</option>
+                                         <option value='3'>زنان و زایمان</option>
+                                         <option value='4'>کودکان</option>
+                                         <option value='5'>داخلی</option>
+                                         <option value='6'>روانشناس</option>
+                                         <option value='7'>ارتوپد</option>
+                                     </select>
+
+                                 </div>
+-->
+                                 <label class='control-label col-3' style="margin-bottom: 25px;">تخصص</label>
+                                 <div class="col-lg-9 col-sm-12 checkbox-box">
+                                     <div class="list-group" id="list1">
+                                         <a href="#" class="list-group-item list-group-item-info active">چشم پزشکی<input title="toggle all" type="checkbox" class="all pull-right"></a>
+                                         <a href="#" class="list-group-item">عینک سازی<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">فوق تخصص قرنیه<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">جراح و متخصص بیماری های چشم<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">تجویز عینک با کامپیوتر<input type="checkbox" class="pull-right shift"></a>
+                                     </div>
+
+                                     <div class="list-group" id="list2">
+                                         <a href="#" class="list-group-item active">مغز و اعصاب<input title="toggle all" type="checkbox" class="all pull-right"></a>
+                                         <a href="#" class="list-group-item">متخصص بیماری های عصبی، عضلانی و اسکلتی <input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item"> جراح مغز و اعصاب <input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">نورولوژی مغز و اعصاب <input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">متخصص مغز و اعصاب و ستون فقرات و الکترودیاگتوز<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">اعصاب<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item"> متخصص جراحی مغز و اعصاب،دیسک و ستون فقرات<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">متخصص مغز و اعصاب<input type="checkbox" class="pull-right shift"></a>
+                                     </div>
+                                     <div class="list-group" id="list3">
+                                         <a href="#" class="list-group-item active">زنان و زایمان<input title="toggle all" type="checkbox" class="all pull-right"></a>
+                                         <a href="#" class="list-group-item">فلوشیپ نازایی<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item"> جراح و متخصص زنان، زایمان و نازایی<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">فوق تخصص نازایی<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">مامایی<input type="checkbox" class="pull-right shift"></a>
+                                     </div>
+                                     <div class="list-group" id="list4">
+                                         <a href="#" class="list-group-item active">پوست و مو<input title="toggle all" type="checkbox" class="all pull-right"></a>
+                                         <a href="#" class="list-group-item"> پزشک پوست و مو<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">متخصص پوست و مو و زیبایی و لیزر<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">متخصص جراحی فک و صورت و زیبایی<input type="checkbox" class="pull-right shift"></a>
+                                         <a href="#" class="list-group-item">مراقب های پوستی<input type="checkbox" class="pull-right shift"></a>
+                                     </div>
+                                 </div>
+                             </div>
+
+                             <div class='col-12 form-group'>
+                                 <label class='control-label col-lg-3 col-sm-12'>آپلود عکس شخصی یا لوگو</label>
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <div class="input-group">
+                                         <span class="input-group-btn">
+                                             <span class="btn btn-warning btn-file2">
+                                                 Browse… <input type="file" id="imgInp">
+                                             </span>
+                                         </span>
+                                         <input type="text" class="form-control" readonly>
+                                     </div>
+                                     <img id='img-upload' src="#" alt="" />
+                                 </div>
+                             </div>
+
+                         </div>
+                         <div id="box2">
+                             <div class='col-12 form-group'> <label class='control-label col-lg-3 col-sm-12'>شماره تماس</label>
+
+                                 <div class='col-lg-4 col-sm-5 margin-5px float-left padding-0px'>
+                                     <input class='form-control' id='id_phone2' placeholder=' شماره موبایل2' type='text'><i class="fas fa-mobile-alt icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left '>
+                                     <input class='form-control' id='id_phone1' placeholder='شماره موبایل1 ' type='text'><i class="fas fa-mobile-alt icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control' id='id_phone4' placeholder='شماره تلفن ثابت2 ' type='text'><i class="fas fa-phone icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control' id='id_phone3' placeholder='شماره تلفن ثابت1 ' type='text'><i class="fas fa-phone icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control' id='id_phone6' placeholder='شماره تلفن ثابت4 ' type='text'><i class="fas fa-phone icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control' id='id_phone5' placeholder='شماره تلفن ثابت3 ' type='text'><i class="fas fa-phone icons"></i>
+                                 </div>
+                             </div>
+
+                             <div class='col-12 form-group'> <label class='control-label col-lg-3 col-sm-12'>آدرس صفحات اجتماعی</label>
+
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control input-icons' id='id_insta' placeholder='اینستاگرام' type='text'>
+                                     <i class="fab fa-instagram icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control input-icons' id='id_telegram' placeholder='تلگرام' type='text'>
+                                     <i class="fab fa-telegram icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control input-icons' id='id_twetter' placeholder='توییتر' type='text'>
+                                     <i class="fab fa-twitter icons"></i>
+                                 </div>
+                                 <div class='col-lg-4 col-sm-5 margin-5px padding-0px float-left'>
+                                     <input class='form-control input-icons' id='id_whatsup' placeholder='واتس آپ' type='text'>
+                                     <i class="fab fa-whatsapp icons"></i>
+                                 </div>
+                             </div>
+
+                             <div class='col-12 form-group'> <label class='control-label col-lg-3 col-sm-12'>درباره پزشک</label>
+
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <textarea id="about" name="about" required="required" placeholder="توضیحات درباره پزشک"></textarea>
+                                 </div>
+                             </div>
+                         </div>
+                         <div id="box3">
+                             <div class='col-12 form-group'> <label class='control-label col-lg-3 col-sm-12 '>آپلود عکس گالری تصاویر</label>
+
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <div class="input-group margin-tb-10px">
+                                         <span class="input-group-btn">
+                                             <span class="btn btn-warning btn-file2">
+                                                 Browse… <input type="file" id="imgInp4">
+                                             </span>
+                                         </span>
+                                         <input type="text" class="form-control" readonly>
+                                     </div>
+                                     <div class="input-group margin-tb-10px">
+                                         <span class="input-group-btn">
+                                             <span class="btn btn-warning btn-file2">
+                                                 Browse… <input type="file" id="imgInp5">
+                                             </span>
+                                         </span>
+                                         <input type="text" class="form-control" readonly>
+                                     </div>
+                                     <div class="input-group margin-tb-10px">
+                                         <span class="input-group-btn">
+                                             <span class="btn btn-warning btn-file2">
+                                                 Browse… <input type="file" id="imgInp6">
+                                             </span>
+                                         </span>
+                                         <input type="text" class="form-control" readonly>
+                                     </div>
+                                     <div class="input-group margin-tb-10px">
+                                         <span class="input-group-btn">
+                                             <span class="btn btn-warning btn-file2">
+                                                 Browse… <input type="file" id="imgInp7">
+                                             </span>
+                                         </span>
+                                         <input type="text" class="form-control" readonly>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class='col-12 form-group'> <label class='control-label col-lg-3 col-sm-12 '>آپلود عکس بنر صفحه پزشک</label>
+
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <div class="input-group">
+                                         <span class="input-group-btn">
+                                             <span class="btn btn-warning btn-file">
+                                                 Browse… <input type="file" id="imgInp8">
+                                             </span>
+                                         </span>
+                                         <input type="text" class="form-control" readonly>
+                                     </div>
+                                     <img id='img-upload2' src="#" alt="" />
+                                 </div>
+                             </div>
+                             <div class='col-12 form-group'>
+                                                                  <label class='control-label col-lg-3 col-md-12 '>ساعات حضور در مطب</label>
+                                 <div class="col-lg-9 col-md-12 float-left wrapper">
+                                     <table class="table">
+                                         <thead>
+                                             <tr class="text-center">
+                                                 <th></th>
+                                                 <th>شروع</th>
+                                                 <th>پایان</th>
+                                                 <th>ساعات کاری بیشتر</th>
+                                             </tr>
+                                         </thead>
+                                         <tr class="day-monday">
+                                             <th>شنبه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more1" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                         <tr class="day-tuesday">
+                                             <th>یکشنبه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more2" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                         <tr class="day-wednesday">
+                                             <th>دوشنبه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more3" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                         <tr class="day-thursday">
+                                             <th>سه شنبه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more4" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                         <tr class="day-friday">
+                                             <th>چهارشنبه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more5" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                         <tr class="day-saturday">
+                                             <th>پنج شنبه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more6" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                         <tr class="day-sunday">
+                                             <th>جمعه</th>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td>
+                                                 <input class="form-control" type="time" />
+                                             </td>
+                                             <td class="stat"> <textarea id="more3" name="more" placeholder="ساعات کاری بیشتر..."></textarea>
+                                             </td>
+                                         </tr>
+                                     </table>
+                                 </div>
+
+                             </div>
+                         </div>
+                         <div class="box4">
+
+                             <div class='col-12 form-group'>
+
+                                 <p class="text-red">لطفا فیلم مورد نظر خود را در آپارات آپلود کرده و لینک آپلود شده را در این قسمت وارد نمایید ، در غیر این صورت با ما در ارتباط باشید. <a href="https://www.aparat.com/authentication?afterlogin=upload">لینک سایت آپارات</a></p>
+                                                                <label class='col-lg-3 col-sm-12 control-label' id='id_title2'>آپلود فیلم</label>
+
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <div class='form-group internal'>
+                                         <input class='form-control' id='id_film' placeholder='لینک آپلود فیلم' type='text'>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class='col-12 form-group'>
+                                 <label class='control-label col-lg-3 col-sm-12' for='id_title'> آپلود صدا </label>
+
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <div class='form-group internal'>
+                                         <div class="input-group margin-tb-10px">
+                                             <span class="input-group-btn">
+                                                 <span class="btn btn-warning btn-file2">
+                                                     Browse…
+                                                     <input type="file" id="file1">
+                                                 </span>
+                                             </span>
+                                             <input type="text" class="form-control" readonly>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                             <div class='col-12 form-group'>
+                                 <label class='control-label col-lg-3 col-sm-12' for='id_title'> آپلود مقاله </label>
+
+                                 <div class='col-lg-9 col-sm-12 float-left'>
+                                     <div class='form-group internal'>
+                                         <div class="input-group margin-tb-10px">
+                                             <span class="input-group-btn">
+                                                 <span class="btn btn-warning btn-file2">
+                                                     Browse… <input type="file" id="file2">
+                                                 </span>
+                                             </span>
+                                             <input type="text" class="form-control" readonly>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+
+                         </div>
+                         <div class='col-12 form-group'>
+                             <div class='col-4 ok-btn'>
+                                 <button class='btn-lg' type='submit'>تایید اطلاعات</button>
+                             </div>
+                         </div>
+                     </form>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <script src="assets/js/jquery-3.2.1.min.js"></script>
+     <!-- fontawesome  -->
+     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+     <script>
+         $(document).ready(function() {
+
+             // Initialize select2
+             $("#selUser").select2();
+
+             // Read selected option
+             $('#but_read').click(function() {
+                 var username = $('#selUser option:selected').text();
+                 var userid = $('#selUser').val();
+
+                 $('#result').html("id : " + userid + ", name : " + username);
+
+             });
+         });
+
+     </script>
+     <!--  checkbox   -->
+     <script>
+         /* toggle all checkboxes in group */
+         $('.all').click(function(e) {
+             e.stopPropagation();
+             var $this = $(this);
+             if ($this.is(":checked")) {
+                 $this.parents('.list-group').find("[type=checkbox]").prop("checked", true);
+             } else {
+                 $this.parents('.list-group').find("[type=checkbox]").prop("checked", false);
+                 $this.prop("checked", false);
+             }
+         });
+
+         $('[type=checkbox]').click(function(e) {
+             e.stopPropagation();
+         });
+
+
+         /* toggle checkbox when list group item is clicked */
+         $('.list-group a').click(function(e) {
+
+             e.stopPropagation();
+
+             var $this = $(this).find("[type=checkbox]");
+             if ($this.is(":checked")) {
+                 $this.prop("checked", false);
+
+             } else {
+                 $this.prop("checked", true);
+                 //                 $('.active').prop("checked", true);
+             }
+
+             if ($this.hasClass("all")) {
+                 $this.trigger('click');
+             }
+         });
+
+     </script>
+ </body>
+
+ </html>

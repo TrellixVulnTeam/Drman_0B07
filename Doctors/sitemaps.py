@@ -1,6 +1,5 @@
 from django.contrib.sitemaps import Sitemap
 from Doctors.models import DoctorsPost
-from Drman.settings import LANGUAGE_CODE
 
 class DrsPostSitemap(Sitemap) :
     changegreq = 'daily'

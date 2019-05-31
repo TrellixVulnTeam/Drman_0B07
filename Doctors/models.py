@@ -146,7 +146,6 @@ class DoctorsPost(ModelMeta,models.Model):
         ('published', 'Published'),
     )
 
-    id=models.IntegerField(primary_key=True)
     # TODO : rename to Doctor's name
     title = models.CharField(max_length=250 , unique = True)
     thumbnailImage = FilerImageField(on_delete=models.CASCADE , related_name="thumbnailImage")
@@ -171,7 +170,7 @@ class DoctorsPost(ModelMeta,models.Model):
 
     # contact = models.CharField(max_length=20)
 
-    site = models.URLField()
+    site = models.URLField(blank=True)
     address = models.CharField(max_length=250)
     geom = PointField()
     # ActiveOpeningHours = models.BooleanField(default=False)

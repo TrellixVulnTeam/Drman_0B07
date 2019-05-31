@@ -3,676 +3,561 @@
 {% load openinghours_tags %}
 {% load thumbnail %}
 {% load static %}
+{% load leaflet_tags %}
 
-<!--ToDo: when we extend 'base' don't have any html and body tags.-->
-<html lang="fa">
-<head>
+<!------------------------- Append doctor's details page style to base.html  ------------------------->
+{% block extrastyle %}
 
-    {% block title %}دکترمن{% endblock %}
+<!-- for Auto complete search Style -->
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
 
-    <meta name="author" content="Nile-Theme"/>
-    <meta name="robots" content="index follow"/>
-    <meta name="googlebot" content="index follow"/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta name="keywords"
-          content="directory, doctor, doctor directory, Health directory, listing, map, medical, medical directory, professional directory, reservation, reviews"/>
-    <meta name="description" content="Health Care & Medical Services Directory"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- map -->
+{% leaflet_js plugins="ALL" %}
+{% leaflet_css plugins="ALL" %}
 
-    {% block extrastyle %}
-    <!-- animate -->
-    <link rel="stylesheet" href="/static/assets/css/animate.css"/>
-    <!-- owl Carousel assets -->
-    <link href="/static/assets/css/owl.carousel.css" rel="stylesheet"/>
-    <link href="/static/assets/css/owl.theme.css" rel="stylesheet"/>
-    <!-- hover anmation -->
-    <link rel="stylesheet" href="/static/assets/css/hover-min.css"/>
-    <!-- flag icon -->
-    <link href="/static/assets/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/static/assets/css/select2.min.css"/>
-    <link rel="stylesheet" href="/static/assets/css/select2-bootstrap.css"/>
-    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.1.3/css/bootstrap.min.css"
-          integrity="sha384-Jt6Tol1A2P9JBesGeCxNrxkmRFSjWCBW1Af7CSQSKsfMVQCqnUVWhZzG0puJMCK6" crossorigin="anonymous"/>
-    <link rel="stylesheet" href="/static/assets/css/style.css"/>
+{% endblock %}
+<!------------------------- // Append doctor's details page style to base.html  ------------------------->
 
-
-    {% endblock %}
-
-
-</head>
-
+<!------------------------- Append doctor's details page Content to base.html  -------------------------->
 {% block content %}
 
-<body>
-
-<!--TODO : this is really important!! make dynamic header and same for all pages.-->
-    <!-- header-->
-    <header>
-        <div id="fixed-header-dark" class="header-output fixed-header">
-            <div class="col-lg-2 col-md-10">
-                <a class="mobile-toggle padding-13px bg-b1c" href="#"><i class="zmdi zmdi-menu"></i></a>
-            </div>
-            <div><a id="logo" href="index.html"><img src="/static/assets/img/drman.net-logo.png" alt="logo" /></a></div>
-            <div class="container-fluid header-in">
-                <div class="row padding-8px margin-0px float-left">
-                    <div class="col-12 position-inherit w-100">
-                        <ul id="menu-main" class="nav-menu float-lg-right link-padding-tb-20px">
-                            <li><a href="index.html" class="oc">خانه</a></li>
-
-                            <li class="has-dropdown"><a href="#"> عضویت بیمار
-                                    <i class="zmdi zmdi-caret-down"></i>
-
-                                </a>
-                                <ul class="sub-menu">
-                                    <li><a href="sign-in.html"><i class="far fa-user"></i> ورود</a></li>
-                                    <li><a href="sign-up-user.html"><i class="far fa-user"></i> ثبت نام</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="has-dropdown"><a href="#">
-                                    عضویت پزشک
-                                    <i class="zmdi zmdi-caret-down"></i>
-                                </a>
-                                <ul class="sub-menu">
-                                    <li><a href="sign-in.html"><i class="far fa-user"></i> ورود</a></li>
-                                    <li><a href="sign-up-doctor.html"><i class="far fa-user"></i> ثبت نام رایگان</a></li>
-                                    <li><a href="#"><i class="far fa-hospital"></i> کلینیک</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="services.html">خدمات</a></li>
-                            <!--                            <li><a href="page-pricing-tables.html">تعرفه ها</a></li>-->
-                            <li><a href="blog-list.html">وبلاگ</a></li>
-                            <li><a href="page-contact-us.html">ارتباط با ما</a></li>
-                        </ul>
+    <div id="page-title" class="padding-bottom-30px padding-top-100px direction-r">
+        <div class="container text-warning">
+            <ol class="breadcrumb opacity-8">
+                <li><a href="#">خانه</a> <i class="fas fa-angle-right"></i></li>
+                <li><a href="#">جستجو</a> <i class="fas fa-angle-right"></i></li>
+                <li class="">لیست پزشکان</li>
+            </ol>
+            <div class="col-12 pic-doc">
+                <div class="fbox">
+                    <div class="col-lg-1 col-0 float-right"></div>
+                    <div class="col-lg-6 col-12 float-right">
+                        <!-- ToDo: cash box search Ajax ( id="Search1")-->
+                        <input class="search-input b1c w-100 margin-top-15px position-relative" style="padding: 6px; " type="text" placeholder="نام پزشک و یا تخصص خود را وارد کنید...">
+                        <i class="fas fa-search search-ico position-absolute margin-top-25px" style="font-size: 18px; top: 0 ; left: 30px;"></i>
                     </div>
                 </div>
-            </div>
-        </div>
-    </header>
-    <!-- // Header  -->
 
-<!--header search and categorie -->
-<section class="banner padding-top-50px padding-bottom-1px sm-ptb-80px" style="background-image: url('static/assets/img/11.jpg'); background-repeat: no-epeat;
-    background-position: center; background-size: cover; position: relative;">
-    <div class="background-overlay" style="background-color:rgba(0, 0, 0, 0.4); "></div>
-    <div class="container">
-        <!--
-        <div class="col-12 banner-title">
-            <h1> دکترمن </h1>
-            <h4>پاسخگوی تمام نیازهای پزشکی شما... </h4>
-        </div>
--->
-        <!--<h3>search:</h3>-->
-        <!--{{ loc_roots }}-->
+                <div class="col-lg-5 col-12 float-left margin-tb-5px">
+                    <img src="/static/assets/img/blog-2.jpg" alt="doctor-picture" />
+                    <h1 class="b1c">احسان مقامی</h1>
+                    <div class="clearfix"></div>
 
-
-        <div class="col-12 padding-bottom-15px" style="margin: 18% 0 18%;">
-            <!-------------------------- Tab box ------------------------------->
-            <div class="col-12 home-search-tabs wow fadeInUp">
-                <div class="tab-container">
-                    <form autocomplete="off" method="get" id="core_search" name="core_search"
-                          action="{% url 'filter_search' %}">
-                        {% csrf_token %}
-
-                        <div class="search margin-tb-30px">
-                            <div class="row inputs" style="padding: 0 !important;">
-                                <div class="input-field inputs w-100">
-                                    <!-- ToDo: cash box search Ajax ( id="Search1")-->
-                                    <div class="ui-widget">
-                                        {{ searchform.search }}
-                                    </div>
-                                    <div class="icon-wrap">
-                                        <button id="search" type="submit"><i class="fas fa-search search-ico"
-                                                                             style="font-size: 18px;"></i></button>
-
-                                    </div>
-
-                                    <!--<input type="submit" value="جستجو"-->
-                                    <!--class="btn clinic-box bg-oc b1c">-->
-
-                                    <!--<ul id="search-results">-->
-
-                                    <!--</ul>-->
-
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active"><a href="#doktor-bul" aria-controls="doktor-bul"
-                                                                  role="tab" data-toggle="tab"> مطب </a></li>
-                        <li role="presentation"><a href="#hastane-bul" aria-controls="hastane-bul" role="tab"
-                                                   data-toggle="tab"> کلینیک و درمانگاه </a></li>
-                        <li role="presentation"><a href="#bilgi-bul" aria-controls="bilgi-bul" role="tab"
-                                                   data-toggle="tab"> بیمارستان </a></li>
-                    </ul>
-
-                    <form id="filter_search" name="filter_search" action="{% url 'filter_search' %}">
-                        {% csrf_token %}
-                        <div class="tab-content">
-
-                            <div role="tabpanel" class="tab-pane active" id="doktor-bul">
-                                <div class="col-12">
-                                    <h5 class="font-weight text-center padding-top-15px b3c"> برای نمایش لیست پزشکان
-                                        مشخصات
-                                        زیر را کامل کنید... </h5>
-                                </div>
-
-                                <ul class="margin-top-15px margin-bottom-20px">
-                                    <li class="bold">
-                                        <div class="form-group clearfix margin-0px">
-                                            <div class="input-group">
-                                                <div class="w-100">
-                                                    <a data-target="slide-out" id="btn-takhasos"
-                                                       class="sidenav-trigger btn clinic-box b1c">
-
-                                                        {{ filterform.specialty }}
-
-                                                        <p id="takhasos"> پزشک متخصص ☰</p>
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="input-group ">
-
-                                                {{ filterform.brand }}
-
-                                                <!--<select required id="brand" name="brand"-->
-                                                <!--class="form-control select2-allow-clear padding-right-10px city1"-->
-                                                <!--style="color: #9b9b9b;">-->
-
-                                                <!--<option val=""></option>-->
-
-                                                <!--</select>-->
-                                            </div>
-                                            <div class="input-group">
-
-                                                {{ filterform.car}}
-                                                <!--<select required id="car" name="car"-->
-                                                <!--class="form-control select2-allow-clear padding-right-10px city2"-->
-                                                <!--style="color: #9b9b9b;">-->
-
-                                                <!--<option val=""></option>-->
-
-                                                <!--</select>-->
-                                            </div>
-                                            <div class="input-group">
-                                                <div class="btn-search float-right w-100 padding-2px">
-                                                    <div class="clear-fix">
-                                                        <input type="submit" value="جستجو"
-                                                               class="btn clinic-box bg-oc b1c">
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </li>
-                                </ul>
-
-                            </div>
-
-
-                            <div role="tabpanel" class="tab-pane" id="hastane-bul">
-                                <div class="col-12">
-                                    <h5 class="font-weight text-center padding-top-15px b3c"> کلینیک یا درمانگاه موردنظر
-                                        خود
-                                        را جستجو کنید...</h5>
-                                </div>
-
-                                <ul class="margin-top-15px margin-bottom-20px">
-                                    <li class="bold">
-                                        <div class="form-group clearfix margin-0px">
-                                            <div class="input-group">
-                                                <select id="single-append-text"
-                                                        class="form-control select2-allow-clear padding-right-10px city1"
-                                                        style="color: #9b9b9b;">
-                                                    <option value=""></option>
-                                                    <option value="WA">البرز</option>
-                                                    <option value="NV">اصفهان</option>
-                                                    <option value="OR">اهواز</option>
-                                                    <option value="WA">تهران</option>
-                                                    <option value="WA">خوزستان</option>
-                                                    <option value="WA">شیراز</option>
-                                                    <option value="WA">شمال</option>
-                                                    <option value="WA">یزد</option>
-                                                </select>
-
-                                            </div>
-                                            <div class="input-group">
-                                                <select id="single-append-text"
-                                                        class="form-control select2-allow-clear city2">
-                                                    <option value=""></option>
-                                                    <option value="WA">کرج</option>
-                                                    <option value="NV">گوهردشت</option>
-                                                    <option value="OR">گلشهر</option>
-                                                    <option value="WA">محمدشهر</option>
-                                                    <option value="WA">مهرشهر</option>
-                                                    <option value="WA">نظرآباد</option>
-                                                    <option value="WA">ساوجبلاغ</option>
-                                                    <option value="WA">جهانشهر</option>
-                                                </select>
-
-                                            </div>
-                                            <div class="input-group">
-                                                <select id="single-append-text"
-                                                        class="form-control select2-allow-clear city3">
-                                                    <option value=""></option>
-                                                    <option value="WA">شبانه روزی</option>
-                                                    <option value="NV">پوست و مو</option>
-                                                    <option value="OR">چشم پزشکی</option>
-                                                    <option value="WA">فیزیوتراپی</option>
-                                                </select>
-                                            </div>
-                                            <div class="input-group">
-                                                <div class="btn-search float-right w-100">
-                                                    <div class="clear-fix">
-                                                        <a href="doctors/post/list.html"
-                                                           class="btn clinic-box bg-oc b1c">
-                                                            جستجو </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="bilgi-bul">
-                                <div class="col-12">
-                                    <h5 class="font-weight text-center padding-top-15px b3c"> بیمارستان موردنظر خود را
-                                        جستجو
-                                        کنید...</h5>
-                                </div>
-                                <ul class="margin-top-15px margin-bottom-20px">
-                                    <li class="bold">
-                                        <div class="form-group clearfix margin-0px">
-                                            <div class="input-group" style="width: 31%">
-                                                <select id="single-append-text"
-                                                        class="form-control select2-allow-clear padding-right-10px city1"
-                                                        style="color: #9b9b9b;">
-                                                    <option value=""></option>
-                                                    <option value="WA">البرز</option>
-                                                    <option value="NV">اصفهان</option>
-                                                    <option value="OR">اهواز</option>
-                                                    <option value="WA">تهران</option>
-                                                    <option value="WA">خوزستان</option>
-                                                    <option value="WA">شیراز</option>
-                                                    <option value="WA">شمال</option>
-                                                    <option value="WA">یزد</option>
-                                                </select>
-
-                                            </div>
-                                            <div class="input-group" style="width: 31%">
-                                                <select id="single-append-text"
-                                                        class="form-control select2-allow-clear city2"
-                                                        aria-label="kjhdgfkjs">
-                                                    <option value=""></option>
-                                                    <option value="َAA">همه</option>
-                                                    <option value="WA">کرج</option>
-                                                    <option value="NV">گوهردشت</option>
-                                                    <option value="OR">گلشهر</option>
-                                                    <option value="WA">محمدشهر</option>
-                                                    <option value="WA">مهرشهر</option>
-                                                    <option value="WA">نظرآباد</option>
-                                                    <option value="WA">ساوجبلاغ</option>
-                                                    <option value="WA">جهانشهر</option>
-                                                </select>
-
-                                            </div>
-
-                                            <div class="input-group" style="width: 31%">
-                                                <div class="btn-search w-100 padding-2px">
-                                                    <div class="clear-fix">
-                                                        <a href="doctors/post/list.html"
-                                                           class="btn clinic-box bg-oc b1c">
-                                                            جستجو </a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </form>
                 </div>
 
+                <div class="clearfix"></div>
+            </div>
+            <div class="col-12 specialty margin-top-10px margin-right-30px b1c">
+                <h3>متخصص چشم پزشکی</h3>
+            </div>
+            <div class="col-12 grouping-doc">
+                <div>
+                    <h5 style="margin-right: 2px !important;"><i class="fas fa-folder-open margin-right-5px"></i>دسته بندی :
+                        <a href="#">غدد و متابولیسم</a>
+                        ،
+                        <a href="#">فوق تخصص غدد</a>
+                        ،
+                        <a href="#">رشد و مبابولیسم کودکان</a>
+                    </h5>
+                </div>
+                <div class="viwe clearfix margin-right-5px">
+                    <h4 class="" style="border-left: 1px solid #ccc;"><i class="fas fa-eye margin-right-8px"></i>
+                        بازدید
+                        <span class="bg-secondary padding-4px -white padding-right-5px">124</span>
+                    </h4>
+                    <h4 style="padding-right: 5px !important;">
+                        وضعیت:
+                        <span class="bg-success">باز است</span>
+                    </h4>
+                </div>
             </div>
         </div>
-        <main class="direction-l">
-            <script>
-                    (function() {
-                        if (typeof _bsa !== 'undefined' && _bsa) {
-                            _bsa.init('default', 'CKYD55QM', 'placement:materializecsscom', {
-                                target: '.bsa-cpc',
-                                align: 'horizontal',
-                                disable_css: 'true'
-                            });
-                        }
-                    })();
+    </div>
+    <div class="margin-tb-30px">
+        <div class="container direction-l">
+            <div class="col-lg-8 direction-r padding-0px float-right">
+                <div class="margin-bottom-45px box-shadow">
+                    <div class="doctor-banner">
+                        <img src="assets/img/1.jpg" alt="banner doc" />
+                    </div>
+                    <div class="padding-15px background-white">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="row no-gutters">
+                                    <div class="col-3 text-center"><a href="#" class="b2c"><i class="fas fa-eye margin-right-10px"></i> بازدید</a>
+                                        <span class="bg-secondary padding-4px text-white" style="border-radius: 50%;">124</span>
+                                    </div>
+                                    <div class="col-3 text-center box-answer">
+                                        <a href="#" class="text-danger">
+                                            <i class="far fa-heart answer1"></i>
+                                            <i class="fas fa-heart question1"></i>
+                                            پسندیدن
+                                        </a>
+                                        <span class="padding-4px text-white" style="border-radius: 50%; background-color: #dc3545;">124</span>
+                                    </div>
+                                    <div class="col-3 text-center"><a href="#" class="oc"><i class="fas fa-exclamation-triangle"></i> گزارش خطا</a></div>
 
-            </script>
+                                    <div class="col-3 text-center box">
+                                        <div class="branch">
+                                            <div class="node" id="facebook">
+                                                <a href="#">
+                                                    <i class="fab fa-facebook-f share-alt-icon"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stem"></div>
+                                        </div>
+                                        <div class="branch">
+                                            <div class="node" id="telegram">
+                                                <a href="#"><i class="fab fa-telegram-plane share-alt-icon"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stem"></div>
+                                        </div>
+                                        <div class="branch">
+                                            <div class="node" id="instagram">
+                                                <a href="#">
+                                                    <i class="fab fa-instagram share-alt-icon"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stem"></div>
+                                        </div>
+                                        <div class="branch">
+                                            <div class="node" id="whatsup">
+                                                <a href="#">
+                                                    <i class="fab fa-whatsapp share-alt-icon"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stem"></div>
+                                        </div>
+                                        <div class="branch">
+                                            <div class="node" id="twitter">
+                                                <a href="#">
+                                                    <i class="fab fa-twitter share-alt-icon"></i>
+                                                </a>
+                                            </div>
+                                            <div class="stem"></div>
+                                        </div>
+                                        <div class="main-button share-alt">
+                                            <div class="fa fa-share-alt fa-2x"></div>
+                                            اشتراک گذاری
+                                        </div>
 
-            <div class="container padding-0px">
+                                    </div>
+                                    <!--
+                                    <div class="box">
+                                        <a class="button" href="#popup1">Let me Pop up</a>
+                                    </div>
+                                    -->
+                                    <div id="popup1" class="overlay">
+                                        <div class="popup">
+                                            <a class="close" href="">&times;</a>
+                                            <div class="content">
+                                                <ul class="social-icon style-2 margin-tb-10px " style="font-size: 20px; text-align: center;">
 
-                <ul id="slide-out" class="sidenav" style="z-index: 1000 !important;">
+                                                    <li class="list-inline-item"><a class="telegram" href="#">
+                                                            <i class="fab fa-telegram text-primary margin-auto text-center"></i>
+                                                            <br />
+                                                            <p class="b1c pop-share-text">تلگرام</p>
+                                                        </a></li>
+                                                    <li class="list-inline-item"><a class="instagram" href="#">
+                                                            <i class="fab fa-instagram text-danger margin-auto text-center"></i>
+                                                            <br />
+                                                            <p class="b1c pop-share-text">اینستاگرام</p>
+                                                        </a></li>
+                                                    <li class="list-inline-item"><a class="twitter" href="#">
+                                                            <i class="fab fa-twitter text-info margin-auto text-center"></i>
+                                                            <br />
+                                                            <p class="b1c pop-share-text">توییتر</p>
+                                                        </a></li>
+                                                    <li class="list-inline-item"><a class="whatsapp" href="#">
+                                                            <i class="fab fa-whatsapp text-success margin-auto text-center"></i><br />
+                                                            <p class="b1c pop-share-text">واتساپ</p>
+                                                        </a></li>
 
-                    <li class="no-padding  direction-r">
-                        <ul class="collapsible collapsible-accordion">
-                            <li style="padding: 16px; background-color: #0f2938;">
-                                <div class="text-center">
-                                    <img class="w-75" src="static/assets/img/drman.net-logo.png" alt="logo"/>
+                                                </ul>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
-                            </li>
-
-                            {% for spec_root in spec_roots %}
-                            <li class="bold">
-                                <a class="collapsible-header waves-effect waves-teal"> <i class="fas fa-caret-down"></i>
-                                    {{ spec_root }}
-                                </a>
-                                <div class="collapsible-body">
-                                    <ul id="list" class="rightHiddenBox">
-                                        {% for child in spec_root.get_children %}
-
-                                        <li data-id={{ child }}>
-                                            <a href="#">{{ child }}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <ul class="nav nav-tabs doctor-tab" style="justify-content: normal; padding: 0px !important;">
+                    <li class="active doc bg-oc b1c">درباره دکتر احسان مقامی</li>
+                </ul>
+                <div class="margin-bottom-30px box-shadow">
+                    <div class="padding-20px background-white">
+                        <div class="tab-content clearfix">
+                            <!-- باکس راست مربوط به متن های بیوگرافی و خدمات پزشک -->
+                            <div class="col-12 float-left">
+                                <div class="tab-pane fade in opacity-10">
+                                    <div class="biographi">
+                                        <h4 class="b3c font-weight">بیوگرافی دکتر احسان مقامی</h4>
+                                        <p> دکتر احسان شریعتی عضو انجمن لیزر پزشکی ایران
+                                            دارنده مدرک معتبر skin Care</p>
+                                    </div>
+                                    <div class="doctor-service">
+                                        <h4 class="b3c font-weight">خدمات مطب دکتر احسان مقامی</h4>
+                                        <p>درمان انواع بیماری های پوستی و تومورهای خوش خیم و بدخیم</p>
+                                        <p>جراحی ضایعات پوستی و افتادگی پلک</p>
+                                        <p>تزریق بوتاکس و فیلر</p>
+                                        <p>جوانسازی صورت با میکرونیدلینگ - لیزر Co2 - لیزر Erbium</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- باکس چپ مربوط به فیلم پزشک -->
+                        <div class="row">
+                            <h4 class="b3c font-weight padding-tb-10px padding-right-40px">گالری تصاویر مطب دکتر احسان مقامی</h4>
+                            <div class="col-12 float-right text-center padding-lr-30px">
+                                <video class="w-100" controls>
+                                    <source src="#" type="video/mp4">
+                                    <source src="#" type="video/ogg">
+                                </video>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="col-12">
+                                    <ul class="pgwSlider">
+                                        <li>
+                                            <img src="https://static.pgwjs.com/img/pg/slider/paris.jpg" alt="clinic_picture" />
                                         </li>
-
-                                        {% endfor %}
-
+                                        <li>
+                                            <img src="https://static.pgwjs.com/img/pg/slider/montreal_mini.jpg" alt="clinic_picture" />
+                                        </li>
+                                        <li>
+                                            <img src="https://static.pgwjs.com/img/pg/slider/shanghai.jpg" alt="clinic_picture" />
+                                        </li>
+                                        <li>
+                                            <img src="https://static.pgwjs.com/img/pg/slider/new-york.jpg" alt="clinic_picture" />
+                                        </li>
                                     </ul>
                                 </div>
-                            </li>
-                            {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags-doc padding-20px">
+                        <p class="float-left b1c">برچسب :</p>
+                        <a href="#" class="tag-border">دکتراحسان مقامی</a>
+                        <a href="#" class="tag-border">متخصص</a>
+                        <a href="#" class="tag-border">چشم پزشکی</a>
+                        <a href="#" class="tag-border">کرج</a>
+                        <a href="#" class="tag-border">دکترمن</a>
+                    </div>
+                </div>
 
-                            <!--<li class="bold active"><a class="collapsible-header waves-effect waves-teal"><i-->
-                            <!--class="fas fa-caret-down"></i>-->
-                            <!--داروساز-->
-                            <!--</a>-->
-                            <!--<div class="collapsible-body">-->
-                            <!--<ul class="rightHiddenBox">-->
-                            <!--<li><a href="#">- داروساز</a></li>-->
-                            <!--</ul>-->
-                            <!--</div>-->
-                            <!--</li>-->
+            </div>
+            <div class="col-lg-4 direction-r float-left">
+                <div class="border-radius-10 margin-bottom-45px text-white box-shadow padding-20px b1c">
+                    <h3 class="padding-lr-10px padding-20px margin-top-0px line">
+                        اطلاعات مطب دکتر احسان مقامی
+                    </h3>
+                    <ul class="address margin-10px padding-0px">
+                        <li class="address">
+                            <i class="fas fa-map-marker-alt icon-size float-left b1c"></i>
+                            <p class="float-right width-box-address">کرج، بین چهارراه طالقانی و میدان شهدا، ساختمان پزشکان ایران زمین، طبقه اول </p>
+                            <div class="clearfix"></div>
+                        </li>
+                        <li class="numbers">
+                            <i class="fa fa-phone icon-size float-left"></i>
+                            <a href="tel:09211956545" class="b1c">
+                                <div id="number1" data-last="6545" class="width-box-address float-right direction-l">0921195<span>****</span></div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="numbers">
+                            <i class="fa fa-phone icon-size float-left"></i>
+                            <a href="tel:02633305487" class="b1c">
+                                <div id="number2" data-last="5487" class="width-box-address float-right direction-l">0263330<span>****</span></div>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="website">
+                            <i class="fa fa-globe icon-size float-left"></i>
+                            <a href=" http://drman.net" class="b1c">
+                                <p class="float-right width-box-address">
+                                    http://drman.net
+                                </p>
+                                <div class="clearfix"></div>
+                            </a>
+                        </li>
+                        <li class="SocialNetworks text-center">
+                            <a href="#" class="b1c" style="display: inline-block;">
+                                <i class="fab fa-telegram icon-size float-left text-primary"></i>
+                            </a>
+                            <a href="#" class="b1c" style="display: inline-block;"> <i class="fab fa-instagram icon-size float-left text-danger"></i>
+                            </a>
+                            <a href="#" class="b1c" style="display: inline-block;"> <i class="fab fa-whatsapp icon-size float-left text-success"></i>
+                            </a>
+                            <a href="#" class="b1c" style="display: inline-block;"> <i class="fab fa-twitter icon-size float-left text-info"></i>
+                            </a>
+                            <div class="clearfix"></div>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="margin-bottom-30px box-shadow">
+                    <div class="padding-30px background-white">
+                        <div class="clock-box">
+                            <h3 class="padding-bottom-5px" style="width: 85% !important; float: left;">
+                                ساعت کاری دکتر احسان مقامی
+                            </h3>
+                            <i class="far fa-map margin-left-10px" style="font-size: 18px; margin: 5px 5px 20px 0;"></i>
+
+                        </div>
+                        <hr>
+                        <div class="map-distributors-in">
+                            <div id="map-distributors">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white border-radius-10 margin-bottom-45px b1c box-shadow">
+                    <div class="clock-box">
+                        <h3 class="padding-left-30px padding-top-20px padding-right-0px margin-top-0px" style="width: 80% !important; float: left;">
+                            ساعت کاری دکتر احسان مقامی یتنساذزبسیلازبلب
+                        </h3>
+                        <i class="far fa-clock margin-left-10px" style="font-size: 18px; margin: 25px 30px 20px 0;"></i>
+
+                    </div>
+                    <div class="padding-bottom-30px">
+                        <ul class="time-work padding-0px margin-0px">
+                            <li class="padding-lr-30px padding-tb-10px"> شنبه <span class="Hours-work">10:00 صبح - 5:00 بعدازظهر</span></li>
+                            <li class="padding-lr-30px padding-tb-10px bg-grey">یک شنبه <span class="Hours-work">10:00 صبح - 5:00 بعدازظهر</span></li>
+                            <li class="padding-lr-30px padding-tb-10px">دوشنبه <span class="Hours-work">10:00 صبح - 5:00 بعدازظهر</span></li>
+                            <li class="padding-lr-30px padding-tb-10px bg-grey">سه شنبه <span class="Hours-work">10:00 صبح - 5:00 بعدازظهر</span></li>
+                            <li class="padding-lr-30px padding-tb-10px">چهارشنبه <span class="Hours-work">10:00 صبح - 5:00 بعدازظهر</span></li>
+                            <li class="padding-lr-30px padding-tb-10px bg-grey">پنج شنبه <span class="Hours-work">10:00 صبح - 5:00 بعدازظهر</span></li>
+                            <li class="padding-lr-30px padding-tb-10px">جمعه <span class="Hours-work">تعطیل</span></li>
                         </ul>
-                    </li>
-                </ul>
-            </div>
-        </main>
-
-    </div>
-
-</section>
-<!-- // header search and categorie -->
-<!-- drman Services and story -->
-<section class="padding-bottom-12px background-grey-1" id="service">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 main-categorie">
-                <div class="featured-categorey">
-                    <div class="row padding-0px">
-                        <div class="col-lg-2 col-4 mar wow fadeInUp padding-tb-5px padding-lr-10px">
-                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
-                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
-                                    <div class="icon opacity-7">
-                                        <img src="static/assets/images/4212196-48.png" alt="Laboratory">
-                                    </div>
-                                    آزمایشگاه
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 col-4 wow fadeInUp padding-tb-5px padding-lr-10px" data-wow-delay="0.6s">
-                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
-                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
-                                    <div class="icon opacity-7">
-                                        <img src="static/assets/images/iconfinder_Artboard_2_3872550.png"
-                                             alt="drugstore">
-                                    </div>
-                                    داروخانه
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 col-4 mar wow fadeInUp padding-tb-5px padding-lr-10px"
-                             data-wow-delay="0.2s">
-                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
-                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
-                                    <div class="icon opacity-7">
-                                        <img src="static/assets/images/3872567-48.png" alt="Health Center">
-                                    </div>
-                                    مرکز بهداشت
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 col-4 wow fadeInUp padding-tb-5px padding-lr-10px" data-wow-delay="0.6s">
-                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
-                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
-                                    <div class="icon opacity-7">
-                                        <img src="static/assets/images/3872563-48.png" alt="home">
-                                    </div>
-                                    خانه سالمندان / خانه گرم
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="col-lg-2 col-4 wow fadeInUp padding-tb-5px padding-lr-10px" data-wow-delay="0.4s">
-                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
-                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
-                                    <div class="icon">
-                                        <img src="static/assets/images/iconfinder_Injection_2415602-(1).png"
-                                             alt="Addiction Treatment Center">
-                                    </div>
-                                    مرکز ترک اعتیاد
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 col-4 mar wow fadeInUp padding-tb-5px padding-lr-10px">
-                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
-                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
-                                    <div class="icon opacity-7">
-                                        <img src="static/assets/images/4212193-48.png" alt="Private practice room">
-                                    </div>
-                                    اتاق عمل خصوصی
-                                </div>
-                            </a>
-                        </div>
                     </div>
-
                 </div>
             </div>
-            <div class="col-md-12 wow fadeInUp">
-                <h2 class="font-weight-300 text-center margin-tb-15px b2c font-weight">خدمات دکترمن</h2>
-            </div>
-            <div class="col-md-12 wow fadeInUp text-center margin-bottom-50px" data-wow-delay="0.2s">
-                <h6 class="b2c">معرفی خدمات دکترمن </h6>
-            </div>
-            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp">
-                <div class="service text-center hvr-bob">
-                    <div class="icon margin-bottom-10px">
-                        <img src="static/assets/images/radio.png" alt="doctor radio">
+            <div class="col-lg-8 direction-r bg-white float-right margin-bottom-45px box-shadow clearfix padding-bottom-30px">
+                <div class="padding-30px">
+                    <div class="col-3 text-center float-left">
+                        <h3 class="b3c"><i class="far fa-star margin-left-10px b3c font-weight"></i>پرسش و پاسخ</h3>
                     </div>
-                    <h3 class="oc">رادیو پزشک من</h3>
-                    <p class="b1c margin-tb-25px">دکترمن سعی داشته تا بتواند در کوتاه هترین زمان ممکن نیاز سلامت جو در
-                        راستای یافتن نزدیک ترین پزشک از لحاظ جغرافیایی بر اساس مکان سلامت جو را، تامین نماید.</p>
+                    <div class="col-3 text-center float-right"><a href="#" class="b3c"><i class="far fa-comment-dots margin-right-10px"></i> تعداد کامنت</a>
+                        <span class="bg-oc padding-4px text-white" style="border-radius: 50%;">124</span>
+                    </div>
+                    <hr style="    margin-top: 4rem;" />
+                    <div class="col-lg-6 col-12 float-left">
+                        <ul class="question-answer">
+                            <li class="padding-10px clearfix border-bottom">
+                                <div class="col-4 float-left padding-0px"> <img src="assets/img/testimonial-1.png" alt="user-picture" />
+                                </div>
+                                <div class="col-8 float-left padding-0px">
+                                    <div class="user-question float-right">
+
+                                        <a class="d-inline-block oc text-medium margin-left-20px" href="#">رضوانه </a>
+                                        <span class="text-extra-small b2c">تاریخ : 15 آبان 1397</span>
+                                        <p>دکتر راه حل های رفع جای جوش رو میشه لطف کنید بفرمایید؟</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="padding-10px clearfix border-bottom">
+                                <div class="col-4 float-left padding-0px"> <img src="assets/img/testimonial-1.png" alt="user-picture" />
+                                </div>
+                                <div class="col-8 float-left padding-0px">
+                                    <div class="user-question float-right">
+
+                                        <a class="d-inline-block oc text-medium margin-left-20px" href="#">رضوانه </a>
+                                        <span class="text-extra-small b2c">تاریخ : 15 آبان 1397</span>
+                                        <p>دکتر راه حل های رفع جای جوش رو میشه لطف کنید بفرمایید؟</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="padding-10px clearfix">
+                                <div class="col-4 float-left padding-0px"> <img src="assets/img/testimonial-1.png" alt="user-picture" />
+                                </div>
+                                <div class="col-8 float-left padding-0px">
+                                    <div class="user-question float-right">
+
+                                        <a class="d-inline-block oc text-medium margin-left-20px" href="#">رضوانه </a>
+                                        <span class="text-extra-small b2c">تاریخ : 15 آبان 1397</span>
+                                        <p>دکتر راه حل های رفع جای جوش رو میشه لطف کنید بفرمایید؟</p>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6 col-12 float-right border-right-form">
+                        <h3 class="b3c"><i class="far fa-star margin-left-10px b3c font-weight"></i> سوال بپرسید... </h3>
+                        <form>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label>نام </label>
+                                    <input type="text" class="form-control padding-15px" id="inputName4" placeholder="نام">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label>ایمیل</label>
+                                    <input type="email" class="form-control padding-15px" id="inputEmail4" placeholder="ایمیل">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>پرسش :</label>
+                                <textarea class="form-control" style="height: 120px !important;" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            </div>
+                            <a href="#" class="btn-sm btn-lg btn-block bg-oc b1c text-center font-weight-bold text-uppercase border-radius-10 padding-10px send">ارسال !</a>
+                        </form>
+                    </div>
                 </div>
             </div>
+            <div class="col-lg-4 direction-r float-left clearfix float-right agahi">
+                <!-- Introducing the doctor -->
 
-
-            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp" data-wow-delay="0.2s">
-                <div class="service text-center hvr-bob">
-                    <div class="icon margin-bottom-10px">
-                        <img src="static/assets/images/question.png" alt="question and answer">
-                    </div>
-                    <h3 class="oc">پرسش و پاسخ</h3>
-                    <p class="b1c margin-tb-25px">در عین حال، اطلاعات افزون، شامل عکس از محیط و تخصص ها یا تجربیات علمی
-                        پزشک یا تیم پزشکی فعال در مطب یا مرکز درمان ارائه می نماید.</p>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                    <a href="http://drman.net">
+                        <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                    </a>
                 </div>
-            </div>
-
-
-            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp" data-wow-delay="0.4s">
-                <div class="service text-center hvr-bob">
-                    <div class="icon margin-bottom-10px">
-                        <img src="static/assets/images/file.png" alt="Medical records">
-                    </div>
-                    <h3 class="oc">پرونده پزشکی</h3>
-                    <p class="b1c margin-tb-25px">دکتر من، اطلاعات تماس و مشخصات کلیه مراکز درمان شامل آدرس، شماره تلفن،
-                        ساعات کار و... برای آشنایی بیشتر کاربران در اختیار مراجعین یا سلامت جویان قرار می دهد.</p>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                    <a href="http://drman.net">
+                        <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                    </a>
                 </div>
-            </div>
-
-
-            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp" data-wow-delay="0.6s">
-                <div class="service text-center hvr-bob">
-                    <div class="icon margin-bottom-10px">
-                        <img src="static/assets/images/online.png" alt="online queuing">
-                    </div>
-                    <h3 class="oc">نوبت دهی آنلاین</h3>
-                    <p class="b1c margin-tb-25px">استارت‌آپ دکتر من ارائه کننده خدمات دایرکتوری اطلاعات پزشکان و کلینیک
-                        های پزشکی می باشد.</p>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                    <a href="http://drman.net">
+                        <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                    </a>
                 </div>
+                <div class="col-lg-12 col-md-6 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                    <a href="http://drman.net">
+                        <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/10/avin_fattahi_banner.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                    </a>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-6 col-xs-12 poster text-center margin-bottom-20px">
+                    <a href="http://drman.net">
+                        <img width="320" height="140" src="https://drman.net/wp-content/uploads/2018/11/samak_alborz.gif" class="image wp-image-5522  attachment-full size-full" alt="" />
+                    </a>
+                </div>
+                <!-- // Introducing the doctor -->
             </div>
         </div>
     </div>
-</section>
-<!-- // drman Services and story -->
 
 
-<!-- Introducing the doctor -->
-<section class="padding-tb-100px ">
-    <div class="container">
-        <!-- Title -->
-        <div class="row justify-content-center margin-bottom-45px">
-            <div class="col-lg-10">
-                <div class="row">
-                    <div class="col-md-12 wow fadeInUp">
-                        <h2 class="font-weight-300 text-center margin-tb-15px b2c font-weight">معرفی پزشکان و مراکز
-                            درمانی</h2>
-                    </div>
-                    <div class="col-md-12 wow fadeInUp text-center" data-wow-delay="0.2s">
-                        <h6 class="b2c">معرفی پزشکان و مراکز درمانی بر اساس بازدید کاربران </h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- // Title -->
+<!------------------------- // Append doctor's details page Content to base.html  -------------------------->
 
-        <div class="row">
-
-            {% get_most_viewed_posts as most_viewed_posts %}
-
-            {% for post in most_viewed_posts %}
-            <!-- Doctor -->
-            <div class="col-lg-3 col-md-3 col-6 hvr-bob sm-mb-45px margin-bottom-30px">
-                <div class="background-white box-shadow wow fadeInUp" data-wow-delay="0.2s">
-
-
-                    <!--<li><a href="{{ post.get_absolute_url }}"></a>-->
-                    <!--</li>-->
-
-
-                    <div class="thum">
-                        <a href="{{ post.get_absolute_url }}"><img src="{% thumbnail post.thumbnailImage 260x260 crop %}" alt="doctor picture">
-
-                        </a>
-
-                        {% is_open post.id as open %}
-                        {% if open %}
-                        <a class="text-dark" href="{{ post.get_absolute_url }}"><span
-                                class="bg-oc">  اکنون باز است،</span></a>
-                        {% else %}
-                        <a class="text-dark" href="{{ post.get_absolute_url }}"><span class="bg-oc">اکنون بسته است.<br/>
-                                        <!--مطب روز-->
-
-                                        <!--{% next_time_open post.id as next %}-->
-                                        <!--{{ next.get_weekday_display }} ساعت {{ next.from_hour }}-->
-                                        <!--باز خواهد شد.-->
-                                    </span></a>
-                        {% endif %}
-
-
-                    </div>
-                    <div class="padding-15px text-center">
-                        <h5><a class="text-dark" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
-                        <div class="clearfix">
-                            <p class="b2c">
-                                {% for cat in post.spec_category.all %}
-                                <a href="{% url "Doctors:post_list_by_cat" cat.slug %}">
-                                {{ cat.name }}
-                                </a>
-                                {% if not forloop.last %}, {% endif %}
-                                {% endfor %}
-                            </p>
-
-                            <small class="b3c">({{ post.questionviews.count }} بازدید)</small>
-                            <a href="#" class="text-red font-12"><i class="far fa-heart margin-lr-5px"></i>{{ post.total_likes }} لایک </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-            <!-- // Doctor -->
-
-
-        </div>
-    </div>
-</section>
-<!-- // Introducing the doctor -->
-
-<!-- blog -->
-<section class="padding-tb-100px background-grey-1">
-    <div class="container">
-        <!-- Title -->
-        <div class="row justify-content-center margin-bottom-45px">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-md-12 wow fadeInUp">
-                        <h2 class="font-weight-300 text-center margin-tb-15px b2c font-weight">
-                            بلاگ
-                            <br/>
-                            جدیدترین اخبار و مقالات</h2>
-                    </div>
-                    <div class="col-md-12 wow fadeInUp text-center" data-wow-delay="0.2s">
-                        <h6 class="b2c">آخرین اخبار دنیای پزشکی و سلامت را در این بخش مطالعه نمایید...</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- // Title -->
-
-
-    </div>
-</section>
-<!--  // blog  -->
-
-
-
-
+<!------------------------------------- // Append JavaScript to base.html  --------------------------------->
 {% block extrahead %}
 
 {{ block.super }}
 
-<!-- jquery library  -->
-<script src="/static/assets/js/jquery-3.2.1.min.js"></script>
+<!-- fontawesome  -->
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+<!--  gallery slider  -->
+<script src="/static/assets/slider-js.js"></script>
 
-<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
-        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
-        crossorigin="anonymous"></script>
+<script>
+        $('.pgwMenu').pgwMenu();
+        $('a[data-goto]').click(function() {
+            pgwjs.goTo($(this).attr('data-goto'));
+        });
+        var pgwSlider = $('.pgwSlider').pgwSlider();
 
-<!-- script -->
+        function reloadSlider() {
+            var newConfig = {};
+            var listPosition = $('input[name=\"listPosition\"]:checked').val();
+            if (listPosition == 'none') {
+                newConfig.displayList = false;
+            } else {
+                newConfig.listPosition = listPosition;
+            }
+            newConfig.selectionMode = $('input[name=\"selectionMode\"]:checked').val();
+            newConfig.transitionEffect = $('input[name=\"transitionEffect\"]:checked').val();
+            if ($('#displayControls:checked').val() == 'true') {
+                newConfig.displayControls = true;
+            }
+            if ($('#verticalCentering:checked').val() == 'true') {
+                newConfig.verticalCentering = true;
+            }
+            if ($('#adaptiveHeight:checked').val() == 'true') {
+                newConfig.adaptiveHeight = true;
+            }
+            if ($('#maxHeight:checked').val() == 'true') {
+                newConfig.maxHeight = 300;
+            }
+            pgwSlider.reload(newConfig);
+        }
+        $('.sliderConfig input').bind('change', function() {
+            reloadSlider()
+        });
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-59412371-1', 'auto');
+        ga('send', 'pageview');
 
-<script src="/static/js/jquery-3.3.1.min.js" type="text/javascript"></script>
-<script src="/static/assets/js/ajax.js" type="text/javascript"></script>
-<script src="/static/assets/js/select2.full.js"></script>
-<script src="/static/assets/js/bootstrap.min.js"></script>
-<script src="/static/assets/js/anchor.min.js"></script>
 
 
+</script>
+
+<!--  menu  -->
+<script>
+        $(document).ready(function() {
+            var sideslider = $('[data-toggle=collapse-side]');
+            var sel = sideslider.attr('data-target');
+            var sel2 = sideslider.attr('data-target-2');
+            sideslider.click(function(event) {
+                $(sel).toggleClass('in');
+                $(sel2).toggleClass('out');
+            });
+        });
+
+    </script>
+
+<!-- Like Post -->
+<script>
+        $('#number1 , #number2').click(function() {
+            $(this).find('span').text($(this).data('last'));
+        });
+
+
+
+</script>
+<script>
+        $('#number1 , #number2').click(function() {
+            $(this).find('span').text($(this).data('last'));
+        });
+
+        $('div .box-answer').click(function() {
+            $('.answer1').css({
+                display: 'none',
+            });
+
+            $('.question1').css({
+                display: 'inline-block',
+            });
+        });
+
+</script>
+
+<!-- Share Post -->
+<script>
+        $(document).ready(function() {
+            $('.share-alt').on('click', function(e) {
+                $(".branch").removeClass("no-animation");
+                $('.branch').toggleClass("open");
+
+            });
+        });
+</script>
+
+<!-- auto complete search-->
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
 
 
@@ -682,12 +567,12 @@
 
                     $('#ajab').keyup(search);
 
+
                 });
 
 
                 function callback(response) {
                   return_first = response;
-
                     $( "#ajab" ).autocomplete({
                       source: return_first,
                       select: function (){
@@ -726,311 +611,9 @@
 
 </script>
 
-
-<script type="text/javascript">
-$(document).ready(()=>{
-anchors.options.placement = 'right';
-anchors.add('.container h1, .container h2, .container h3, .container h4, .container h5');
-
-// Set the "bootstrap" theme as the default theme for all Select2
-// widgets.
-//
-// @see https://github.com/select2/select2/issues/2927
-$.fn.select2.defaults.set("theme", "bootstrap");
-
-$(".city1").select2({
-placeholder: "استان",
-width: null,
-containerCssClass: ':all:'
-});
-$(".city2").select2({
-placeholder: "منطقه",
-width: null,
-containerCssClass: ':all:'
-});
-$(".city3").select2({
-placeholder: "زیرمجموعه",
-width: null,
-containerCssClass: ':all:'
-});
-
-$(".select2-allow-clear").select2({
-allowClear: true,
-placeholder: placeholder,
-
-width: null,
-containerCssClass: ':all:'
-});
-
-// @see https://select2.github.io/examples.html#data-ajax
-function formatRepo(repo) {
-if (repo.loading) return repo.text;
-
-var markup = "<div class='select2-result-repository clearfix'>" +
-"<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
-"<div class='select2-result-repository__meta'>" +
-"<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
-
-if (repo.description) {
-markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
-}
-
-markup += "<div class='select2-result-repository__statistics'>" +
-"<div class='select2-result-repository__forks'><span class='glyphicon glyphicon-flash'></span> " + repo.forks_count + " Forks</div>" +
-"<div class='select2-result-repository__stargazers'><span class='glyphicon glyphicon-star'></span> " + repo.stargazers_count + " Stars</div>" +
-"<div class='select2-result-repository__watchers'><span class='glyphicon glyphicon-eye-open'></span> " + repo.watchers_count + " Watchers</div>" +
-"</div>" +
-"</div></div>";
-
-return markup;
-}
-
-function formatRepoSelection(repo) {
-return repo.full_name || repo.text;
-}
-
-$(".js-data-example-ajax").select2({
-width: null,
-containerCssClass: ':all:',
-ajax: {
-url: "https://api.github.com/search/repositories",
-dataType: 'json',
-delay: 250,
-data: function(params) {
-return {
-q: params.term, // search term
-page: params.page
-};
-},
-processResults: function(data, params) {
-// parse the results into the format expected by Select2
-// since we are using custom formatting functions we do not need to
-// alter the remote JSON data, except to indicate that infinite
-// scrolling can be used
-params.page = params.page || 1;
-
-return {
-results: data.items,
-pagination: {
-more: (params.page * 30) < data.total_count
-}
-};
-},
-cache: true
-},
-escapeMarkup: function(markup) {
-return markup;
-}, // let our custom formatter work
-minimumInputLength: 1,
-templateResult: formatRepo,
-templateSelection: formatRepoSelection
-});
-
-$("button[data-select2-open]").click(function() {
-$("#" + $(this).data("select2-open")).select2("open");
-});
-
-$(":checkbox").on("click", function() {
-$(this).parent().nextAll("select").prop("disabled", !this.checked);
-});
-
-// copy Bootstrap validation states to Select2 dropdown
-//
-// add .has-waring, .has-error, .has-succes to the Select2 dropdown
-// (was #select2-drop in Select2 v3.x, in Select2 v4 can be selected via
-// body > .select2-container) if _any_ of the opened Select2's parents
-// has one of these forementioned classes (YUCK! ;-))
-$(".select2-single, .select2-multiple, .select2-allow-clear, .js-data-example-ajax").on("select2:open", function() {
-if ($(this).parents("[class*='has-']").length) {
-var classNames = $(this).parents("[class*='has-']")[0].className.split(/\s+/);
-
-for (var i = 0; i < classNames.length; ++i) {
-if (classNames[i].match("has-")) {
-$("body > .select2-container").addClass(classNames[i]);
-}
-}
-}
-});})
-
-
-
-
-
-
-
-
-
-
-
-</script>
-<script src="/static/assets/js/owl.carousel.min.js"></script>
-<script src="/static/assets/js/imagesloaded.min.js"></script>
-<script src="/static/assets/js/wow.min.js"></script>
-<script src="/static/assets/js/custom.js"></script>
-<script src="/static/assets/js/materialize.js"></script>
-<script src="/static/assets/js/init.js"></script>
-
-
-<script>
-    $(document).ready(()=>{
-        $('.rightHiddenBox > li').click(function() {
-            $('#takhasos').text($('.bold.active > a').text());
-            $('.sidenav.right-aligned').css({
-                transform: 'translateX(105%)',
-            });
-
-            $('.sidenav-overlay').css({
-                display: 'none',
-                opacity: '0'
-            });
-            $('body').css({
-                overflow: 'auto',
-            });
-        });
-
-        $('#btn-takhasos').click(function() {
-            $('.sidenav.right-aligned').css({
-                transform: 'translateX(0%)',
-                transition: 'all 0.25s ease-out',
-
-            });
-
-            $('.sidenav-overlay').css({
-                display: 'block',
-                opacity: '1',
-                overflowY: 'auto',
-            });
-            $('body').css({
-                overflow: 'hidden',
-            });
-        });
-     });
-
-<!--var checkboxes = $("#list li a");-->
-
-<!--input = jQuery('<input name="myname">');-->
-
-     <!--checkboxes.click(function() {-->
-     <!--checkboxes.append(input);-->
-  <!--checkboxes.attr("name", "active");-->
-  <!--$(this).attr("name", "active");-->
-<!--});-->
-
-
-<!--var checkboxes = $("#list li a");-->
-
-<!--$('#list li').click(function() {-->
-  <!--var textLoaded = $(this).data('id');-->
- <!--$('#list li').attr("name", textLoaded);-->
-   <!--$(this).attr("name", textLoaded);-->
-<!--});-->
-
-$('#list li').click(function(e) {
-  e.preventDefault();
-  var textLoaded = $(this).data('id');
-  $(this).removeClass("active");
-  $(this).addClass("active");
-  $("#specialty").val($(this).data('id'));
-
-});
-
-
-<!--$("form[name=search]").submit(function(e) {-->
-    <!--if ($(this).find("#list li.active").length == 0) {-->
-        <!--alert( "Please select a size." );-->
-        <!--e.preventDefault();-->
-    <!--}-->
-<!--});-->
-
-
-
-
-
-
-
-
-
-</script>
-
-<script type="text/javascript">
-         $(document).ready(function(){
-
-    $('#brand').change(function() {populateCar()});
-
-    var brands = {{ loc_roots|safe }} ;
-    var cars = {{ loc_list|safe }} ;
-    var carselect = {{ loc_list_select|safe }}
-
-
-    <!--var brands = var optionSelected = $(this).find("option:selected");-->
-   				 <!--var valueSelected  = optionSelected.val();-->
-     			 <!--var country_name   = optionSelected.text();-->
-                    <!--alert(country_name);-->
-
-    populateBrand()
-    populateCarFirst()
-
-
-    function populateCarFirst() {
-        <!--$("#car").empty();-->
-        $("#car").append('<option value="" disabled selected>Select your option</option>');
-        $.each(car, function(v) {
-            $('#car')
-                .append($("<option></option>")
-                .attr("value", carselect[v])
-                .text(carselect[v]));
-        })
-    }
-
-
-    function populateBrand() {
-        $("#brand").empty();
-        $("#brand").append('<option value="" disabled selected>Select your option</option>');
-        $.each(brands, function(v) {
-            $('#brand')
-                .append($("<option></option>")
-                .attr("value", brands[v])
-                .text(brands[v]));
-        })
-    }
-
-
-    function populateCar(event) {
-        brand = $("#brand option:selected" ).text();
-        $("#car").empty();
-        for (let [k, v] of Object.entries(cars)) {
-            if(k==brand) {
-                for (car in cars[brand]) {
-                    var opt = document.createElement("option");
-                     $('#car')
-                         .append($("<option></option>")
-                         .attr("value", cars[brand][car])
-                         .text(cars[brand][car]));
-                }
-            };
-        }
-    }
-
-});
-
-
-
-
-
-
-</script>
-<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-
-
-<!-- // script -->
-
 {% endblock %}
 
+<!----------------------------- // Append JavaScript to base.html  --------------------------------------->
 
 {% endblock %}
-
-</body>
-
-
-</html>
+<!------------------------- // Append doctor's details page Content to base.html  ------------------------>

@@ -85,6 +85,16 @@ def core_search(query):
 #     }
 # }
 
+# PUT doctor/_settings
+# {
+#   "index": {
+#     "blocks": {
+#       "read_only_allow_delete": "false"
+#     }
+#   }
+# }
+
+
 # ToDo: if we have not mapping index in kibana at first time , make it automatically
 # ToDo: if we don't save any post , we get error in auto complete
 def completion_suggester(request) :
@@ -108,6 +118,7 @@ def completion_suggester(request) :
 
     results = ss.execute()
 
+    # TODO: follow document and use source for choose only attributes that need
     for result in results.suggest.title_suggestions:
         suggest = []
         for result_title in result.options:

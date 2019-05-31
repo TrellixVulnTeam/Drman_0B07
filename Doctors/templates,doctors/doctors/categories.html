@@ -1,0 +1,94 @@
+{% load static  %}
+{% block title %}My Blog{% endblock %}
+
+{% block content %}
+
+<div class="select-style">
+    <br />Brand:
+    <select required id="brand">
+    </select>
+
+    <br />
+    <br />Car:
+    <select id="car" >
+        <option value=""> </option>
+    </select>
+  </div>
+{{ list }}
+
+<script type="text/javascript">
+
+    alert( '{{ loc_roots }}' );
+    alert( '{{ list }}' );
+
+</script>
+
+
+
+
+
+{% block extrahead %}
+
+{% endblock %}
+
+
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+         $(document).ready(function(){
+
+    $('#brand').change(function() {populateCar()});
+
+
+    var brands = {{ loc_roots|safe }} ;
+    var cars = {{ list|safe }} ;
+
+
+
+    <!--var brands = var optionSelected = $(this).find("option:selected");-->
+   				 <!--var valueSelected  = optionSelected.val();-->
+     			 <!--var country_name   = optionSelected.text();-->
+                    <!--alert(country_name);-->
+
+    populateBrand()
+
+
+    function populateBrand() {
+        $("#brand").empty();
+        $("#brand").append('<option value="" disabled selected>Select your option</option>');
+        $.each(brands, function(v) {
+            $('#brand')
+                .append($("<option></option>")
+                .attr("value", brands[v])
+                .text(brands[v]));
+        })
+    }
+
+
+    function populateCar(event) {
+        brand = $("#brand option:selected" ).text();
+        $("#car").empty();
+        for (let [k, v] of Object.entries(cars)) {
+            if(k==brand) {
+                for (car in cars[brand]) {
+                    var opt = document.createElement("option");
+                     $('#car')
+                         .append($("<option></option>")
+                         .attr("value", cars[brand][car])
+                         .text(cars[brand][car]));
+                }
+            };
+        }
+    }
+
+});
+    </script>
+
+
+
+{% endblock %}
+

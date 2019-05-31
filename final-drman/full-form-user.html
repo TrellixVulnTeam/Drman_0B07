@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>تکمیل ثبت نام بیمار</title>
+    <link href='assets/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <link href='assets/css/form.css' rel='stylesheet' type='text/css'>
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <!--  جیکوئری مربوط به آپلود عکس اول  -->
+    <script>
+        $(document).ready( function() {
+    	$(document).on('change', '.btn-file :file', function() {
+		var input = $(this),
+			label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+		input.trigger('fileselect', [label]);
+		});
+
+		$('.btn-file :file').on('fileselect', function(event, label) {
+		    
+		    var input = $(this).parents('.input-group').find(':text'),
+		        log = label;
+		    
+		    if( input.length ) {
+		        input.val(log);
+		    } else {
+		        if( log ) alert(log);
+		    }
+	    
+		});
+		function readURL(input) {
+		    if (input.files && input.files[0]) {
+		        var reader = new FileReader();
+		        
+		        reader.onload = function (e) {
+		            $('#img-upload').attr('src', e.target.result);
+		        }
+		        
+		        reader.readAsDataURL(input.files[0]);
+		    }
+		}
+
+		$("#imgInp").change(function(){
+		    readURL(this);
+		}); 	
+	});
+        </script>
+</head>
+
+<body>
+    <div class='container'>
+        <div class='panel text-white dialog-panel margin-top-30px'>
+            <div class='panel-heading'>
+                <h5 style="margin-right: 30px">تکمیل ثبت نام بیمار</h5>
+            </div>
+            <div class='panel-body'>
+                <div class="col-lg-10 col-12" style="margin: auto; display: block; text-align: right;">
+                    <p class="text-center text-red padding-top-20px"> * اطلاعاتی که در این قسمت وارد می نمایید محرمانه بوده و قابل رویت باقی کاربران نمی باشد. </p>
+                    <!--                    <p class="text-center text-danger"> پرکردن قسمت هایی که با * مشخص شده اند الزامی می باشد. </p>-->
+
+                    <form class='form-horizontal' style="margin-top: 50px;">
+                        <div class='col-12 form-group'>
+
+
+
+                            <div class='col-3 float-left'>
+                                <div class='form-group internal'>
+                                    <input class='form-control' id='id_last_name' placeholder='نام خانوادگی' type='text'>
+                                </div>
+                            </div>
+                            <div class='col-3 float-left indent-small'>
+                                <div class='form-group internal'>
+                                    <input class='form-control' id='id_first_name' placeholder='نام' type='text'>
+                                </div>
+                            </div>
+                            <div class='col-3 float-left'>
+                                <div class='form-group indent-small'>
+                                    <select class='form-control' id='id_title'>
+                                        <option>جنسیت</option>
+                                        <option>آقا</option>
+                                        <option>خانم</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label class='control-label col-2' for='id_title'>نام</label>
+                        </div>
+                        <div class='col-12 form-group'>
+                            <div class='col-3 float-left'>
+                                <div class='form-group'>
+                                    <input class='form-control' id='id_children_free' placeholder='روز' type='number' min="0" max="31">
+                                </div>
+                            </div>
+                            <div class='col-3 float-left indent-small'>
+                                <div class='form-group internal'>
+                                    <input class='form-control' id='id_children' placeholder='ماه' type='number' min="1" max="12">
+                                </div>
+                            </div>
+                            <div class='col-3 float-left'>
+                                <div class='form-group indent-small'>
+                                    <input class='form-control' id='id_adults' placeholder='سال' type='number' min="1300" max="1398">
+                                </div>
+                            </div>
+                            <label class='control-label col-2' for='id_adults'>تاریخ تولد</label>
+                        </div>
+                        <div class='col-12 form-group'>
+                            <div class='col-9 float-left'>
+                                <input class='form-control' id='id_id' placeholder='کد ملی' type='text'>
+                            </div>
+                            <label class='control-label col-3 '>کدملی</label>
+                        </div>
+                        <div class='col-12 form-group'>
+                            <div class='col-9 float-left'>
+                                <input class='form-control' id='id_email' placeholder='example@yahoo.com' type='email' style="padding-left: 32px;"><i class="fas fa-at icons"></i>
+                            </div>
+                            <label class='control-label col-3 '> ایمیل </label>
+                        </div>
+                        <div class='col-12 form-group'>
+                            <div class='col-4 margin-5px padding-0px float-left'>
+                                <input class='form-control' id='id_phone3' placeholder='شماره تلفن ثابت ' type='text'><i class="fas fa-phone icons"></i>
+                            </div>
+                            <div class='col-4 margin-5px float-left padding-0px'>
+                                <input class='form-control' id='id_phone1' placeholder=' شماره موبایل' type='text'><i class="fas fa-mobile-alt icons"></i>
+                            </div>
+                            <label class='control-label col-3'>شماره تماس</label>
+                        </div>
+                        <div class='col-12 form-group'>
+                            <div class='col-6 float-left'>
+                                <div class="input-group">
+                                    <span class="input-group-btn">
+                                        <span class="btn btn-warning btn-file">
+                                            Browse… <input type="file" id="imgInp">
+                                        </span>
+                                    </span>
+                                    <input type="text" class="form-control" readonly>
+                                </div>
+                                <img id='img-upload' src="#" alt="" />
+                            </div>
+                            <label class='control-label col-6 '>آپلود عکس پروفایل</label>
+                        </div>
+
+                        <div class='col-12 form-group'>
+                            <div class='col-4 ok-btn'>
+                                <button class='btn-lg' type='submit'>تایید اطلاعات</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- fontawesome  -->
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+
+
+</body>
+</html>

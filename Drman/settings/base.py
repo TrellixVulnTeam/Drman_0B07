@@ -1,5 +1,4 @@
 from django.urls import reverse_lazy
-from . import settings as settings
 from django.utils.translation import ugettext_lazy as _
 
 """

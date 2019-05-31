@@ -1,0 +1,1036 @@
+{% extends "doctors/base.html" %}
+{% load doctors_tags %}
+{% load openinghours_tags %}
+{% load thumbnail %}
+{% load static %}
+
+<!--ToDo: when we extend 'base' don't have any html and body tags.-->
+<html lang="fa">
+<head>
+
+    {% block title %}دکترمن{% endblock %}
+
+    <meta name="author" content="Nile-Theme"/>
+    <meta name="robots" content="index follow"/>
+    <meta name="googlebot" content="index follow"/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta name="keywords"
+          content="directory, doctor, doctor directory, Health directory, listing, map, medical, medical directory, professional directory, reservation, reviews"/>
+    <meta name="description" content="Health Care & Medical Services Directory"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    {% block extrastyle %}
+    <!-- animate -->
+    <link rel="stylesheet" href="/static/assets/css/animate.css"/>
+    <!-- owl Carousel assets -->
+    <link href="/static/assets/css/owl.carousel.css" rel="stylesheet"/>
+    <link href="/static/assets/css/owl.theme.css" rel="stylesheet"/>
+    <!-- hover anmation -->
+    <link rel="stylesheet" href="/static/assets/css/hover-min.css"/>
+    <!-- flag icon -->
+    <link href="/static/assets/css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/static/assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/static/assets/css/select2.min.css"/>
+    <link rel="stylesheet" href="/static/assets/css/select2-bootstrap.css"/>
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.1.3/css/bootstrap.min.css"
+          integrity="sha384-Jt6Tol1A2P9JBesGeCxNrxkmRFSjWCBW1Af7CSQSKsfMVQCqnUVWhZzG0puJMCK6" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/static/assets/css/style.css"/>
+
+
+    {% endblock %}
+
+
+</head>
+
+{% block content %}
+
+<body>
+
+<!--TODO : this is really important!! make dynamic header and same for all pages.-->
+    <!-- header-->
+    <header>
+        <div id="fixed-header-dark" class="header-output fixed-header">
+            <div class="col-lg-2 col-md-10">
+                <a class="mobile-toggle padding-13px bg-b1c" href="#"><i class="zmdi zmdi-menu"></i></a>
+            </div>
+            <div><a id="logo" href="index.html"><img src="/static/assets/img/drman.net-logo.png" alt="logo" /></a></div>
+            <div class="container-fluid header-in">
+                <div class="row padding-8px margin-0px float-left">
+                    <div class="col-12 position-inherit w-100">
+                        <ul id="menu-main" class="nav-menu float-lg-right link-padding-tb-20px">
+                            <li><a href="index.html" class="oc">خانه</a></li>
+
+                            <li class="has-dropdown"><a href="#"> عضویت بیمار
+                                    <i class="zmdi zmdi-caret-down"></i>
+
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="sign-in.html"><i class="far fa-user"></i> ورود</a></li>
+                                    <li><a href="sign-up-user.html"><i class="far fa-user"></i> ثبت نام</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="has-dropdown"><a href="#">
+                                    عضویت پزشک
+                                    <i class="zmdi zmdi-caret-down"></i>
+                                </a>
+                                <ul class="sub-menu">
+                                    <li><a href="sign-in.html"><i class="far fa-user"></i> ورود</a></li>
+                                    <li><a href="sign-up-doctor.html"><i class="far fa-user"></i> ثبت نام رایگان</a></li>
+                                    <li><a href="#"><i class="far fa-hospital"></i> کلینیک</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="services.html">خدمات</a></li>
+                            <!--                            <li><a href="page-pricing-tables.html">تعرفه ها</a></li>-->
+                            <li><a href="blog-list.html">وبلاگ</a></li>
+                            <li><a href="page-contact-us.html">ارتباط با ما</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- // Header  -->
+
+<!--header search and categorie -->
+<section class="banner padding-top-50px padding-bottom-1px sm-ptb-80px" style="background-image: url('static/assets/img/11.jpg'); background-repeat: no-epeat;
+    background-position: center; background-size: cover; position: relative;">
+    <div class="background-overlay" style="background-color:rgba(0, 0, 0, 0.4); "></div>
+    <div class="container">
+        <!--
+        <div class="col-12 banner-title">
+            <h1> دکترمن </h1>
+            <h4>پاسخگوی تمام نیازهای پزشکی شما... </h4>
+        </div>
+-->
+        <!--<h3>search:</h3>-->
+        <!--{{ loc_roots }}-->
+
+
+        <div class="col-12 padding-bottom-15px" style="margin: 18% 0 18%;">
+            <!-------------------------- Tab box ------------------------------->
+            <div class="col-12 home-search-tabs wow fadeInUp">
+                <div class="tab-container">
+                    <form autocomplete="off" method="get" id="core_search" name="core_search"
+                          action="{% url 'filter_search' %}">
+                        {% csrf_token %}
+
+                        <div class="search margin-tb-30px">
+                            <div class="row inputs" style="padding: 0 !important;">
+                                <div class="input-field inputs w-100">
+                                    <!-- ToDo: cash box search Ajax ( id="Search1")-->
+                                    <div class="ui-widget">
+                                        {{ searchform.search }}
+                                    </div>
+                                    <div class="icon-wrap">
+                                        <button id="search" type="submit"><i class="fas fa-search search-ico"
+                                                                             style="font-size: 18px;"></i></button>
+
+                                    </div>
+
+                                    <!--<input type="submit" value="جستجو"-->
+                                    <!--class="btn clinic-box bg-oc b1c">-->
+
+                                    <!--<ul id="search-results">-->
+
+                                    <!--</ul>-->
+
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#doktor-bul" aria-controls="doktor-bul"
+                                                                  role="tab" data-toggle="tab"> مطب </a></li>
+                        <li role="presentation"><a href="#hastane-bul" aria-controls="hastane-bul" role="tab"
+                                                   data-toggle="tab"> کلینیک و درمانگاه </a></li>
+                        <li role="presentation"><a href="#bilgi-bul" aria-controls="bilgi-bul" role="tab"
+                                                   data-toggle="tab"> بیمارستان </a></li>
+                    </ul>
+
+                    <form id="filter_search" name="filter_search" action="{% url 'filter_search' %}">
+                        {% csrf_token %}
+                        <div class="tab-content">
+
+                            <div role="tabpanel" class="tab-pane active" id="doktor-bul">
+                                <div class="col-12">
+                                    <h5 class="font-weight text-center padding-top-15px b3c"> برای نمایش لیست پزشکان
+                                        مشخصات
+                                        زیر را کامل کنید... </h5>
+                                </div>
+
+                                <ul class="margin-top-15px margin-bottom-20px">
+                                    <li class="bold">
+                                        <div class="form-group clearfix margin-0px">
+                                            <div class="input-group">
+                                                <div class="w-100">
+                                                    <a data-target="slide-out" id="btn-takhasos"
+                                                       class="sidenav-trigger btn clinic-box b1c">
+
+                                                        {{ filterform.specialty }}
+
+                                                        <p id="takhasos"> پزشک متخصص ☰</p>
+                                                    </a>
+                                                </div>
+                                            </div>
+
+                                            <div class="input-group ">
+
+                                                {{ filterform.brand }}
+
+                                                <!--<select required id="brand" name="brand"-->
+                                                <!--class="form-control select2-allow-clear padding-right-10px city1"-->
+                                                <!--style="color: #9b9b9b;">-->
+
+                                                <!--<option val=""></option>-->
+
+                                                <!--</select>-->
+                                            </div>
+                                            <div class="input-group">
+
+                                                {{ filterform.car}}
+                                                <!--<select required id="car" name="car"-->
+                                                <!--class="form-control select2-allow-clear padding-right-10px city2"-->
+                                                <!--style="color: #9b9b9b;">-->
+
+                                                <!--<option val=""></option>-->
+
+                                                <!--</select>-->
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="btn-search float-right w-100 padding-2px">
+                                                    <div class="clear-fix">
+                                                        <input type="submit" value="جستجو"
+                                                               class="btn clinic-box bg-oc b1c">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+
+                            <div role="tabpanel" class="tab-pane" id="hastane-bul">
+                                <div class="col-12">
+                                    <h5 class="font-weight text-center padding-top-15px b3c"> کلینیک یا درمانگاه موردنظر
+                                        خود
+                                        را جستجو کنید...</h5>
+                                </div>
+
+                                <ul class="margin-top-15px margin-bottom-20px">
+                                    <li class="bold">
+                                        <div class="form-group clearfix margin-0px">
+                                            <div class="input-group">
+                                                <select id="single-append-text"
+                                                        class="form-control select2-allow-clear padding-right-10px city1"
+                                                        style="color: #9b9b9b;">
+                                                    <option value=""></option>
+                                                    <option value="WA">البرز</option>
+                                                    <option value="NV">اصفهان</option>
+                                                    <option value="OR">اهواز</option>
+                                                    <option value="WA">تهران</option>
+                                                    <option value="WA">خوزستان</option>
+                                                    <option value="WA">شیراز</option>
+                                                    <option value="WA">شمال</option>
+                                                    <option value="WA">یزد</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="input-group">
+                                                <select id="single-append-text"
+                                                        class="form-control select2-allow-clear city2">
+                                                    <option value=""></option>
+                                                    <option value="WA">کرج</option>
+                                                    <option value="NV">گوهردشت</option>
+                                                    <option value="OR">گلشهر</option>
+                                                    <option value="WA">محمدشهر</option>
+                                                    <option value="WA">مهرشهر</option>
+                                                    <option value="WA">نظرآباد</option>
+                                                    <option value="WA">ساوجبلاغ</option>
+                                                    <option value="WA">جهانشهر</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="input-group">
+                                                <select id="single-append-text"
+                                                        class="form-control select2-allow-clear city3">
+                                                    <option value=""></option>
+                                                    <option value="WA">شبانه روزی</option>
+                                                    <option value="NV">پوست و مو</option>
+                                                    <option value="OR">چشم پزشکی</option>
+                                                    <option value="WA">فیزیوتراپی</option>
+                                                </select>
+                                            </div>
+                                            <div class="input-group">
+                                                <div class="btn-search float-right w-100">
+                                                    <div class="clear-fix">
+                                                        <a href="doctors/post/list.html"
+                                                           class="btn clinic-box bg-oc b1c">
+                                                            جستجو </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                            </div>
+                            <div role="tabpanel" class="tab-pane" id="bilgi-bul">
+                                <div class="col-12">
+                                    <h5 class="font-weight text-center padding-top-15px b3c"> بیمارستان موردنظر خود را
+                                        جستجو
+                                        کنید...</h5>
+                                </div>
+                                <ul class="margin-top-15px margin-bottom-20px">
+                                    <li class="bold">
+                                        <div class="form-group clearfix margin-0px">
+                                            <div class="input-group" style="width: 31%">
+                                                <select id="single-append-text"
+                                                        class="form-control select2-allow-clear padding-right-10px city1"
+                                                        style="color: #9b9b9b;">
+                                                    <option value=""></option>
+                                                    <option value="WA">البرز</option>
+                                                    <option value="NV">اصفهان</option>
+                                                    <option value="OR">اهواز</option>
+                                                    <option value="WA">تهران</option>
+                                                    <option value="WA">خوزستان</option>
+                                                    <option value="WA">شیراز</option>
+                                                    <option value="WA">شمال</option>
+                                                    <option value="WA">یزد</option>
+                                                </select>
+
+                                            </div>
+                                            <div class="input-group" style="width: 31%">
+                                                <select id="single-append-text"
+                                                        class="form-control select2-allow-clear city2"
+                                                        aria-label="kjhdgfkjs">
+                                                    <option value=""></option>
+                                                    <option value="َAA">همه</option>
+                                                    <option value="WA">کرج</option>
+                                                    <option value="NV">گوهردشت</option>
+                                                    <option value="OR">گلشهر</option>
+                                                    <option value="WA">محمدشهر</option>
+                                                    <option value="WA">مهرشهر</option>
+                                                    <option value="WA">نظرآباد</option>
+                                                    <option value="WA">ساوجبلاغ</option>
+                                                    <option value="WA">جهانشهر</option>
+                                                </select>
+
+                                            </div>
+
+                                            <div class="input-group" style="width: 31%">
+                                                <div class="btn-search w-100 padding-2px">
+                                                    <div class="clear-fix">
+                                                        <a href="doctors/post/list.html"
+                                                           class="btn clinic-box bg-oc b1c">
+                                                            جستجو </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+        <main class="direction-l">
+            <script>
+                    (function() {
+                        if (typeof _bsa !== 'undefined' && _bsa) {
+                            _bsa.init('default', 'CKYD55QM', 'placement:materializecsscom', {
+                                target: '.bsa-cpc',
+                                align: 'horizontal',
+                                disable_css: 'true'
+                            });
+                        }
+                    })();
+
+            </script>
+
+            <div class="container padding-0px">
+
+                <ul id="slide-out" class="sidenav" style="z-index: 1000 !important;">
+
+                    <li class="no-padding  direction-r">
+                        <ul class="collapsible collapsible-accordion">
+                            <li style="padding: 16px; background-color: #0f2938;">
+                                <div class="text-center">
+                                    <img class="w-75" src="static/assets/img/drman.net-logo.png" alt="logo"/>
+                                </div>
+                            </li>
+
+                            {% for spec_root in spec_roots %}
+                            <li class="bold">
+                                <a class="collapsible-header waves-effect waves-teal"> <i class="fas fa-caret-down"></i>
+                                    {{ spec_root }}
+                                </a>
+                                <div class="collapsible-body">
+                                    <ul id="list" class="rightHiddenBox">
+                                        {% for child in spec_root.get_children %}
+
+                                        <li data-id={{ child }}>
+                                            <a href="#">{{ child }}</a>
+                                        </li>
+
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </li>
+                            {% endfor %}
+
+                            <!--<li class="bold active"><a class="collapsible-header waves-effect waves-teal"><i-->
+                            <!--class="fas fa-caret-down"></i>-->
+                            <!--داروساز-->
+                            <!--</a>-->
+                            <!--<div class="collapsible-body">-->
+                            <!--<ul class="rightHiddenBox">-->
+                            <!--<li><a href="#">- داروساز</a></li>-->
+                            <!--</ul>-->
+                            <!--</div>-->
+                            <!--</li>-->
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </main>
+
+    </div>
+
+</section>
+<!-- // header search and categorie -->
+<!-- drman Services and story -->
+<section class="padding-bottom-12px background-grey-1" id="service">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 main-categorie">
+                <div class="featured-categorey">
+                    <div class="row padding-0px">
+                        <div class="col-lg-2 col-4 mar wow fadeInUp padding-tb-5px padding-lr-10px">
+                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
+                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
+                                    <div class="icon opacity-7">
+                                        <img src="static/assets/images/4212196-48.png" alt="Laboratory">
+                                    </div>
+                                    آزمایشگاه
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-4 wow fadeInUp padding-tb-5px padding-lr-10px" data-wow-delay="0.6s">
+                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
+                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
+                                    <div class="icon opacity-7">
+                                        <img src="static/assets/images/iconfinder_Artboard_2_3872550.png"
+                                             alt="drugstore">
+                                    </div>
+                                    داروخانه
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-4 mar wow fadeInUp padding-tb-5px padding-lr-10px"
+                             data-wow-delay="0.2s">
+                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
+                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
+                                    <div class="icon opacity-7">
+                                        <img src="static/assets/images/3872567-48.png" alt="Health Center">
+                                    </div>
+                                    مرکز بهداشت
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-4 wow fadeInUp padding-tb-5px padding-lr-10px" data-wow-delay="0.6s">
+                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
+                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
+                                    <div class="icon opacity-7">
+                                        <img src="static/assets/images/3872563-48.png" alt="home">
+                                    </div>
+                                    خانه سالمندان / خانه گرم
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-2 col-4 wow fadeInUp padding-tb-5px padding-lr-10px" data-wow-delay="0.4s">
+                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
+                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
+                                    <div class="icon">
+                                        <img src="static/assets/images/iconfinder_Injection_2415602-(1).png"
+                                             alt="Addiction Treatment Center">
+                                    </div>
+                                    مرکز ترک اعتیاد
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-2 col-4 mar wow fadeInUp padding-tb-5px padding-lr-10px">
+                            <a href="#" class="d-block border-radius-15 hvr-float hvr-sh2 bodred-dashed">
+                                <div class="bg-b1c-hover text-white border-radius-15 padding-tb-15px text-center">
+                                    <div class="icon opacity-7">
+                                        <img src="static/assets/images/4212193-48.png" alt="Private practice room">
+                                    </div>
+                                    اتاق عمل خصوصی
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-12 wow fadeInUp">
+                <h2 class="font-weight-300 text-center margin-tb-15px b2c font-weight">خدمات دکترمن</h2>
+            </div>
+            <div class="col-md-12 wow fadeInUp text-center margin-bottom-50px" data-wow-delay="0.2s">
+                <h6 class="b2c">معرفی خدمات دکترمن </h6>
+            </div>
+            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp">
+                <div class="service text-center hvr-bob">
+                    <div class="icon margin-bottom-10px">
+                        <img src="static/assets/images/radio.png" alt="doctor radio">
+                    </div>
+                    <h3 class="oc">رادیو پزشک من</h3>
+                    <p class="b1c margin-tb-25px">دکترمن سعی داشته تا بتواند در کوتاه هترین زمان ممکن نیاز سلامت جو در
+                        راستای یافتن نزدیک ترین پزشک از لحاظ جغرافیایی بر اساس مکان سلامت جو را، تامین نماید.</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp" data-wow-delay="0.2s">
+                <div class="service text-center hvr-bob">
+                    <div class="icon margin-bottom-10px">
+                        <img src="static/assets/images/question.png" alt="question and answer">
+                    </div>
+                    <h3 class="oc">پرسش و پاسخ</h3>
+                    <p class="b1c margin-tb-25px">در عین حال، اطلاعات افزون، شامل عکس از محیط و تخصص ها یا تجربیات علمی
+                        پزشک یا تیم پزشکی فعال در مطب یا مرکز درمان ارائه می نماید.</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp" data-wow-delay="0.4s">
+                <div class="service text-center hvr-bob">
+                    <div class="icon margin-bottom-10px">
+                        <img src="static/assets/images/file.png" alt="Medical records">
+                    </div>
+                    <h3 class="oc">پرونده پزشکی</h3>
+                    <p class="b1c margin-tb-25px">دکتر من، اطلاعات تماس و مشخصات کلیه مراکز درمان شامل آدرس، شماره تلفن،
+                        ساعات کار و... برای آشنایی بیشتر کاربران در اختیار مراجعین یا سلامت جویان قرار می دهد.</p>
+                </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-6 sm-mb-30px wow fadeInUp" data-wow-delay="0.6s">
+                <div class="service text-center hvr-bob">
+                    <div class="icon margin-bottom-10px">
+                        <img src="static/assets/images/online.png" alt="online queuing">
+                    </div>
+                    <h3 class="oc">نوبت دهی آنلاین</h3>
+                    <p class="b1c margin-tb-25px">استارت‌آپ دکتر من ارائه کننده خدمات دایرکتوری اطلاعات پزشکان و کلینیک
+                        های پزشکی می باشد.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- // drman Services and story -->
+
+
+<!-- Introducing the doctor -->
+<section class="padding-tb-100px ">
+    <div class="container">
+        <!-- Title -->
+        <div class="row justify-content-center margin-bottom-45px">
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-md-12 wow fadeInUp">
+                        <h2 class="font-weight-300 text-center margin-tb-15px b2c font-weight">معرفی پزشکان و مراکز
+                            درمانی</h2>
+                    </div>
+                    <div class="col-md-12 wow fadeInUp text-center" data-wow-delay="0.2s">
+                        <h6 class="b2c">معرفی پزشکان و مراکز درمانی بر اساس بازدید کاربران </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // Title -->
+
+        <div class="row">
+
+            {% get_most_viewed_posts as most_viewed_posts %}
+
+            {% for post in most_viewed_posts %}
+            <!-- Doctor -->
+            <div class="col-lg-3 col-md-3 col-6 hvr-bob sm-mb-45px margin-bottom-30px">
+                <div class="background-white box-shadow wow fadeInUp" data-wow-delay="0.2s">
+
+
+                    <!--<li><a href="{{ post.get_absolute_url }}"></a>-->
+                    <!--</li>-->
+
+
+                    <div class="thum">
+                        <a href="{{ post.get_absolute_url }}"><img src="{% thumbnail post.thumbnailImage 260x260 crop %}" alt="doctor picture">
+
+                        </a>
+
+                        {% is_open post.id as open %}
+                        {% if open %}
+                        <a class="text-dark" href="{{ post.get_absolute_url }}"><span
+                                class="bg-oc">  اکنون باز است،</span></a>
+                        {% else %}
+                        <a class="text-dark" href="{{ post.get_absolute_url }}"><span class="bg-oc">اکنون بسته است.<br/>
+                                        <!--مطب روز-->
+
+                                        <!--{% next_time_open post.id as next %}-->
+                                        <!--{{ next.get_weekday_display }} ساعت {{ next.from_hour }}-->
+                                        <!--باز خواهد شد.-->
+                                    </span></a>
+                        {% endif %}
+
+
+                    </div>
+                    <div class="padding-15px text-center">
+                        <h5><a class="text-dark" href="{{ post.get_absolute_url }}">{{ post.title }}</a></h5>
+                        <div class="clearfix">
+                            <p class="b2c">
+                                {% for cat in post.spec_category.all %}
+                                <a href="{% url "Doctors:post_list_by_cat" cat.slug %}">
+                                {{ cat.name }}
+                                </a>
+                                {% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </p>
+
+                            <small class="b3c">({{ post.questionviews.count }} بازدید)</small>
+                            <a href="#" class="text-red font-12"><i class="far fa-heart margin-lr-5px"></i>{{ post.total_likes }} لایک </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <!-- // Doctor -->
+
+
+        </div>
+    </div>
+</section>
+<!-- // Introducing the doctor -->
+
+<!-- blog -->
+<section class="padding-tb-100px background-grey-1">
+    <div class="container">
+        <!-- Title -->
+        <div class="row justify-content-center margin-bottom-45px">
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-md-12 wow fadeInUp">
+                        <h2 class="font-weight-300 text-center margin-tb-15px b2c font-weight">
+                            بلاگ
+                            <br/>
+                            جدیدترین اخبار و مقالات</h2>
+                    </div>
+                    <div class="col-md-12 wow fadeInUp text-center" data-wow-delay="0.2s">
+                        <h6 class="b2c">آخرین اخبار دنیای پزشکی و سلامت را در این بخش مطالعه نمایید...</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- // Title -->
+
+
+    </div>
+</section>
+<!--  // blog  -->
+
+
+
+
+{% block extrahead %}
+
+{{ block.super }}
+
+<!-- jquery library  -->
+<script src="/static/assets/js/jquery-3.2.1.min.js"></script>
+
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js"
+        integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP"
+        crossorigin="anonymous"></script>
+
+<!-- script -->
+
+<script src="/static/js/jquery-3.3.1.min.js" type="text/javascript"></script>
+<script src="/static/assets/js/ajax.js" type="text/javascript"></script>
+<script src="/static/assets/js/select2.full.js"></script>
+<script src="/static/assets/js/bootstrap.min.js"></script>
+<script src="/static/assets/js/anchor.min.js"></script>
+
+
+<script type="text/javascript">
+
+
+
+    $(function() {
+                    // perform search on page load
+
+                    $('#ajab').keyup(search);
+
+                });
+
+
+                function callback(response) {
+                  return_first = response;
+
+                    $( "#ajab" ).autocomplete({
+                      source: return_first,
+                      select: function (){
+                          console.log('select');
+                      }
+                    }).val().data('autocomplete')._trigger('select');
+
+
+                }
+
+                function search() {
+                var myVariable;
+                    $.ajax({
+                                type: "POST",
+                                url: "/doctors/ajax_search/",
+                                data: {
+                                    'search_text' : $('#ajab').val(),
+                                    'csrfmiddlewaretoken' : $("input[name=csrfmiddlewaretoken]").val()
+                                    } ,
+                                success: function (data) {
+
+                                    callback(data);
+
+                                } ,
+                                error: function(xhr) {
+                                    alert("err");
+                                } ,
+                                dataType : 'json'
+                    });
+                }
+
+
+
+
+
+
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(()=>{
+anchors.options.placement = 'right';
+anchors.add('.container h1, .container h2, .container h3, .container h4, .container h5');
+
+// Set the "bootstrap" theme as the default theme for all Select2
+// widgets.
+//
+// @see https://github.com/select2/select2/issues/2927
+$.fn.select2.defaults.set("theme", "bootstrap");
+
+$(".city1").select2({
+placeholder: "استان",
+width: null,
+containerCssClass: ':all:'
+});
+$(".city2").select2({
+placeholder: "منطقه",
+width: null,
+containerCssClass: ':all:'
+});
+$(".city3").select2({
+placeholder: "زیرمجموعه",
+width: null,
+containerCssClass: ':all:'
+});
+
+$(".select2-allow-clear").select2({
+allowClear: true,
+placeholder: placeholder,
+
+width: null,
+containerCssClass: ':all:'
+});
+
+// @see https://select2.github.io/examples.html#data-ajax
+function formatRepo(repo) {
+if (repo.loading) return repo.text;
+
+var markup = "<div class='select2-result-repository clearfix'>" +
+"<div class='select2-result-repository__avatar'><img src='" + repo.owner.avatar_url + "' /></div>" +
+"<div class='select2-result-repository__meta'>" +
+"<div class='select2-result-repository__title'>" + repo.full_name + "</div>";
+
+if (repo.description) {
+markup += "<div class='select2-result-repository__description'>" + repo.description + "</div>";
+}
+
+markup += "<div class='select2-result-repository__statistics'>" +
+"<div class='select2-result-repository__forks'><span class='glyphicon glyphicon-flash'></span> " + repo.forks_count + " Forks</div>" +
+"<div class='select2-result-repository__stargazers'><span class='glyphicon glyphicon-star'></span> " + repo.stargazers_count + " Stars</div>" +
+"<div class='select2-result-repository__watchers'><span class='glyphicon glyphicon-eye-open'></span> " + repo.watchers_count + " Watchers</div>" +
+"</div>" +
+"</div></div>";
+
+return markup;
+}
+
+function formatRepoSelection(repo) {
+return repo.full_name || repo.text;
+}
+
+$(".js-data-example-ajax").select2({
+width: null,
+containerCssClass: ':all:',
+ajax: {
+url: "https://api.github.com/search/repositories",
+dataType: 'json',
+delay: 250,
+data: function(params) {
+return {
+q: params.term, // search term
+page: params.page
+};
+},
+processResults: function(data, params) {
+// parse the results into the format expected by Select2
+// since we are using custom formatting functions we do not need to
+// alter the remote JSON data, except to indicate that infinite
+// scrolling can be used
+params.page = params.page || 1;
+
+return {
+results: data.items,
+pagination: {
+more: (params.page * 30) < data.total_count
+}
+};
+},
+cache: true
+},
+escapeMarkup: function(markup) {
+return markup;
+}, // let our custom formatter work
+minimumInputLength: 1,
+templateResult: formatRepo,
+templateSelection: formatRepoSelection
+});
+
+$("button[data-select2-open]").click(function() {
+$("#" + $(this).data("select2-open")).select2("open");
+});
+
+$(":checkbox").on("click", function() {
+$(this).parent().nextAll("select").prop("disabled", !this.checked);
+});
+
+// copy Bootstrap validation states to Select2 dropdown
+//
+// add .has-waring, .has-error, .has-succes to the Select2 dropdown
+// (was #select2-drop in Select2 v3.x, in Select2 v4 can be selected via
+// body > .select2-container) if _any_ of the opened Select2's parents
+// has one of these forementioned classes (YUCK! ;-))
+$(".select2-single, .select2-multiple, .select2-allow-clear, .js-data-example-ajax").on("select2:open", function() {
+if ($(this).parents("[class*='has-']").length) {
+var classNames = $(this).parents("[class*='has-']")[0].className.split(/\s+/);
+
+for (var i = 0; i < classNames.length; ++i) {
+if (classNames[i].match("has-")) {
+$("body > .select2-container").addClass(classNames[i]);
+}
+}
+}
+});})
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="/static/assets/js/owl.carousel.min.js"></script>
+<script src="/static/assets/js/imagesloaded.min.js"></script>
+<script src="/static/assets/js/wow.min.js"></script>
+<script src="/static/assets/js/custom.js"></script>
+<script src="/static/assets/js/materialize.js"></script>
+<script src="/static/assets/js/init.js"></script>
+
+
+<script>
+    $(document).ready(()=>{
+        $('.rightHiddenBox > li').click(function() {
+            $('#takhasos').text($('.bold.active > a').text());
+            $('.sidenav.right-aligned').css({
+                transform: 'translateX(105%)',
+            });
+
+            $('.sidenav-overlay').css({
+                display: 'none',
+                opacity: '0'
+            });
+            $('body').css({
+                overflow: 'auto',
+            });
+        });
+
+        $('#btn-takhasos').click(function() {
+            $('.sidenav.right-aligned').css({
+                transform: 'translateX(0%)',
+                transition: 'all 0.25s ease-out',
+
+            });
+
+            $('.sidenav-overlay').css({
+                display: 'block',
+                opacity: '1',
+                overflowY: 'auto',
+            });
+            $('body').css({
+                overflow: 'hidden',
+            });
+        });
+     });
+
+<!--var checkboxes = $("#list li a");-->
+
+<!--input = jQuery('<input name="myname">');-->
+
+     <!--checkboxes.click(function() {-->
+     <!--checkboxes.append(input);-->
+  <!--checkboxes.attr("name", "active");-->
+  <!--$(this).attr("name", "active");-->
+<!--});-->
+
+
+<!--var checkboxes = $("#list li a");-->
+
+<!--$('#list li').click(function() {-->
+  <!--var textLoaded = $(this).data('id');-->
+ <!--$('#list li').attr("name", textLoaded);-->
+   <!--$(this).attr("name", textLoaded);-->
+<!--});-->
+
+$('#list li').click(function(e) {
+  e.preventDefault();
+  var textLoaded = $(this).data('id');
+  $(this).removeClass("active");
+  $(this).addClass("active");
+  $("#specialty").val($(this).data('id'));
+
+});
+
+
+<!--$("form[name=search]").submit(function(e) {-->
+    <!--if ($(this).find("#list li.active").length == 0) {-->
+        <!--alert( "Please select a size." );-->
+        <!--e.preventDefault();-->
+    <!--}-->
+<!--});-->
+
+
+
+
+
+
+
+
+
+</script>
+
+<script type="text/javascript">
+         $(document).ready(function(){
+
+    $('#brand').change(function() {populateCar()});
+
+    var brands = {{ loc_roots|safe }} ;
+    var cars = {{ loc_list|safe }} ;
+    var carselect = {{ loc_list_select|safe }}
+
+
+    <!--var brands = var optionSelected = $(this).find("option:selected");-->
+   				 <!--var valueSelected  = optionSelected.val();-->
+     			 <!--var country_name   = optionSelected.text();-->
+                    <!--alert(country_name);-->
+
+    populateBrand()
+    populateCarFirst()
+
+
+    function populateCarFirst() {
+        <!--$("#car").empty();-->
+        $("#car").append('<option value="" disabled selected>Select your option</option>');
+        $.each(car, function(v) {
+            $('#car')
+                .append($("<option></option>")
+                .attr("value", carselect[v])
+                .text(carselect[v]));
+        })
+    }
+
+
+    function populateBrand() {
+        $("#brand").empty();
+        $("#brand").append('<option value="" disabled selected>Select your option</option>');
+        $.each(brands, function(v) {
+            $('#brand')
+                .append($("<option></option>")
+                .attr("value", brands[v])
+                .text(brands[v]));
+        })
+    }
+
+
+    function populateCar(event) {
+        brand = $("#brand option:selected" ).text();
+        $("#car").empty();
+        for (let [k, v] of Object.entries(cars)) {
+            if(k==brand) {
+                for (car in cars[brand]) {
+                    var opt = document.createElement("option");
+                     $('#car')
+                         .append($("<option></option>")
+                         .attr("value", cars[brand][car])
+                         .text(cars[brand][car]));
+                }
+            };
+        }
+    }
+
+});
+
+
+
+
+
+
+</script>
+<link href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" rel="stylesheet"/>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+<!-- // script -->
+
+{% endblock %}
+
+
+{% endblock %}
+
+</body>
+
+
+</html>

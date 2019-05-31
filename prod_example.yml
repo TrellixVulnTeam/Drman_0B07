@@ -1,0 +1,134 @@
+version: "2"
+
+services:
+
+  web1:
+    build:
+      context: .
+      dockerfile: docker/dev/Dockerfile
+    environment:
+      - DJANGO_SETTINGS_MODULE=Drman.settings.prod
+    command: gunicorn -w 4 Drman.wsgi -b 0.0.0.0:8000
+    volumes:
+      - .:/code1
+    ports:
+      - "8000:8000"
+    depends_on:
+    - postgresql
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.1
+    container_name: elasticsearch613
+    environment:
+      - network.host=193.176.242.97
+      - http.host=0.0.0.0
+      - transport.host=0.0.0.0
+      - xpack.security.enabled=false
+      - xpack.monitoring.enabled=false
+      - xpack.ml.enabled=false
+      - xpack.graph.enabled=false
+      - xpack.watcher.enabled=false
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - ES_JAVA_OPTS=-Xms2g -Xmx2g
+      - discovery.zen.minimum_master_nodes=1
+      - discovery.type=single-node
+#      - ELASTIC_PASSWORD=$ELASTIC_PASSWORD
+#      - xpack.license.self_generated.type=trial
+#      - xpack.security.enabled=true
+#      - xpack.security.http.ssl.enabled=true
+#      - xpack.security.transport.ssl.enabled=true
+#      - xpack.security.transport.ssl.verification_mode=certificate
+#      - xpack.ssl.certificate_authorities=$CERTS_DIR/ca/ca.crt
+#      - xpack.ssl.certificate=$CERTS_DIR/es01/es01.crt
+#      - xpack.ssl.key=$CERTS_DIR/es01/es01.key
+    volumes:
+      - esdata:/usr/share/elasticsearch613/data
+#      - ./certs:$CERTS_DIR
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+
+    ports:
+      - 9200:9200
+      - 9300:9300
+
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      nofile:
+        soft: 65536
+        hard: 65536
+    cap_add:
+      - IPC_LOCK
+
+  postgresql:
+    container_name: postgresql
+    image: "postgres:10.0"
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: ava100
+      PGDATA: / tmp
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.1
+    container_name: kibana1
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch613:9200
+      - ELASTICSEARCH_PORT=9200
+    volumes:
+      - ./kibana.yml:/usr/share/kibana/config/kibana.yml
+    ports:
+      - 5601:5601
+  headPlugin:
+    image: mobz/elasticsearch-head:5
+    container_name: head1
+    ports:
+      - 9100:9100
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/prod/nginx/Dockerfile
+    volumes:
+      - .:/code1
+    ports:
+      - 8080:80
+    depends_on:
+      - web1
+
+volumes:
+  {"esdata": {"driver": "local"} , pgdata: {"driver": "local"}}
+
+
+
+# install Docker & Docker compose :
+# sudo apt install docker.io
+# sudo pip uninstall docker docker-compose
+# sudo apt-get update
+# sudo apt-get upgrade
+# sudo apt-get install docker docker-compose
+# https://rasooll.com/how-to-use-docker-in-iran/
+
+# in server when get error use to :
+# rm  /var/lib/dpkg/lock
+
+# in server use docker in iran :
+# 1.https://virgool.io/DockerMe/%D9%86%D8%B5%D8%A8-%D8%AF%D8%A7%DA%A9%D8%B1-%D8%A8%D8%B1-%D8%B1%D9%88%DB%8C-%D9%84%DB%8C%D9%86%D9%88%DA%A9%D8%B3-dt7nbbijdi0x
+# 2.sudo apt-get install docker docker-compose
+
+# sudo docker pull kibana:6.4.1
+# sudo docker pull elastic/elasticsearch:6.4.1
+
+# sudo sysctl -w vm.max_map_count=262144
+
+# Nginx
+# sudo docker run -d -p 8080:80 nginx
+# sudo docker ps
+# sudo docker stop <container>
+# sudo docker exec -i -t 3195c59abba7fd /bin/bash
+# https://www.shellhacks.com/docker-reload-nginx-inside-container/
+
+# remove all stopped containers, images, ...
+# docker system prune
+
