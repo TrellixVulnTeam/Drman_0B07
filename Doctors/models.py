@@ -374,20 +374,9 @@ class OpeningHours(models.Model):
         verbose_name = _('ساعت کاری')  # plurale tantum
         verbose_name_plural = _('ساعات کاری')
 
-
-        # indexes = [
-        #     models.Index(fields=['WEEKDAYS', ]),
-        # ]
-
-        # ordering = ['doctors', 'from_hour']
-
     doctors = models.ForeignKey(DoctorsPost,related_name="OpeningHours" , verbose_name=_('DoctorsPost'), on_delete=models.CASCADE)
+    is_active = models.BooleanField()
     weekday = models.IntegerField(choices=DAYS_OF_WEEK)
-
-
-
-    # def openingHours(self):
-
     from_hour = models.TimeField(_('Start'))
     to_hour = models.TimeField(_('End'))
     is_closed = models.BooleanField()

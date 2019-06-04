@@ -1,5 +1,23 @@
-<ul>
-    {% for post in latest_posts %}
-    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
-    {% endfor %}
-</ul>
+{% for post in latest_posts %}
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 margin-bottom-30px">
+    <div class="background-white thum-hover box-shadow hvr-float full-width wow fadeInUp">
+
+        <div class="col-8 padding-15px blog-box float-left">
+            <h3><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+            <p>{{ post.body|truncatewords_html:30 }}</p>
+            <a href="{{ post.get_absolute_url }}" class="more b2c bg-oc">بیشتر</a>
+
+            <span class="margin-right-5px text-extra-small"><i class="far fa-bookmark text-grey-2"></i><a
+                    href="{{ post.get_absolute_url }}" class="b3c"> مطالب خواندنی </a></span>
+            |
+            <span class="text-extra-small">{{ post.comments.count }} <i class="fas fa-comments text-grey-2"></i><a
+                    href="" class="b3c"> دیدگاه </a></span>
+
+        </div>
+        <div class="col-4 thum-xs float-left padding-0px">
+            <img src="static/assets/img/blog-1.jpg" alt="blog picture">
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>
+{% endfor %}

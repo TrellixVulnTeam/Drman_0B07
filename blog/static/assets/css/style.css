@@ -1879,10 +1879,9 @@ form#contact-form2 {
 }
 
 .icon-wrap {
-    margin-top: 9px;
-    margin-left: 2%;
     position: absolute;
     left: 0;
+    top: 0px;
 }
 
 input.search-input.text-white.float-right {
@@ -1897,6 +1896,11 @@ input.search-input.text-white.float-right {
     color: #2b446e;
 }
 
+button#search {
+    background-color: transparent;
+    border-color: transparent;
+}
+
 .dropdown1 {
     overflow: scroll !important;
     overflow-y: scroll !important;
@@ -1907,7 +1911,7 @@ input.search-input.text-white.float-right {
 /**************************/
 .icon-search1{
     background-color: #ccc;
-    padding: 6px 14px;
+    padding: 3px 14px;
     margin-left: -1px;
     border-radius: 4px 0 0 4px;
     margin: 0px 0px 0px -1px;
@@ -3293,6 +3297,15 @@ a#prime:hover {
 .question1{
     display: none;
 }
+
+button.like {
+    background-color: transparent;
+    border-color: transparent;
+}
+
+form.text-danger {
+    display: inline-block;
+}
 /*************** share doc page ***************/
 
         /* Classes by name A-Z */
@@ -3537,7 +3550,7 @@ svg.svg-inline--fa.fa-share-alt.fa-w-14.fa-2x {
                 box-shadow: -1px 1px 4px 1px #777;
         }
 
-        .node#instagram {
+        .node#linkedin {
             border-color: #fd1d1d;
                 background-color: #fd1d1d;
                 box-shadow: -1px 1px 4px 1px #777;

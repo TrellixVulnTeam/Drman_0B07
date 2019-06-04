@@ -454,6 +454,7 @@ def post_detail(request, Spec_Category=None, Loc_Category=None , post=None ):
         is_liked = True
 
     hit = record_view(request , post)
+    share_string = quote_plus(post.content)
 
     context = {}
 
@@ -468,6 +469,7 @@ def post_detail(request, Spec_Category=None, Loc_Category=None , post=None ):
     context['hit_count'] = hit
     context['searchDetail'] = searchform_Detail
     context['mapform'] = Mapform
+    context['share_string'] = share_string
 
     return render(request,'doctors/post/detail.html',context)
 
